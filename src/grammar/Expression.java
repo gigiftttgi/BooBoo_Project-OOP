@@ -1,102 +1,78 @@
 package grammar;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Expression implements Node {
 
     private Tokenizer tkz;
-
 
     public Expression(String src) throws SyntaxError{
         this.tkz = new Tokenizer(src);
     }
 
-    public Node parseE() throws NumberFormatException, SyntaxError{
+    private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek())) {
             return new Intlit(Integer.parseInt(tkz.consume()));
         } else {
-            while (tkz.peek("*") || tkz.peek("/") || tkz.peek("%")) {
-                String op = tkz.peek();
-                tkz.consume();
-                switch (op){
-                    case "*" -> {
-                        binary = new Binary(f, "*", parseF());
-                        f = binary;
-                    }
-                    case "/" -> {
-                        binary = new Binary(f, "/", parseF());
-                        f = binary;
-                    }
-                    case "%" -> {
-                        binary = new Binary(f, "%", parseF());
-                        f = binary;
-                    }
-                }
-                result = binary.eval(map);
-            }
+            tkz.consume("(");
+            Node f = parseF();
+            tkz.consume(")");
+            return f;
         }
     }
 
-    private Node parseT() throws SyntaxError {
-        Expr t = parseT();
-        while (tkz.peek("+") || tkz.peek("-")) {
-            String op = tkz.peek();
-            tkz.consume();
-            switch (op){
-                case "+" -> {
-                    binary = new Binary(t, "+", parseT());
-                    t = binary;
-                }
+    private Node parseF() throws SyntaxError {
+        Node p = parseP();
+        tkz.consume();
+        while (tkz.peek("^")){
+            p = new Binary(p,"^",parseP());
+        }
+        return p;
+    }
+    
 
-                case "-" -> {
-                    binary = new Binary(t, "-", parseT());
-                    t = binary;
-                }
-            }
-            result = binary.eval(map);
+    private Node parseT() throws SyntaxError {
+        Node f = parseF();
+        while (tkz.peek("*") || tkz.peek("/") || tkz.peek("%")) {
+            tkz.consume();
+            if(tkz.peek("*"))
+                f = new Binary(f, "*", parseF());
+            if(tkz.peek("/"))
+                f = new Binary(f, "/", parseF());
+            if(tkz.peek("%"))
+                f = new Binary(f, "%", parseF());
+        }
+        return f;
+    }
+
+    public Node parseE() throws SyntaxError {
+        Node t = parseT();
+        while (tkz.peek("+") || tkz.peek("-")) {
+            tkz.consume();
+            if(tkz.peek("+"))
+                t = new Binary(t, "+", parseT());
+            if(tkz.peek("-"))
+                t = new Binary(t, "-", parseT());
         }
         return t;
     }
 
-    private Node attackParse() throws SyntaxError{
+    private Node shootParse() throws SyntaxError{
         tkz.consume();
         Node a = null;
-        if(tkz.peek("right"))
-            return new MoveCommand("right");
-        else if(tkz.peek("left"))
-            return new MoveCommand("left");
-        else if(tkz.peek("up"))
-            return new MoveCommand("up");
-        else if(tkz.peek("down"))
-            return new MoveCommand("down");
-        else if(tkz.peek("upleft"))
-            return new MoveCommand("upleft");
-        else if(tkz.peek("upright"))
-            return new MoveCommand("upright");
-        else if(tkz.peek("downleft"))
-            return new MoveCommand("downleft");
-        else if(tkz.peek("downright"))
-            return new MoveCommand("downright");
+        if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 
+            || tkz.peek("upright") || tkz.peek("downleft") || tkz.peek("downright"))
+            return new AttackCommand(tkz.peek());
         return a;
     }
 
     private Node moveParse() throws SyntaxError{
         tkz.consume();
         Node m = null;
-        if(tkz.peek("right"))
-            return new MoveCommand("right");
-        else if(tkz.peek("left"))
-            return new MoveCommand("left");
-        else if(tkz.peek("up"))
-            return new MoveCommand("up");
-        else if(tkz.peek("down"))
-            return new MoveCommand("down");
-        else if(tkz.peek("upleft"))
-            return new MoveCommand("upleft");
-        else if(tkz.peek("upright"))
-            return new MoveCommand("upright");
-        else if(tkz.peek("downleft"))
-            return new MoveCommand("downleft");
-        else if(tkz.peek("downright"))
-            return new MoveCommand("downright");
+        if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 
+            || tkz.peek("upright") || tkz.peek("downleft") || tkz.peek("downright"))
+            return new MoveCommand(tkz.peek());
         return m;
     } 
 
@@ -106,9 +82,9 @@ public class Expression implements Node {
             System.out.print(tkz.peek() + " -> ");
             moveParse().evaluate();
         }
-        if(tkz.peek("attack")){
+        if(tkz.peek("shoot")){
             System.out.print("\n" + tkz.peek() + " -> ");
-            attackParse().evaluate();
+            shootParse().evaluate();
         }
             
         return 0;

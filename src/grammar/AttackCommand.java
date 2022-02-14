@@ -2,9 +2,9 @@ package grammar;
 
 public class AttackCommand implements Node{
 
-    protected Node direction;
+    protected String direction;
 
-    AttackCommand(Node direction){
+    AttackCommand(String direction){
         this.direction = direction;
     }
 

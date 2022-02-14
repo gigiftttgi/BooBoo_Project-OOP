@@ -8,21 +8,22 @@ public class Binary implements Node{
     private Node right;
     private String op;
 
-    Binary(Node left, Node right, String op){
+    Binary(Node left, String op, Node right){
         this.left = left;
         this.right = right;
         this.op = op;
     }
 
     @Override
-    public double evaluate() {
-        int lv = Integer.parseInt(left.toString());
-        int rv = Integer.parseInt(right.toString());
+    public double evaluate() throws SyntaxError {
+        double lv = left.evaluate();
+        double rv = right.evaluate();
         if(op.equals("+")) return lv+rv;
         if(op.equals("-")) return lv-rv;
         if(op.equals("*")) return lv*rv;
         if(op.equals("/")) return lv/rv;
         if(op.equals("%")) return lv%rv;
+        if(op.equals("^")) return Math.pow(lv, rv);
         return 0;
     }
     
