@@ -1,7 +1,5 @@
 package grammar;
 
-import java.util.Map;
-
 public class Binary implements Node{
 
     private Node left;
