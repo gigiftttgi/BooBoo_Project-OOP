@@ -9,6 +9,7 @@ public class Expression {
     }
 
     public Node startParse() throws SyntaxError{
+        System.out.println(tkz.peek());
         Node s = null;
         if(isNumber(tkz.peek())){
             s = parseP();
