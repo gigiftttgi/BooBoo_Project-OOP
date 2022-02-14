@@ -1,6 +1,5 @@
-import Model.Time;
+package Controlleer;
 
-package Controller;
 public class Button {
 
     private boolean state;
