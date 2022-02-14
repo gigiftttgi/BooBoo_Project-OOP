@@ -10,7 +10,7 @@ public class AssignmentStatement implements Node {
     }
 
     @Override
-    public double evaluate() {
+    public double evaluate() throws SyntaxError {
         variable.addValue(expression.evaluate());
         return 0;
     }

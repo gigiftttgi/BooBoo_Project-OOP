@@ -16,7 +16,7 @@ public class Program implements Node{
     }
 
     @Override
-    public double evaluate() {
+    public double evaluate() throws SyntaxError {
         for(Node current : statement){
             current.evaluate();
         }

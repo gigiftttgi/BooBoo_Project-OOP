@@ -15,7 +15,6 @@ public class Tokenizer {
 
         StringBuilder s = new StringBuilder();
         while(pos < src.length() && Character.isWhitespace(src.charAt(pos))) pos++;
-        System.out.println(src);
         if(pos < src.length()) {
             char c = src.charAt(pos);
             if (Character.isDigit(c)) {

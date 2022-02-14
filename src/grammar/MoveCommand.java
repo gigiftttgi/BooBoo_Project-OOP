@@ -10,7 +10,7 @@ public class MoveCommand implements Node{
 
     @Override
     public double evaluate() {
-        System.out.println(direction);
+        System.out.print(direction);
         return 0;
     }
     

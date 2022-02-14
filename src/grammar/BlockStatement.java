@@ -16,7 +16,7 @@ public class BlockStatement implements Node{
     }
 
     @Override
-    public double evaluate() {
+    public double evaluate() throws SyntaxError {
         for(Node st : statement){
             st.evaluate();
         }

@@ -2,6 +2,6 @@ package grammar;
 
 public interface Node {
 
-    public double evaluate();
+    public double evaluate() throws SyntaxError;
     
 }
