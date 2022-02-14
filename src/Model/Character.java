@@ -18,6 +18,10 @@ public class Character {
         hp = hp - a.getATK();
     }
 
+    public void startPosition(){
+        //ตำแหน่งตอนเกิด
+    }
+
     public void runGeneticcode(){
 
     }
