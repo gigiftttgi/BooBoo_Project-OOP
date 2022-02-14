@@ -9,7 +9,6 @@ public class Expression {
     }
 
     public Node startParse() throws SyntaxError{
-        System.out.println(tkz.peek());
         Node s = null;
         if(isNumber(tkz.peek())){
             s = parseP();
@@ -70,27 +69,38 @@ public class Expression {
         return t;
     }
 
+    private Node ifParse() throws SyntaxError{
+        Node i = null;
+        if(tkz.peek("if")){
+            tkz.consume("(");
+            i = parseP();
+            tkz.consume(")");
+        }
+        return i;
+    }
+    
+    
     private Node shootParse() throws SyntaxError{
         Node s = null;
+        tkz.consume();
         s = directionParse();
         return new AttackCommand(s);
     }
 
     private Node moveParse() throws SyntaxError{
         Node m = null;
-        m = directionParse();
-        return new MoveCommand(m);
+        tkz.consume();
+        m = new MoveCommand(directionParse());
+        return m;
     } 
 
     private Node directionParse() throws SyntaxError{
-        tkz.consume();
         if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 
             || tkz.peek("upright") || tkz.peek("downleft") || tkz.peek("downright"))
             return new Direction(tkz.peek());
         return null;
     }
    
-
     private boolean isNumber(String s){
         try {
             Integer.parseInt(s);

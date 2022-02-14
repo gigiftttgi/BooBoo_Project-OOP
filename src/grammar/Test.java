@@ -11,7 +11,8 @@ public class Test {
         do {
             String l = reader.nextLine();
             Expression e = new Expression(l);
-            e.startParse();
+            System.out.println("--------------------");
+            e.startParse().evaluate();
         } while (reader.hasNextLine());
     }
 }
