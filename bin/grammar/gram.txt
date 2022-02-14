@@ -1,0 +1,16 @@
+Program → Statement+
+Statement → Command | BlockStatement | IfStatement | WhileStatement
+Command → AssignmentStatement | ActionCommand
+AssignmentStatement → <identifier> = Expression
+ActionCommand → MoveCommand | AttackCommand
+MoveCommand → move Direction
+AttackCommand → shoot Direction
+Direction → left | right | up | down | upleft | upright | downleft | downright
+BlockStatement → { Statement* }
+IfStatement → if ( Expression ) then Statement else Statement
+WhileStatement → while ( Expression ) Statement
+Expression → Expression + Term | Expression - Term | Term
+Term → Term * Factor | Term / Factor | Term % Factor | Factor
+Factor → Power ^ Factor | Power
+Power → <number> | <identifier> | ( Expression ) | SensorExpression
+SensorExpression → virus | antibody | nearby Direction
