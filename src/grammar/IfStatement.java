@@ -1,6 +1,6 @@
 package grammar;
 
-public class IfStatement extends StatementNode { 
+public class IfStatement implements Node { 
     protected Node expression;
     protected StatementNode thenStatement;
     protected StatementNode elseStatement;
@@ -27,5 +27,13 @@ public class IfStatement extends StatementNode {
             expression = exp;
             return expression;
         }
+    }
+
+    @Override
+    public double evaluate() throws SyntaxError {
+        expression.evaluate();
+        thenStatement.evaluate();
+        elseStatement.evaluate();
+        return 0;
     }
 }

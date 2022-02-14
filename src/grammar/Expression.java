@@ -1,14 +1,26 @@
 package grammar;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class Expression implements Node {
+public class Expression {
 
     private Tokenizer tkz;
 
     public Expression(String src) throws SyntaxError{
         this.tkz = new Tokenizer(src);
+    }
+
+    public Node startParse() throws SyntaxError{
+        Node s = null;
+        if(isNumber(tkz.peek())){
+            s = parseP();
+        }
+        else if(tkz.peek("move")){ 
+            s = moveParse();
+        }
+        else if(tkz.peek("shoot")){
+            s = shootParse();
+        }
+           
+        return s;
     }
 
     private Node parseP() throws SyntaxError {
@@ -31,7 +43,6 @@ public class Expression implements Node {
         return p;
     }
     
-
     private Node parseT() throws SyntaxError {
         Node f = parseF();
         while (tkz.peek("*") || tkz.peek("/") || tkz.peek("%")) {
@@ -59,36 +70,25 @@ public class Expression implements Node {
     }
 
     private Node shootParse() throws SyntaxError{
-        tkz.consume();
-        Node a = null;
-        if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 
-            || tkz.peek("upright") || tkz.peek("downleft") || tkz.peek("downright"))
-            return new AttackCommand(tkz.peek());
-        return a;
+        Node s = null;
+        s = directionParse();
+        return new AttackCommand(s);
     }
 
     private Node moveParse() throws SyntaxError{
-        tkz.consume();
         Node m = null;
-        if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 
-            || tkz.peek("upright") || tkz.peek("downleft") || tkz.peek("downright"))
-            return new MoveCommand(tkz.peek());
-        return m;
+        m = directionParse();
+        return new MoveCommand(m);
     } 
 
-    @Override
-    public double evaluate() throws SyntaxError {
-        if(tkz.peek("move")){
-            System.out.print(tkz.peek() + " -> ");
-            moveParse().evaluate();
-        }
-        if(tkz.peek("shoot")){
-            System.out.print("\n" + tkz.peek() + " -> ");
-            shootParse().evaluate();
-        }
-            
-        return 0;
-    }    
+    private Node directionParse() throws SyntaxError{
+        tkz.consume();
+        if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 
+            || tkz.peek("upright") || tkz.peek("downleft") || tkz.peek("downright"))
+            return new Direction(tkz.peek());
+        return null;
+    }
+   
 
     private boolean isNumber(String s){
         try {

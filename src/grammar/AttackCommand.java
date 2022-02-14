@@ -2,15 +2,16 @@ package grammar;
 
 public class AttackCommand implements Node{
 
-    protected String direction;
+    protected Node direction;
 
-    AttackCommand(String direction){
+    AttackCommand(Node direction){
         this.direction = direction;
     }
 
     @Override
     public double evaluate() throws SyntaxError {
-        System.out.print(direction);
+        System.out.println("Attack ->");
+        direction.evaluate();
         return 0;
     }
 

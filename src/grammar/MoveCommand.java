@@ -2,15 +2,16 @@ package grammar;
 
 public class MoveCommand implements Node{
 
-    protected String direction;
+    protected Node direction;
 
-    MoveCommand(String direction){
+    MoveCommand(Node direction){
         this.direction = direction;
     }
 
     @Override
-    public double evaluate() {
-        System.out.print(direction);
+    public double evaluate() throws SyntaxError {
+        System.out.println("Move ->");
+        direction.evaluate();
         return 0;
     }
     
