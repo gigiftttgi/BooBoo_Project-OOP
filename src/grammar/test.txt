@@ -1,2 +1,2 @@
-if ( 6 - 5 ) then move left
-if ( 6 - 6 ) then shoot right
+if ( 6 - 5 ) then move left else move right
+if ( 6 - 6 ) then move left else move right

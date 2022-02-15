@@ -12,7 +12,7 @@ public class Test {
             String l = reader.nextLine();
             System.out.println(l);
             Expressionparse e = new Expressionparse(l);
-            e.startParse().evaluate(); 
+            e.statementParse().evaluate(); 
             System.out.println("\n--------------------");
         } while (reader.hasNextLine());
     }

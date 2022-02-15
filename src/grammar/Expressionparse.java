@@ -8,25 +8,6 @@ public class Expressionparse {
         this.tkz = new Tokenizer(src);
     }
 
-    public Node startParse() throws SyntaxError{
-        Node s = null;
-        if(isNumber(tkz.peek())){
-            s = parseE();
-        }
-        else if(tkz.peek("move")){ 
-            s = moveParse();
-        }
-        else if(tkz.peek("shoot")){
-            s = shootParse();
-        }
-        else if(tkz.peek("if")){
-            System.out.print("if parse");
-            s = ifParse();
-        }
-           
-        return s;
-    }
-
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek())) {
             return new Intlit(Double.parseDouble(tkz.consume()));
@@ -36,6 +17,7 @@ public class Expressionparse {
         }
     }
 
+    // Factor → Power ^ Factor | Power
     private Node parseF() throws SyntaxError {
         Node p = parseP();
         while (tkz.peek("^")){
@@ -45,6 +27,7 @@ public class Expressionparse {
         return p;
     }
     
+    // Term → Term * Factor | Term / Factor | Term % Factor | Factor
     private Node parseT() throws SyntaxError {
         Node f = parseF();
         while (tkz.peek("*") || tkz.peek("/") || tkz.peek("%")) {
@@ -65,7 +48,8 @@ public class Expressionparse {
         return f;
     }
 
-    public Node parseE() throws SyntaxError {
+    // Expression → Expression + Term | Expression - Term | Term
+    private Node parseE() throws SyntaxError {
         Node t = parseT();
         while (tkz.peek("+") || tkz.peek("-")) {
             String op = tkz.peek();
@@ -83,7 +67,7 @@ public class Expressionparse {
     }
 
     // Statement → Command | BlockStatement | IfStatement | WhileStatement
-    private Node statementParse() throws SyntaxError {
+    public Node statementParse() throws SyntaxError {
         Node s = null;
         if(tkz.peek("if")){
             s = new StatementNode(ifParse());
@@ -108,14 +92,15 @@ public class Expressionparse {
 
     // IfStatement → if ( Expression ) then Statement else Statement
     private Node ifParse() throws SyntaxError{
-        Node i = null;
+
         tkz.consume(); // if
         tkz.consume(); // (
         Node ifstat = parseE();
         tkz.consume(")");
         tkz.consume("then"); // then
         Node thenstat = statementParse();
-        tkz.consume("else");
+        tkz.consume();
+        tkz.consume("else"); 
         Node elsestat = statementParse();
 
         return new IfStatement(ifstat,thenstat,elsestat);
@@ -126,9 +111,12 @@ public class Expressionparse {
         return w;
     }
 
-
-    private Node commandParse(){
+    // Command → AssignmentStatement | ActionCommand
+    private Node commandParse() throws SyntaxError{
         Node c = null;
+        if(tkz.peek("shoot") || tkz.peek("move")){
+            c = new Command(actionParse());
+        }
         return c;
     }
 
@@ -137,8 +125,14 @@ public class Expressionparse {
         return a;
     }
 
-    private Node actionParse(){
+    private Node actionParse() throws SyntaxError{
         Node a = null;
+        if(tkz.peek("move")){
+            a = new ActionCommand(moveParse());
+        }
+        else if(tkz.peek("shoot")){
+            a = new ActionCommand(shootParse());
+        }
         return a;
     }
     

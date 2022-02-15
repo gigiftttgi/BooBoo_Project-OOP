@@ -1,27 +1,22 @@
 package grammar;
 
-public class WhileStatement extends StatementNode {
+public class WhileStatement implements Node{
 
     protected Node expression;
-    protected StatementNode loopStatement;
+    protected Node loopStatement;
 
-    WhileStatement(Node expression, StatementNode loopStatement){
+    WhileStatement(Node expression, Node loopStatement){
         this.expression = expression;
         this.loopStatement = loopStatement;
     }
 
-    public StatementNode getLoopstatem(){
-        return loopStatement;
-    }
 
-    public Node setCondition(Node exp){
-        if(expression == exp){
-            return expression;
+    @Override
+    public double evaluate() throws SyntaxError {
+        if(expression.evaluate() == '1'){
+            loopStatement.evaluate();
         }
-        else{
-            expression = exp;
-            return expression;
-        }
+        return 0;
     }
        
 }

@@ -10,7 +10,7 @@ public class Direction implements Node{
 
     @Override
     public double evaluate() throws SyntaxError {
-        System.out.println(direct);
+        System.out.print(direct);
         return 0;
     }
     
