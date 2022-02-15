@@ -1,5 +1,3 @@
-move right
-shoot left
-5/3
-4+5
-5+8/2
+if ( 6 - 5 ) then move left else move right
+if ( 6 - 6 ) then move left else move right
+while ( 6 - 5 ) shoot up

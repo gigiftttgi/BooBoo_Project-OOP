@@ -1,7 +1,5 @@
 package grammar;
 
-import java.util.Map;
-
 public class Binary implements Node{
 
     private Node left;
@@ -24,7 +22,7 @@ public class Binary implements Node{
         if(op.equals("/")) return lv/rv;
         if(op.equals("%")) return lv%rv;
         if(op.equals("^")) return Math.pow(lv, rv);
-        return 0;
+        throw new SyntaxError();
     }
     
 }

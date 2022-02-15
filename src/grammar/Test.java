@@ -10,8 +10,10 @@ public class Test {
         Scanner reader = new Scanner(f);
         do {
             String l = reader.nextLine();
-            Expression e = new Expression(l);
-            e.startParse();
+            System.out.println(l);
+            Expressionparse e = new Expressionparse(l);
+            e.statementParse().evaluate(); 
+            System.out.println("\n--------------------");
         } while (reader.hasNextLine());
     }
 }

@@ -1,15 +1,14 @@
 package grammar;
 
 public class Intlit implements Node{
-        private int val;
+        private double val;
         
-        Intlit (int val){
+        Intlit (Double val){
             this.val = val;
         }
 
         @Override
         public double evaluate() throws SyntaxError {
-            // TODO Auto-generated method stub
-            return 0;
+            return val;
         }
 }

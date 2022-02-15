@@ -2,38 +2,23 @@ package grammar;
 
 public class IfStatement implements Node { 
     protected Node expression;
-    protected StatementNode thenStatement;
-    protected StatementNode elseStatement;
+    protected Node thenStatement;
+    protected Node elseStatement;
     
-    IfStatement(Node expression, StatementNode thenStatement, StatementNode elseStatement){
+    IfStatement(Node expression, Node thenstat, Node elsestat){
         this.expression = expression;
-        this.thenStatement = thenStatement;
-        this.elseStatement = elseStatement;
-    }
-
-    public StatementNode getThenStatement(){
-        return thenStatement;
-    }
-
-    public StatementNode getElseStatement(){
-        return elseStatement;
-    }
-
-    public Node setCondition(Node exp){
-        if(expression == exp){
-            return expression;
-        }
-        else{
-            expression = exp;
-            return expression;
-        }
+        this.thenStatement = thenstat;
+        this.elseStatement = elsestat;
     }
 
     @Override
     public double evaluate() throws SyntaxError {
-        expression.evaluate();
-        thenStatement.evaluate();
-        elseStatement.evaluate();
+        if(expression.evaluate() == 1.0){
+            thenStatement.evaluate();
+        }           
+        else{
+            elseStatement.evaluate();
+        }           
         return 0;
     }
 }
