@@ -1,7 +1,10 @@
+package View;
+
 import java.io.File;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+
 
 public class Image{
 //    int height;
