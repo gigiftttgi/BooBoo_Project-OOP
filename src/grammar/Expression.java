@@ -11,7 +11,8 @@ public class Expression {
     public Node startParse() throws SyntaxError{
         Node s = null;
         if(isNumber(tkz.peek())){
-            s = parseP();
+            System.out.println("parse expression");
+            s = parseE();
         }
         else if(tkz.peek("move")){ 
             s = moveParse();
@@ -25,19 +26,20 @@ public class Expression {
 
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek())) {
-            return new Intlit(Integer.parseInt(tkz.consume()));
+            System.out.println("peek : " + tkz.peek());
+            return new Intlit(Double.parseDouble(tkz.consume()));
         } else {
             tkz.consume("(");
-            Node f = parseF();
+            Node e = parseE();
             tkz.consume(")");
-            return f;
+            return e;
         }
     }
 
     private Node parseF() throws SyntaxError {
         Node p = parseP();
-        tkz.consume();
         while (tkz.peek("^")){
+            tkz.consume();
             p = new Binary(p,"^",parseP());
         }
         return p;
@@ -46,13 +48,19 @@ public class Expression {
     private Node parseT() throws SyntaxError {
         Node f = parseF();
         while (tkz.peek("*") || tkz.peek("/") || tkz.peek("%")) {
+            String op = tkz.peek();
             tkz.consume();
-            if(tkz.peek("*"))
-                f = new Binary(f, "*", parseF());
-            if(tkz.peek("/"))
-                f = new Binary(f, "/", parseF());
-            if(tkz.peek("%"))
-                f = new Binary(f, "%", parseF());
+            switch(op){
+                case "*" -> {
+                    f = new Binary(f, "*", parseF());
+                }
+                case "/" -> {
+                    f = new Binary(f, "/", parseF());
+                }
+                case "%" -> {
+                    f = new Binary(f, "%", parseF());
+                }
+            }
         }
         return f;
     }
@@ -60,11 +68,16 @@ public class Expression {
     public Node parseE() throws SyntaxError {
         Node t = parseT();
         while (tkz.peek("+") || tkz.peek("-")) {
+            String op = tkz.peek();
             tkz.consume();
-            if(tkz.peek("+"))
-                t = new Binary(t, "+", parseT());
-            if(tkz.peek("-"))
-                t = new Binary(t, "-", parseT());
+            switch(op){
+                case "+" -> {
+                    t = new Binary(t, "+", parseT());
+                }
+                case "-" -> {
+                    t = new Binary(t, "-", parseT());
+                }
+            }
         }
         return t;
     }

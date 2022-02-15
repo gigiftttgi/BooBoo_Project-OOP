@@ -16,13 +16,14 @@ public class Binary implements Node{
     public double evaluate() throws SyntaxError {
         double lv = left.evaluate();
         double rv = right.evaluate();
+        System.out.print("lv :" + lv + " , rv : " + rv);
         if(op.equals("+")) return lv+rv;
         if(op.equals("-")) return lv-rv;
         if(op.equals("*")) return lv*rv;
         if(op.equals("/")) return lv/rv;
         if(op.equals("%")) return lv%rv;
         if(op.equals("^")) return Math.pow(lv, rv);
-        return 0;
+        throw new SyntaxError();
     }
     
 }
