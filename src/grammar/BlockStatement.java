@@ -6,9 +6,11 @@ import java.util.List;
 public class BlockStatement implements Node{
 
     protected List<Node> statement;
+    private Node newstat;
 
-    BlockStatement(){
+    BlockStatement(Node newstat){
         List<Node> statement = new ArrayList<>();
+        statement.add(newstat);
     }
 
     public void addStatement(Node newStatement){
