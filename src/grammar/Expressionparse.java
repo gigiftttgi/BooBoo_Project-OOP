@@ -126,6 +126,8 @@ public class Expressionparse {
         if(tkz.peek("shoot") || tkz.peek("move")){
             c = new Command(actionParse());
         }
+        else
+            c = new Command(assignmentParse());
         return c;
     }
 
