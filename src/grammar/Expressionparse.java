@@ -82,6 +82,31 @@ public class Expressionparse {
         return t;
     }
 
+    // Statement → Command | BlockStatement | IfStatement | WhileStatement
+    private Node statementParse() throws SyntaxError {
+        Node s = null;
+        if(tkz.peek("if")){
+            s = new StatementNode(ifParse());
+        }
+        else if(tkz.peek("while")){
+            s = new StatementNode(whileParse());
+        }
+        else if(tkz.peek("{")){
+            s = new StatementNode(blockParse());
+        }
+        else{
+            s = new StatementNode(commandParse());
+        }
+
+        return s;
+    }
+
+    private Node blockParse(){
+        Node b = null;
+        return b;
+    }
+
+    // IfStatement → if ( Expression ) then Statement else Statement
     private Node ifParse() throws SyntaxError{
         Node i = null;
         tkz.consume(); // if
@@ -89,10 +114,28 @@ public class Expressionparse {
         Node ifstat = parseE();
         tkz.consume(")");
         tkz.consume("then"); // then
-        System.out.print(tkz.peek());
-        return ifstat;
+        Node thenstat = statementParse();
+        tkz.consume("else");
+        Node elsestat = statementParse();
+
+        return new IfStatement(ifstat,thenstat,elsestat);
     }
 
+    private Node whileParse(){
+        Node w = null;
+        return w;
+    }
+
+
+    private Node commandParse(){
+        Node c = null;
+        return c;
+    }
+
+    private Node assignmentParse(){
+        Node a = null;
+        return a;
+    }
 
     private Node actionParse(){
         Node a = null;
@@ -102,8 +145,8 @@ public class Expressionparse {
     private Node shootParse() throws SyntaxError{
         Node s = null;
         tkz.consume();
-        s = directionParse();
-        return new AttackCommand(s);
+        s = new AttackCommand(directionParse());
+        return s;
     }
 
     private Node moveParse() throws SyntaxError{
