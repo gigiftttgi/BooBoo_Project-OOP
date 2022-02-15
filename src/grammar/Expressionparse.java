@@ -8,6 +8,7 @@ public class Expressionparse {
         this.tkz = new Tokenizer(src);
     }
 
+    // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek())) {
             return new Intlit(Double.parseDouble(tkz.consume()));
@@ -85,9 +86,11 @@ public class Expressionparse {
         return s;
     }
 
-    private Node blockParse(){
-        Node b = null;
-        return b;
+    // BlockStatement → { Statement* }
+    private Node blockParse() throws SyntaxError{
+        tkz.consume(); 
+        Node block = new BlockStatement(statementParse());
+        return block;
     }
 
     // IfStatement → if ( Expression ) then Statement else Statement
@@ -106,9 +109,15 @@ public class Expressionparse {
         return new IfStatement(ifstat,thenstat,elsestat);
     }
 
-    private Node whileParse(){
-        Node w = null;
-        return w;
+    // WhileStatement → while ( Expression ) Statement
+    private Node whileParse() throws SyntaxError{
+
+        tkz.consume(); // if
+        tkz.consume(); // (
+        Node exp = parseE();
+        tkz.consume(")");
+        Node loop = statementParse();
+        return new WhileStatement(exp, loop);
     }
 
     // Command → AssignmentStatement | ActionCommand
@@ -120,11 +129,13 @@ public class Expressionparse {
         return c;
     }
 
+    // AssignmentStatement → <identifier> = Expression
     private Node assignmentParse(){
         Node a = null;
         return a;
     }
 
+    // ActionCommand → MoveCommand | AttackCommand
     private Node actionParse() throws SyntaxError{
         Node a = null;
         if(tkz.peek("move")){
@@ -136,6 +147,7 @@ public class Expressionparse {
         return a;
     }
     
+    // AttackCommand → shoot Direction
     private Node shootParse() throws SyntaxError{
         Node s = null;
         tkz.consume();
@@ -143,6 +155,7 @@ public class Expressionparse {
         return s;
     }
 
+    // MoveCommand → move Direction
     private Node moveParse() throws SyntaxError{
         Node m = null;
         tkz.consume();
@@ -150,6 +163,7 @@ public class Expressionparse {
         return m;
     } 
 
+    // Direction → left | right | up | down | upleft | upright | downleft | downright
     private Node directionParse() throws SyntaxError{
         if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 
             || tkz.peek("upright") || tkz.peek("downleft") || tkz.peek("downright"))

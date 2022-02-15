@@ -13,7 +13,7 @@ public class WhileStatement implements Node{
 
     @Override
     public double evaluate() throws SyntaxError {
-        if(expression.evaluate() == '1'){
+        if(expression.evaluate() == 1.0){
             loopStatement.evaluate();
         }
         return 0;
