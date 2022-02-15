@@ -32,6 +32,7 @@ public class Tokenizer {
                 for (pos++; pos < src.length() && Character.isLetter(src.charAt(pos)) ; pos++) {
                     s.append(src.charAt(pos));
                 }
+                
             }
             else throw new SyntaxError();
         }

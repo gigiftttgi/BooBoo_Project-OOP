@@ -1,10 +1,10 @@
 package grammar;
 
-public class Expression {
+public class Expressionparse {
 
     private Tokenizer tkz;
 
-    public Expression(String src) throws SyntaxError{
+    public Expressionparse(String src) throws SyntaxError{
         this.tkz = new Tokenizer(src);
     }
 
