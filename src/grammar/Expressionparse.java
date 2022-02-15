@@ -19,6 +19,10 @@ public class Expressionparse {
         else if(tkz.peek("shoot")){
             s = shootParse();
         }
+        else if(tkz.peek("if")){
+            System.out.print("if parse");
+            s = ifParse();
+        }
            
         return s;
     }
@@ -27,9 +31,7 @@ public class Expressionparse {
         if (isNumber(tkz.peek())) {
             return new Intlit(Double.parseDouble(tkz.consume()));
         } else {
-            tkz.consume("(");
             Node e = parseE();
-            tkz.consume(")");
             return e;
         }
     }
@@ -82,14 +84,20 @@ public class Expressionparse {
 
     private Node ifParse() throws SyntaxError{
         Node i = null;
-        if(tkz.peek("if")){
-            tkz.consume("(");
-            i = parseP();
-            tkz.consume(")");
-        }
-        return i;
+        tkz.consume(); // if
+        tkz.consume(); // (
+        Node ifstat = parseE();
+        tkz.consume(")");
+        tkz.consume("then"); // then
+        System.out.print(tkz.peek());
+        return ifstat;
     }
-    
+
+
+    private Node actionParse(){
+        Node a = null;
+        return a;
+    }
     
     private Node shootParse() throws SyntaxError{
         Node s = null;

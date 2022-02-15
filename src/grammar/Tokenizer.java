@@ -12,11 +12,11 @@ public class Tokenizer {
     }
 
     private void computeNext() throws SyntaxError{
-
         StringBuilder s = new StringBuilder();
         while(pos < src.length() && Character.isWhitespace(src.charAt(pos))) pos++;
         if(pos < src.length()) {
             char c = src.charAt(pos);
+            
             if (Character.isDigit(c)) {
                 s.append(c);
                 for (pos++; pos < src.length() && Character.isDigit(src.charAt(pos)); pos++) {
@@ -29,10 +29,14 @@ public class Tokenizer {
             }
             else if (Character.isLetter(c)) {
                 s.append(c);
-                for (pos++; pos < src.length() && Character.isLetter(src.charAt(pos)) ; pos++) {
+                for (pos++; pos < src.length() && Character.isLetter(src.charAt(pos)); pos++) {
                     s.append(src.charAt(pos));
                 }
-                
+            }
+            else if(Character.isWhitespace(src.charAt(pos))){
+                for (pos++; pos < src.length() && Character.isWhitespace(src.charAt(pos)) ; pos++) {
+
+                }
             }
             else throw new SyntaxError();
         }
