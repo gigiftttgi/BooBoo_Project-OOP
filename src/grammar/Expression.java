@@ -11,7 +11,6 @@ public class Expression {
     public Node startParse() throws SyntaxError{
         Node s = null;
         if(isNumber(tkz.peek())){
-            System.out.println("parse expression");
             s = parseE();
         }
         else if(tkz.peek("move")){ 
@@ -26,7 +25,6 @@ public class Expression {
 
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek())) {
-            System.out.println("peek : " + tkz.peek());
             return new Intlit(Double.parseDouble(tkz.consume()));
         } else {
             tkz.consume("(");
