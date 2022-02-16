@@ -3,6 +3,8 @@ package grammar;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.swing.text.html.InlineView;
+
 import Model.Gamecharacter;
 
 public class Expressionparse {
@@ -20,13 +22,16 @@ public class Expressionparse {
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek())) {
-            return new Intlit(Double.parseDouble(tkz.consume()));
+            System.out.println(" parsep before consume " + tkz.peek());
+            Node inlit = new Intlit(Double.parseDouble(tkz.consume()));
+            System.out.println(" parsep after consume " + tkz.peek());
+            return inlit;
         } 
-        else if(tkz.peek().matches("[a-zA-Z]+")){
-            Node var = new Variable(tkz.peek(), allVariable);
-            System.out.println(var.evaluate());
-            return null;
-        }     
+        // else if(tkz.peek().matches("[a-zA-Z]+")){
+        //     Node var = new Variable(tkz.peek(), allVariable);
+        //     tkz.consume();
+        //     return new Intlit(Double.parseDouble(tkz.consume()));
+        // }     
         else {
             Node e = parseE();
             return e;
@@ -154,13 +159,8 @@ public class Expressionparse {
         tkz.consume(); //identifilfer
         tkz.consume("=");
         // if(isNumber(tkz.peek())){
-        Node exp = parseE();
-        return new AssignmentStatement(exp, var);
-        // }
-        // else{
-        //     Node 
-        // }
-           
+            Node exp = parseE();
+            return new AssignmentStatement(exp, var);
         // return null;
     }
 
