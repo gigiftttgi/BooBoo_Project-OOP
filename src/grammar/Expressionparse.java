@@ -142,7 +142,6 @@ public class Expressionparse {
         Variable var = new Variable(tkz.peek(),allVariable);
         tkz.consume(); //identifilfer
         tkz.consume("=");
-        System.out.println(tkz.peek());
         Node exp = parseE();
         return new AssignmentStatement(exp, var);
     }
