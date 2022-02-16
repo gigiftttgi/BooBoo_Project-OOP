@@ -3,9 +3,10 @@ package Model;
 public class Antibody_A  extends Antibody {
 
     Antibody_A(){
-        super.atk = 15;
-        super.hp = 100;
-        super.moveCost = 10;
+        this.atk = 15;
+        this.hp = 100;
+        this.moveCost = 10;
+        this.filename = "src/Model/Genetic/Genetic_A.txt";
         
     }
     

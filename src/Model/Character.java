@@ -5,6 +5,7 @@ public class Character {
     protected double atk;
     protected Boolean status;
     protected Position pos;
+    protected String filename;
 
     public double getATK(){
         return atk;
@@ -22,7 +23,7 @@ public class Character {
         //ตำแหน่งตอนเกิด
     }
 
-    public void runGeneticcode(){
+    public void runGeneticcode(String filename){
 
     }
     
