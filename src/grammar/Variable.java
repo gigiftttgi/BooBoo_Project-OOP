@@ -21,7 +21,8 @@ public class Variable implements Node {
     public double evaluate() {
         if(!allVariable.keySet().contains(identifier))
             allVariable.put(identifier, 0.0);
-        return 0;
+            
+        return allVariable.get(identifier);
     }
 
     public void addValue(double value){

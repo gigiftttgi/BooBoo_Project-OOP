@@ -9,6 +9,11 @@ public class Position {
         this.y = y;
     }
 
+    public void movePosition(int moveX,int moveY){
+        x+=moveX;
+        y+=moveY;
+    }
+
     public int getX_Position(){
         return x;
     }

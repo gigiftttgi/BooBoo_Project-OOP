@@ -3,13 +3,17 @@ package grammar;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import Model.Gamecharacter;
+
 public class Expressionparse {
 
     private Tokenizer tkz;
+    private Gamecharacter host;
     private Map<String,Double> allVariable = new LinkedHashMap<>();
 
-    public Expressionparse(String src) throws SyntaxError{
+    public Expressionparse(String src, Gamecharacter host) throws SyntaxError{
         this.tkz = new Tokenizer(src);
+        this.host = host;
     }
 
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
@@ -100,11 +104,6 @@ public class Expressionparse {
     // IfStatement → if ( Expression ) then Statement else Statement
     private Node ifParse() throws SyntaxError{
 
-        System.out.println(tkz.peek());
-        if(tkz.peek("else")){
-            tkz.consume(); // else
-        }
-        System.out.println(tkz.peek());
         tkz.consume(); // if
         tkz.consume(); // (
         Node ifstat = parseE();
@@ -167,7 +166,7 @@ public class Expressionparse {
     private Node shootParse() throws SyntaxError{
         Node s = null;
         tkz.consume();
-        s = new AttackCommand(directionParse());
+        s = new AttackCommand(directionParse(),host);
         return s;
     }
 
@@ -175,7 +174,7 @@ public class Expressionparse {
     private Node moveParse() throws SyntaxError{
         Node m = null;
         tkz.consume();
-        m = new MoveCommand(directionParse());
+        m = new MoveCommand(directionParse(),host);
         return m;
     } 
     
