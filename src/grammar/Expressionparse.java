@@ -9,18 +9,25 @@ public class Expressionparse {
 
     private Tokenizer tkz;
     private Gamecharacter host;
-    private Map<String,Double> allVariable = new LinkedHashMap<>();
+    private Map<String,Double> allVariable;
 
-    public Expressionparse(String src, Gamecharacter host) throws SyntaxError{
+    public Expressionparse(String src, Gamecharacter host, Map<String,Double> allVariable ) throws SyntaxError{
         this.tkz = new Tokenizer(src);
         this.host = host;
+        this.allVariable = allVariable;
     }
 
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek())) {
             return new Intlit(Double.parseDouble(tkz.consume()));
-        } else {
+        } 
+        else if(tkz.peek().matches("[a-zA-Z]+")){
+            Node var = new Variable(tkz.peek(), allVariable);
+            System.out.println(var.evaluate());
+            return null;
+        }     
+        else {
             Node e = parseE();
             return e;
         }
@@ -146,8 +153,15 @@ public class Expressionparse {
         Variable var = new Variable(tkz.peek(),allVariable);
         tkz.consume(); //identifilfer
         tkz.consume("=");
+        // if(isNumber(tkz.peek())){
         Node exp = parseE();
         return new AssignmentStatement(exp, var);
+        // }
+        // else{
+        //     Node 
+        // }
+           
+        // return null;
     }
 
     // ActionCommand → MoveCommand | AttackCommand

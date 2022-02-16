@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Variable implements Node {
 
-    protected Map<String,Double> allVariable;
+    protected Map<String,Double> allVariable =  null;
     protected String identifier;
 
 

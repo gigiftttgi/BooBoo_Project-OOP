@@ -2,6 +2,8 @@ package Model;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import grammar.Expressionparse;
@@ -14,6 +16,7 @@ public class Gamecharacter {
     protected Boolean status;
     protected Position pos;
     protected String filename;
+    protected Map<String,Double> allVariable = new LinkedHashMap<>();
 
     public double getATK(){
         return atk;
@@ -83,7 +86,7 @@ public class Gamecharacter {
         do {
             String l = reader.nextLine();
             System.out.println(l);
-            Expressionparse e = new Expressionparse(l,this);
+            Expressionparse e = new Expressionparse(l,this,allVariable);
             e.statementParse().evaluate(); 
             System.out.println("\n--------------------");
         } while (reader.hasNextLine());
