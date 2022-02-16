@@ -1,8 +1,12 @@
 package grammar;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class Expressionparse {
 
     private Tokenizer tkz;
+    private Map<String,Double> allVariable = new LinkedHashMap<>();
 
     public Expressionparse(String src) throws SyntaxError{
         this.tkz = new Tokenizer(src);
@@ -126,15 +130,21 @@ public class Expressionparse {
         if(tkz.peek("shoot") || tkz.peek("move")){
             c = new Command(actionParse());
         }
-        else
+        else{
             c = new Command(assignmentParse());
+        }
+           
         return c;
     }
 
     // AssignmentStatement → <identifier> = Expression
-    private Node assignmentParse(){
-        Node a = null;
-        return a;
+    private Node assignmentParse() throws SyntaxError{
+        Variable var = new Variable(tkz.peek(),allVariable);
+        tkz.consume(); //identifilfer
+        tkz.consume("=");
+        System.out.println(tkz.peek());
+        Node exp = parseE();
+        return new AssignmentStatement(exp, var);
     }
 
     // ActionCommand → MoveCommand | AttackCommand
