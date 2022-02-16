@@ -1,18 +1,38 @@
 package grammar;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.swing.text.html.InlineView;
+
+import Model.Gamecharacter;
+
 public class Expressionparse {
 
     private Tokenizer tkz;
+    private Gamecharacter host;
+    private Map<String,Double> allVariable;
 
-    public Expressionparse(String src) throws SyntaxError{
+    public Expressionparse(String src, Gamecharacter host, Map<String,Double> allVariable ) throws SyntaxError{
         this.tkz = new Tokenizer(src);
+        this.host = host;
+        this.allVariable = allVariable;
     }
 
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek())) {
-            return new Intlit(Double.parseDouble(tkz.consume()));
-        } else {
+            System.out.println(" parsep before consume " + tkz.peek());
+            Node inlit = new Intlit(Double.parseDouble(tkz.consume()));
+            System.out.println(" parsep after consume " + tkz.peek());
+            return inlit;
+        } 
+        // else if(tkz.peek().matches("[a-zA-Z]+")){
+        //     Node var = new Variable(tkz.peek(), allVariable);
+        //     tkz.consume();
+        //     return new Intlit(Double.parseDouble(tkz.consume()));
+        // }     
+        else {
             Node e = parseE();
             return e;
         }
@@ -70,7 +90,7 @@ public class Expressionparse {
     // Statement → Command | BlockStatement | IfStatement | WhileStatement
     public Node statementParse() throws SyntaxError {
         Node s = null;
-        if(tkz.peek("if")){
+        if(tkz.peek("if") || tkz.peek("else")){
             s = new StatementNode(ifParse());
         }
         else if(tkz.peek("while")){
@@ -126,15 +146,22 @@ public class Expressionparse {
         if(tkz.peek("shoot") || tkz.peek("move")){
             c = new Command(actionParse());
         }
-        else
+        else{
             c = new Command(assignmentParse());
+        }
+           
         return c;
     }
 
     // AssignmentStatement → <identifier> = Expression
-    private Node assignmentParse(){
-        Node a = null;
-        return a;
+    private Node assignmentParse() throws SyntaxError{
+        Variable var = new Variable(tkz.peek(),allVariable);
+        tkz.consume(); //identifilfer
+        tkz.consume("=");
+        // if(isNumber(tkz.peek())){
+            Node exp = parseE();
+            return new AssignmentStatement(exp, var);
+        // return null;
     }
 
     // ActionCommand → MoveCommand | AttackCommand
@@ -153,7 +180,7 @@ public class Expressionparse {
     private Node shootParse() throws SyntaxError{
         Node s = null;
         tkz.consume();
-        s = new AttackCommand(directionParse());
+        s = new AttackCommand(directionParse(),host);
         return s;
     }
 
@@ -161,10 +188,10 @@ public class Expressionparse {
     private Node moveParse() throws SyntaxError{
         Node m = null;
         tkz.consume();
-        m = new MoveCommand(directionParse());
+        m = new MoveCommand(directionParse(),host);
         return m;
     } 
-
+    
     // Direction → left | right | up | down | upleft | upright | downleft | downright
     private Node directionParse() throws SyntaxError{
         if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 

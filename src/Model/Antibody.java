@@ -1,5 +1,5 @@
 package Model;
-public class Antibody extends Character {
+public class Antibody extends Gamecharacter {
     
     protected int moveCost;
     

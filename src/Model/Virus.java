@@ -1,6 +1,6 @@
 package Model;
 
-public class Virus extends Character{
+public class Virus extends Gamecharacter{
 
     protected int credit;
 

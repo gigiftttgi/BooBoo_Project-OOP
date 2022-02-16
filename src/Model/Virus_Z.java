@@ -2,9 +2,10 @@ package Model;
 public class Virus_Z extends Virus {
 
     Virus_Z(){
-        super.atk = 20;
-        super.hp = 80;
-        super.credit = 10;
+        this.atk = 15;
+        this.hp = 110;
+        this.credit = 20;
+        this.filename = "src/Model/Genetic/Genetic_Z.txt";
     }
     
 }

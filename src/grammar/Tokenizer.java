@@ -23,7 +23,7 @@ public class Tokenizer {
                     s.append(src.charAt(pos));
                 }
             } 
-            else if (c == '+' || c == '(' || c == ')' || c == '-' || c == '*' || c == '/' || c == '%') {
+            else if (c == '+' || c == '(' || c == ')' || c == '-' || c == '*' || c == '/' || c == '%' || c == '=') {
                 s.append(c);
                 pos++;
             }

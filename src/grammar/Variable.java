@@ -1,15 +1,18 @@
 package grammar;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Variable implements Node {
 
-    protected Map<String,Double> allVariable = null;
+    protected Map<String,Double> allVariable =  null;
     protected String identifier;
 
 
-    Variable(String identifier){
+    Variable(String identifier, Map<String,Double> allVariable){
         this.identifier = identifier;
+        this.allVariable = allVariable;
+
         if(!allVariable.keySet().contains(identifier))
             allVariable.put(identifier, 0.0);
     }
@@ -18,7 +21,8 @@ public class Variable implements Node {
     public double evaluate() {
         if(!allVariable.keySet().contains(identifier))
             allVariable.put(identifier, 0.0);
-        return 0;
+            
+        return allVariable.get(identifier);
     }
 
     public void addValue(double value){
