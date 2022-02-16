@@ -13,6 +13,7 @@ public class IfStatement implements Node {
 
     @Override
     public double evaluate() throws SyntaxError {
+        // 1 is true
         if(expression.evaluate() == 1.0){
             thenStatement.evaluate();
         }           

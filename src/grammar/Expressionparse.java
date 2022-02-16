@@ -74,7 +74,7 @@ public class Expressionparse {
     // Statement → Command | BlockStatement | IfStatement | WhileStatement
     public Node statementParse() throws SyntaxError {
         Node s = null;
-        if(tkz.peek("if")){
+        if(tkz.peek("if") || tkz.peek("else")){
             s = new StatementNode(ifParse());
         }
         else if(tkz.peek("while")){
@@ -100,6 +100,11 @@ public class Expressionparse {
     // IfStatement → if ( Expression ) then Statement else Statement
     private Node ifParse() throws SyntaxError{
 
+        System.out.println(tkz.peek());
+        if(tkz.peek("else")){
+            tkz.consume(); // else
+        }
+        System.out.println(tkz.peek());
         tkz.consume(); // if
         tkz.consume(); // (
         Node ifstat = parseE();
@@ -173,7 +178,7 @@ public class Expressionparse {
         m = new MoveCommand(directionParse());
         return m;
     } 
-
+    
     // Direction → left | right | up | down | upleft | upright | downleft | downright
     private Node directionParse() throws SyntaxError{
         if(tkz.peek("right") || tkz.peek("left") || tkz.peek("up") || tkz.peek("down") || tkz.peek("upleft") 
