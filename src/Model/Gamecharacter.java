@@ -6,8 +6,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import grammar.Expressionparse;
-import grammar.SyntaxError;
+import Parser.Expressionparse;
+import Parser.SyntaxError;
 
 public class Gamecharacter {
 
@@ -28,10 +28,6 @@ public class Gamecharacter {
 
     public void attack(Gamecharacter a){
         hp = hp - a.getATK();
-    }
-
-    public void startPosition(){
-        //ตำแหน่งตอนเกิด
     }
 
     public void move(Double direction){
