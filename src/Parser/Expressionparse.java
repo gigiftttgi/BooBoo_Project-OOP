@@ -22,11 +22,12 @@ public class Expressionparse {
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek()) || tkz.peek().matches("[a-zA-Z]+")) {
+            if(tkz.peek("virus") || tkz.peek("antibody") || tkz.peek("nearby")){
+                System.out.println("pass");
+                return null;
+            } 
             return new Intlit(tkz.consume(),allVariable);
-        } 
-        // else if(tkz.peek().matches("[a-zA-Z]+")){
-            
-        // }     
+        }         
         else {
             Node e = parseE();
             return e;
