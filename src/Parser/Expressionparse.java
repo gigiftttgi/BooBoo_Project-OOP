@@ -21,16 +21,11 @@ public class Expressionparse {
 
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
-        if (isNumber(tkz.peek())) {
-            System.out.println(" parsep before consume " + tkz.peek());
-            Node inlit = new Intlit(Double.parseDouble(tkz.consume()));
-            System.out.println(" parsep after consume " + tkz.peek());
-            return inlit;
+        if (isNumber(tkz.peek()) || tkz.peek().matches("[a-zA-Z]+")) {
+            return new Intlit(tkz.consume(),allVariable);
         } 
         // else if(tkz.peek().matches("[a-zA-Z]+")){
-        //     Node var = new Variable(tkz.peek(), allVariable);
-        //     tkz.consume();
-        //     return new Intlit(Double.parseDouble(tkz.consume()));
+            
         // }     
         else {
             Node e = parseE();
