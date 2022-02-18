@@ -14,11 +14,11 @@ public class Position {
         y+=moveY;
     }
 
-    public int getX_Position(){
+    public int PosX(){
         return x;
     }
 
-    public int getY_Position(){
+    public int PosY(){
         return y;
     }
     
