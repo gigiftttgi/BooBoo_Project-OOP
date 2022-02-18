@@ -1,30 +1,33 @@
 package Model;
 
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
-import Parser.SyntaxError;
 
 public class Field {
 
-    // List<Virus> allVirus;
-    // List<Antibody> allAntibody;
-    // Boolean[][] status = new Boolean[50][50];
 
-    // Field(List<Virus> allVirus, List<Antibody> allAntibody, Boolean[][] status){
-    //     this.allVirus = allVirus;
-    //     this.allAntibody = allAntibody;
-    //     this.status = status;
-    // }
+    private List<Virus> listVirus;
+    private List<Antibody> listAntibody;
 
-    public static void main(String[] args) throws FileNotFoundException, SyntaxError {
-        List<Virus> allVirus = new LinkedList<>();
-        List<Antibody> allAntibody = new LinkedList<>();
-        Boolean[][] status = new Boolean[50][50];
-        Characterfactory fac = new Characterfactory();
-        Virus a = fac.createVirus(5,5);
-        a.runGeneticcode();
+    Field(){
+        listVirus = new ArrayList<>();
+        listAntibody = new ArrayList<>();
+    }  
+
+    public List<Virus> getListVirus(){
+        return listVirus;
     }
-    
+
+    public List<Antibody> getListAntibosy(){
+        return listAntibody;
+    }
+
+    public void creatVirus(){
+        Characterfactory fac = new Characterfactory();
+        listVirus.add(fac.createVirus(2, 4));
+        listVirus.add(fac.createVirus(1, 3));
+        listVirus.add(fac.createVirus(3, 3));
+    }
+
 }
