@@ -8,12 +8,12 @@ import Model.Virus;
 
 public class Nearby implements Node{
 
-    private double direct;
+    private Node direct;
     private Gamecharacter host;
     private List<Virus> listVirus;
     private List<Antibody> listAntibody;
 
-    Nearby(double direct, Gamecharacter host, List<Virus> listVirus, List<Antibody> listAntibody){
+    Nearby(Node direct, Gamecharacter host, List<Virus> listVirus, List<Antibody> listAntibody){
         this.direct = direct;
         this.host = host;
         this.listVirus = listVirus;
@@ -22,8 +22,23 @@ public class Nearby implements Node{
 
     @Override
     public double evaluate() throws SyntaxError {
-        // TODO Auto-generated method stub
-        return 0;
+        int min = Integer.MAX_VALUE;
+        for(Virus v : listVirus){
+            int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), v.getPos().PosX(), v.getPos().PosY());
+            if(newmin < min && newmin%10 == direct.evaluate())
+                min = newmin;
+        }
+
+        for(Antibody a : listAntibody){
+            int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), a.getPos().PosX(), a.getPos().PosY());
+            if(newmin < min && newmin%10 == direct.evaluate())
+                min = newmin;
+        }
+
+        if(min == Integer.MAX_VALUE)
+            return 0;
+            
+        return min;
     }
     
     public int findLocation(int hostX,int hostY,int targetX, int targetY){

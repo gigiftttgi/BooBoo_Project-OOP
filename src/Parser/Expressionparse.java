@@ -34,7 +34,8 @@ public class Expressionparse {
             return new AntibodyNode(host, listAntibody);
         }
         if(tkz.peek("nearby")){
-
+            tkz.consume();
+            return new Nearby(directionParse(), host, listVirus, listAntibody);
         }
         return s;
     }
@@ -102,23 +103,25 @@ public class Expressionparse {
         return t;
     }
 
+    public Node programParse(){
+        return new Program();
+    }
+    
     // Statement → Command | BlockStatement | IfStatement | WhileStatement
     public Node statementParse() throws SyntaxError {
-        Node s = null;
+        
         if(tkz.peek("if") || tkz.peek("else")){
-            s = new StatementNode(ifParse());
+            return new StatementNode(ifParse());
         }
         else if(tkz.peek("while")){
-            s = new StatementNode(whileParse());
+            return new StatementNode(whileParse());
         }
         else if(tkz.peek("{")){
-            s = new StatementNode(blockParse());
+            return new StatementNode(blockParse());
         }
         else{
-            s = new StatementNode(commandParse());
+            return new StatementNode(commandParse());
         }
-
-        return s;
     }
 
     // BlockStatement → { Statement* }
