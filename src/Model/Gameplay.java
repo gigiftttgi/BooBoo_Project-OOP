@@ -1,13 +1,23 @@
 package Model;
 
+import java.io.FileNotFoundException;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import Parser.SyntaxError;
+
 public class Gameplay {
 
-//   public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException, SyntaxError{
+      Field field = new Field();
+      field.creatVirus();
+      for(Virus v : field.getListVirus()){
+          System.out.println(v.getClass());
+          v.runGeneticcode(field.getListVirus(),field.getListAntibosy());
+      }
+  }
     
 
 //     // Test creat with time
