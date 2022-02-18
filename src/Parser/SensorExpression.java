@@ -2,14 +2,16 @@ package Parser;
 
 public class SensorExpression implements Node {
 
-    SensorExpression(){
-        
+    private Node sensor;
+
+    SensorExpression(Node sensor){
+        this.sensor = sensor;
     }
 
     @Override
     public double evaluate() throws SyntaxError {
-        // TODO Auto-generated method stub
-        return 0;
+        sensor.evaluate();
+       return 0;
     }
     
 }
