@@ -1,12 +1,39 @@
-.App {
-  text-align: center;
+.MainGame {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+
+  background-color: #F6CA9F;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Shop {
+  position: absolute;
+  width: 263px;
+  height: 945px;
+  left: 1157px;
+  top: 35px;
+  background: #F9E6CF;
 }
 
+.Field {
+  position: absolute;
+  width: 1024px;
+  height: 887px;
+  left: 82px;
+  top: 104px;
+  background: #F9E6CF;
+
+}
+
+.Menu {
+  position: absolute;
+  width: 278px;
+  height: 68px;
+  left: 23px;
+  top: 19px;
+  background: #F9E6CF;
+}
+/* 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +62,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
