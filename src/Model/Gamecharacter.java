@@ -3,6 +3,7 @@ package Model;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -24,6 +25,10 @@ public class Gamecharacter {
 
     public double getHP(){
         return hp;
+    }
+
+    public Position getPos(){
+        return pos;
     }
 
     public void attack(Gamecharacter a){
@@ -76,15 +81,14 @@ public class Gamecharacter {
 
     }
 
-    public void runGeneticcode() throws SyntaxError, FileNotFoundException{
+    public void runGeneticcode(List<Virus> listVirus,List<Antibody> listAntibody) throws SyntaxError, FileNotFoundException{
         FileReader f = new FileReader(filename);
         Scanner reader = new Scanner(f);
         do {
             String l = reader.nextLine();
             System.out.println(l);
-            Expressionparse e = new Expressionparse(l,this,allVariable);
+            Expressionparse e = new Expressionparse(l,this,allVariable,listVirus,listAntibody);
             e.statementParse().evaluate(); 
-            System.out.println("\n--------------------");
         } while (reader.hasNextLine());
     }
     
