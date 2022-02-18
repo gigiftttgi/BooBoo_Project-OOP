@@ -10,8 +10,7 @@ public class SensorExpression implements Node {
 
     @Override
     public double evaluate() throws SyntaxError {
-        sensor.evaluate();
-       return 0;
+        return sensor.evaluate();
     }
     
 }

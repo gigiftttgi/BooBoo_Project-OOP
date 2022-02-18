@@ -17,13 +17,13 @@ public class VirusNode implements Node{
 
     @Override
     public double evaluate() throws SyntaxError {
-        int min = 0;
+        int min = Integer.MAX_VALUE;
         for(Virus v : listVirus){
             int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), v.getPos().PosX(), v.getPos().PosY());
             if(newmin < min)
                 min = newmin;
         }
-        return (double) min;
+        return min;
     }
 
     public int findLocation(int hostX,int hostY,int targetX, int targetY){
@@ -56,7 +56,7 @@ public class VirusNode implements Node{
         else{
             if( hostX > targetX )
                 return ( hostX - targetX )*10 + 1;
-            else
+            if( hostX < targetX )
                 return ( targetX - hostX )*10 + 5;
 
         }

@@ -1,30 +1,49 @@
 package Parser;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
-import javax.swing.text.html.InlineView;
-
+import Model.Antibody;
 import Model.Gamecharacter;
+import Model.Virus;
 
 public class Expressionparse {
 
     private Tokenizer tkz;
     private Gamecharacter host;
     private Map<String,Double> allVariable;
+    private List<Virus> listVirus;
+    private List<Antibody> listAntibody;
 
-    public Expressionparse(String src, Gamecharacter host, Map<String,Double> allVariable ) throws SyntaxError{
+    public Expressionparse(String src, Gamecharacter host, Map<String,Double> allVariable ,List<Virus> listVirus ,List<Antibody> listAntibody ) throws SyntaxError{
         this.tkz = new Tokenizer(src);
         this.host = host;
         this.allVariable = allVariable;
+        this.listVirus = listVirus;
+        this.listAntibody = listAntibody;
+    }
+
+    // SensorExpression → virus | antibody | nearby Direction
+    private Node sensorParse() throws SyntaxError {
+        Node s = null;
+        if(tkz.peek("virus")){
+            return new VirusNode(host, listVirus);
+        }
+        if(tkz.peek("antibody")){
+            return new AntibodyNode(host, listAntibody);
+        }
+        if(tkz.peek("nearby")){
+
+        }
+        return s;
     }
 
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
         if (isNumber(tkz.peek()) || tkz.peek().matches("[a-zA-Z]+")) {
             if(tkz.peek("virus") || tkz.peek("antibody") || tkz.peek("nearby")){
-                System.out.println("pass");
-                return null;
+                return new SensorExpression(sensorParse());
             } 
             return new Intlit(tkz.consume(),allVariable);
         }         
@@ -205,4 +224,5 @@ public class Expressionparse {
             return false;
         }
     }
+
 }
