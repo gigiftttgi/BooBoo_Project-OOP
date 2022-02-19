@@ -18,16 +18,6 @@ function App() {
         <Shop></Shop>
       </div>
 
-
-
-    <div className="MainGame">
-      <Menu/>
-      <div className="contianer">
-        <Shop/>
-        <Field/>
-      </div>
-
-    </div>
     </div>
 
   );
