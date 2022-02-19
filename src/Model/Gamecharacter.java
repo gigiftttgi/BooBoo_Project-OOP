@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 
 import Parser.Expressionparse;
+import Parser.Node;
+import Parser.ProgramNode;
 import Parser.SyntaxError;
 
 public class Gamecharacter {
@@ -19,6 +21,7 @@ public class Gamecharacter {
     protected Boolean status;
     protected Position pos;
     protected String filename;
+    protected String type;
     protected Map<String,Double> allVariable = new LinkedHashMap<>();
 
     public double getATK(){
@@ -31,6 +34,10 @@ public class Gamecharacter {
 
     public Position getPos(){
         return pos;
+    }
+
+    public String getType(){
+        return type;
     }
 
     public void attack(Gamecharacter a){
@@ -85,6 +92,7 @@ public class Gamecharacter {
 
     public void runGeneticcode(List<Virus> listVirus,List<Antibody> listAntibody) throws SyntaxError, FileNotFoundException{
         FileReader f = new FileReader(filename);
+        ProgramNode pro = new ProgramNode();
         Scanner reader = new Scanner(f);
         List<String> liststat = new LinkedList<>();
         StringBuilder statement = new StringBuilder();
@@ -116,11 +124,15 @@ public class Gamecharacter {
 
         } while (reader.hasNextLine());
 
-        if(!statement.toString().equals(""))
+        if(!statement.toString().equals("")){
             liststat.add(statement.toString());
+        }
+        
+        //pro.addStatement(newStatement);
 
         for(String s : liststat){
-            System.out.println("statemrnt : "+s);
+            Expressionparse e = new Expressionparse(s,this,allVariable,listVirus,listAntibody);
+            e.statementParse().evaluate();
         }
     }
     
