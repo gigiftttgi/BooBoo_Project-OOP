@@ -17,12 +17,14 @@ public class AntibodyNode implements Node {
 
     @Override
     public double evaluate() throws SyntaxError {
-        int min = 0;
+        int min = Integer.MAX_VALUE;
         for(Antibody a : listAntibody){
             int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), a.getPos().PosX(), a.getPos().PosY());
             if(newmin < min)
                 min = newmin;  
         }
+        if(min == Integer.MAX_VALUE)
+            return 0;
         return (double) min;
     }
 
