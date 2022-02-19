@@ -40,8 +40,8 @@ public class Gamecharacter {
         return type;
     }
 
-    public void attack(Gamecharacter a){
-        hp = hp - a.getATK();
+    public void attackedBy(Gamecharacter attacker){
+        hp = hp - attacker.getATK();
     }
 
     public void move(Double direction){
