@@ -1,28 +1,102 @@
 .MainGame {
-  position: relative;
-  width: 1440px;
-  height: 1024px;
+  background: #f6ca9f;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 50%;
+}
 
-  background-color: #F6CA9F;
+h2 {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.Lable {
+  /* padding: 10px; */
+  background: #2a2f4e;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.btnC,
+.btnB,
+.btnA {
+  /* position: absolute; */
+  
+  background: #2a2f4e;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  color: white;
+
+  margin-left: 25px;
+
+  border-radius: 5px;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Card1,
+.Card2,
+.Card3 {
+  /* position: absolute; */
+  width: 120px;
+  height: 150px;
+  margin-top: 10px;
+  margin-left: 70px;
+  /* padding: 30px; */
+  background: #92a1b9;
+  border-radius: 10px;
 }
 
 .Shop {
   position: absolute;
   width: 263px;
-  height: 945px;
-  left: 1157px;
+  /* height: 945px; */
+  /* left: 1157px; */
   top: 35px;
-  background: #F9E6CF;
+  margin-top: 70px;
+  left: 1190px;
+  padding-bottom: 20px;
+  background: #f9e6cf;
 }
 
 .Field {
   position: absolute;
   width: 1024px;
-  height: 887px;
+  height: auto;
+  margin-bottom: 150px;
   left: 82px;
   top: 104px;
-  background: #F9E6CF;
-
+  background: #f9e6cf;
 }
 
 .Menu {
@@ -31,7 +105,7 @@
   height: 68px;
   left: 23px;
   top: 19px;
-  background: #F9E6CF;
+  background: #f9e6cf;
 }
 /* 
 @media (prefers-reduced-motion: no-preference) {
