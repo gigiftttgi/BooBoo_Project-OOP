@@ -194,7 +194,7 @@ public class Expressionparse {
     private Node shootParse() throws SyntaxError{
         Node s = null;
         tkz.consume();
-        s = new AttackCommand(directionParse(),host);
+        s = new AttackCommand(directionParse(),host,listVirus,listAntibody);
         return s;
     }
 
