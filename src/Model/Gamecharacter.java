@@ -3,9 +3,11 @@ package Model;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+
 
 import Parser.Expressionparse;
 import Parser.SyntaxError;
@@ -84,12 +86,42 @@ public class Gamecharacter {
     public void runGeneticcode(List<Virus> listVirus,List<Antibody> listAntibody) throws SyntaxError, FileNotFoundException{
         FileReader f = new FileReader(filename);
         Scanner reader = new Scanner(f);
+        List<String> liststat = new LinkedList<>();
+        StringBuilder statement = new StringBuilder();
+        //StringBuilder whilestatement = new StringBuilder();
         do {
             String l = reader.nextLine();
-            System.out.println(l);
-            Expressionparse e = new Expressionparse(l,this,allVariable,listVirus,listAntibody);
-            e.statementParse().evaluate(); 
+            String[] splitLine =  l.split(" ");
+            if(splitLine[0].equals("if") || splitLine[0].equals("") || splitLine[0].equals("else") ){
+                statement.append(l);
+            }
+            else if(splitLine[0].equals("while")){
+                if(!statement.toString().equals("")){
+                    liststat.add(statement.toString());   
+                }
+                     
+                statement = new StringBuilder();
+                statement.append(l);
+            }
+            else{
+                liststat.add(l);
+                if(!statement.toString().equals("")){
+                    liststat.add(statement.toString());
+                    statement = new StringBuilder();
+                }  
+            } 
+            //System.out.println("split : " + splitLine[0]);
+            // Expressionparse e = new Expressionparse(l,this,allVariable,listVirus,listAntibody);
+            // e.statementParse().evaluate(); 
+
         } while (reader.hasNextLine());
+
+        if(!statement.toString().equals(""))
+            liststat.add(statement.toString());
+
+        for(String s : liststat){
+            System.out.println("statemrnt : "+s);
+        }
     }
     
 }
