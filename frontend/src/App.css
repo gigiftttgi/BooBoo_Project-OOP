@@ -1,6 +1,4 @@
-/* MainGame part */
 .MainGame {
-
   /* position: relative;
   
     position: fixed;
@@ -19,20 +17,9 @@
   margin-right: auto;
   margin-top: 2%;
   width: 100%;
-
-  background: #f6ca9f;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
 }
-/* end MainGame part */
-
-/* Shop part */
 
 .Shop {
-
   /* width: 263px;
   height: 800px; */
   margin-left: auto;
@@ -40,127 +27,18 @@
   margin-bottom: auto;
 
   background-color: #F9E6CF;
-  position: absolute;
-  width: 263px;
-  top: 35px;
-  margin-top: 70px;
-  left: 1190px;
-  padding-bottom: 10px;
-  background: #f9e6cf;
 }
 
-/* Credit+Money font */
-p{
-  font-family: "Nunito Sans", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  color: white;
-  text-align: center;
-  padding-top: 13px;
-  
-}
-.CreditBar {
-  margin-left: auto;
-  margin-right: auto;
-  width: 219px;
-  height: 45px;
-  background: #2a2f4e;
-  border-radius: 12px;
-}
-
-/* lable font */
-h2 {
-  font-family: "Nunito Sans", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 16px;
-  color: white;
-  text-align: center;
-  padding-top: 3px;
-}
-
-.Lable {
-  background: #2a2f4e;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 3px;
-}
-
-/* make image virus center */
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  width: 50%;
-}
-
-.btnC,
-.btnB,
-.btnA {
-
-  background: #2a2f4e;
-
-  font-family: "Nunito Sans", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 16px;
-  color: white;
-
-  margin-left: 25px;
-
-  border-radius: 5px;
-
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 3px;
-}
-
-/* allign all the card */
-.grid-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.Card1,
-.Card2,
-.Card3 {
-  width: 120px;
-  height: 150px;
-  margin-top: 10px;
-  margin-left: 70px;
-  background: #92a1b9;
-  border-radius: 10px;
-}
-
-/* end Shop part */
-
-/* Field part */
 .Field {
   /* position: absolute; */
   width: 1024px;
-
   height: 800px;
   margin-left: auto;
   margin-bottom: auto;
   background: #F9E6CF;
 
-  height: auto;
-  margin-bottom: 150px;
-  left: 82px;
-  top: 104px;
-  background: #f9e6cf;
-
 }
-/* end Field part */
 
-/* Menu part */
 .Menu {
   /* position: absolute; */
   display: flex;
@@ -201,22 +79,6 @@ h2 {
   color: #FFFFFF;
   text-align: center;
   font-size: 20px;
-
-  position: absolute;
-  width: 278px;
-  height: 68px;
-  left: 23px;
-  top: 19px;
-  background: #f9e6cf;
-}
-/* end Menu part */
-
-
-/* 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .menuBtn{
@@ -268,6 +130,3 @@ font-size: 25px;
   text-align:center;
   font-size: 20px;
 }
-
-
-
