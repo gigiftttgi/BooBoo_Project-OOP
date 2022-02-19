@@ -6,9 +6,11 @@ import Shop from './component/Shop';
 function App() {
   return (
     <div className="MainGame">
-      <Shop/>
-      <Field/>
       <Menu/>
+      <div className="contianer">
+        <Shop/>
+        <Field/>
+      </div>
     </div>
   );
 }
