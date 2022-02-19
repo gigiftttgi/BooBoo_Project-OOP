@@ -1,65 +1,135 @@
 .MainGame {
-  position: relative;
-  width: 1440px;
-  height: 1024px;
+  /* position: relative;
+  
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    */
+    /* bring your own prefixes */
+    /*transform: translate(-50%, -50%); 
+    */
+  
+}
 
-  background-color: #F6CA9F;
+.antiImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  width: 100%;
 }
 
 .Shop {
-  position: absolute;
-  width: 263px;
-  height: 945px;
-  left: 1157px;
-  top: 35px;
-  background: #F9E6CF;
+  /* width: 263px;
+  height: 800px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+
+  background-color: #F9E6CF;
 }
 
 .Field {
-  position: absolute;
+  /* position: absolute; */
   width: 1024px;
-  height: 887px;
-  left: 82px;
-  top: 104px;
+  height: 800px;
+  margin-left: auto;
+  margin-bottom: auto;
   background: #F9E6CF;
 
 }
 
 .Menu {
-  position: absolute;
-  width: 278px;
-  height: 68px;
-  left: 23px;
-  top: 19px;
-  background: #F9E6CF;
-}
-/* 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  /* position: absolute; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 20%;
+  height: 10%;
+  margin-left: 23px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #F9E6CF;
 }
 
-.App-link {
-  color: #61dafb;
+.Card {
+  /* width: 193px;
+  height: 200px; */
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-bottom: 7%;
+  background: #92A1B9;
+  border-radius: 10px;
+  display: flow-root;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+
+.CreditBar{
+  
+  margin-left: 5%;
+  margin-right: 5%;
+  top: 0%;
+  bottom: 0%;
+
+  padding-top: 15 px;
+  padding-bottom: 15 px;
+
+  background: #2A2F4E;
+  border-radius: 12px;
+  
+  
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+}
+
+.menuBtn{
+  /* display: flex; */
+  background: #2A2F4E;
+  mix-blend-mode: normal;
+  margin: 2%;
+  border-radius: 12px;
+  width: 20%;
+  height: 80%;
+}
+
+
+.container{
+  display: flex;
+}
+
+.BuyBtn{
+background: #2A2F4E;
+padding-left: 5%;
+padding-right: 5%;
+margin-bottom: 3%;
+margin-left: 5%;
+margin-right: 5%;
+
+display: block;
+width: 100%;
+
+border-radius: 5px;
+/* text */
+color: #FFFFFF;
+text-align:center;
+font-size: 25px;
+}
+
+.Name{
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  background: #2A2F4E;
+  border-radius: 5px;
+
+  color: #FFFFFF;
+  text-align:center;
+  font-size: 20px;
+}
+
+
+
