@@ -1,5 +1,25 @@
 /* MainGame part */
 .MainGame {
+
+  /* position: relative;
+  
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    */
+    /* bring your own prefixes */
+    /*transform: translate(-50%, -50%); 
+    */
+  
+}
+
+.antiImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  width: 100%;
+
   background: #f6ca9f;
   position: absolute;
   top: 0px;
@@ -12,6 +32,14 @@
 /* Shop part */
 
 .Shop {
+
+  /* width: 263px;
+  height: 800px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+
+  background-color: #F9E6CF;
   position: absolute;
   width: 263px;
   top: 35px;
@@ -115,18 +143,65 @@ h2 {
 
 /* Field part */
 .Field {
-  position: absolute;
+  /* position: absolute; */
   width: 1024px;
+
+  height: 800px;
+  margin-left: auto;
+  margin-bottom: auto;
+  background: #F9E6CF;
+
   height: auto;
   margin-bottom: 150px;
   left: 82px;
   top: 104px;
   background: #f9e6cf;
+
 }
 /* end Field part */
 
 /* Menu part */
 .Menu {
+  /* position: absolute; */
+  display: flex;
+  width: 20%;
+  height: 10%;
+  margin-left: 23px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #F9E6CF;
+}
+
+.Card {
+  /* width: 193px;
+  height: 200px; */
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-bottom: 7%;
+  background: #92A1B9;
+  border-radius: 10px;
+  display: flow-root;
+}
+
+
+.CreditBar{
+  
+  margin-left: 5%;
+  margin-right: 5%;
+  top: 0%;
+  bottom: 0%;
+
+  padding-top: 15 px;
+  padding-bottom: 15 px;
+
+  background: #2A2F4E;
+  border-radius: 12px;
+  
+  
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+
   position: absolute;
   width: 278px;
   height: 68px;
@@ -144,26 +219,55 @@ h2 {
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menuBtn{
+  /* display: flex; */
+  background: #2A2F4E;
+  mix-blend-mode: normal;
+  margin: 2%;
+  border-radius: 12px;
+  width: 20%;
+  height: 80%;
+}
+
+
+.container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.BuyBtn{
+background: #2A2F4E;
+padding-left: 5%;
+padding-right: 5%;
+margin-bottom: 3%;
+margin-left: 5%;
+margin-right: 5%;
+
+display: block;
+width: 100%;
+
+border-radius: 5px;
+/* text */
+color: #FFFFFF;
+text-align:center;
+font-size: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.Name{
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  background: #2A2F4E;
+  border-radius: 5px;
+
+  color: #FFFFFF;
+  text-align:center;
+  font-size: 20px;
+}
+
+
+
