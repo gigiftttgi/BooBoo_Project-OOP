@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import ShopCard from './ShopCard';
-
-
 
 const Shop = () => {
 
@@ -34,16 +31,7 @@ const Shop = () => {
           <button className='BuyBtn'>Buy</button>
         </div>
       </div>
-
-
-
     </div>
-
-
-
-
-
-
 
   );
 
