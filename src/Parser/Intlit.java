@@ -16,8 +16,11 @@ public class Intlit implements Node{
     public double evaluate() throws SyntaxError {
         if(isNumber(val))
             return Double.parseDouble(val);
-        else
-            return allVariable.get(val);
+        else{
+            Variable v = new Variable(val, allVariable);
+            return v.evaluate();
+        }
+            
     }
 
     private boolean isNumber(String s){

@@ -103,10 +103,6 @@ public class Expressionparse {
         return t;
     }
 
-    public Node programParse(){
-        return new Program();
-    }
-    
     // Statement → Command | BlockStatement | IfStatement | WhileStatement
     public Node statementParse() throws SyntaxError {
         
