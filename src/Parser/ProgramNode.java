@@ -11,7 +11,7 @@ public class ProgramNode implements Node{
     protected List<Node> statement;
 
     public ProgramNode(){
-        List<Node> statememt = new LinkedList<>();
+        this.statement = new LinkedList<>();
     }
 
     public void addStatement(Node newStatement){
