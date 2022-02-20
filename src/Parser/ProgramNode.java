@@ -3,11 +3,14 @@ package Parser;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Program implements Node{
+import Model.Gamecharacter;
+import Model.Virus;
+
+public class ProgramNode implements Node{
 
     protected List<Node> statement;
 
-    Program(){
+    public ProgramNode(){
         List<Node> statememt = new LinkedList<>();
     }
 

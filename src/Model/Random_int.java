@@ -7,7 +7,7 @@ public class Random_int {
     protected Random r;
     protected int upperbound;
 
-    Random_int(int upperbound){
+    public Random_int(int upperbound){
         this.r = new Random();
         this.upperbound = upperbound;
     }
