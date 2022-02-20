@@ -27,7 +27,7 @@ public class Tokenizer {
                 s.append(c);
                 pos++;
             }
-            else if (Character.isLetter(c)) {
+            else if (Character.isLetter(c) || c == '{' || c == '}') {
                 s.append(c);
                 for (pos++; pos < src.length() && Character.isLetter(src.charAt(pos)); pos++) {
                     s.append(src.charAt(pos));
@@ -38,7 +38,10 @@ public class Tokenizer {
 
                 }
             }
-            else throw new SyntaxError();
+            else {
+                System.out.println(c);
+                throw new SyntaxError();
+            }
         }
         next = s.toString();
     }

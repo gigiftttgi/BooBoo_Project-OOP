@@ -23,6 +23,8 @@ public class VirusNode implements Node{
             if(newmin < min)
                 min = newmin;
         }
+        if(min == Integer.MAX_VALUE)
+            return 0;
         return min;
     }
 

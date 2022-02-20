@@ -4,7 +4,7 @@ public class Position {
     protected int x;
     protected int y;
 
-    Position(int x,int y){
+    public Position(int x,int y){
         this.x = x;
         this.y = y;
     }
@@ -20,6 +20,12 @@ public class Position {
 
     public int PosY(){
         return y;
+    }
+
+    public boolean equalPos(Position target){
+        if( x == target.PosX() && y == target.PosY())
+            return true;
+        return false;
     }
     
     

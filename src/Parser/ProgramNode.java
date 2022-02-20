@@ -3,12 +3,15 @@ package Parser;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Program implements Node{
+import Model.Gamecharacter;
+import Model.Virus;
+
+public class ProgramNode implements Node{
 
     protected List<Node> statement;
 
-    Program(){
-        List<Node> statememt = new LinkedList<>();
+    public ProgramNode(){
+        this.statement = new LinkedList<>();
     }
 
     public void addStatement(Node newStatement){

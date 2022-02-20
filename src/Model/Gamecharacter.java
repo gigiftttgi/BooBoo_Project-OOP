@@ -3,11 +3,15 @@ package Model;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+
 import Parser.Expressionparse;
+import Parser.Node;
+import Parser.ProgramNode;
 import Parser.SyntaxError;
 
 public class Gamecharacter {
@@ -17,6 +21,7 @@ public class Gamecharacter {
     protected Boolean status;
     protected Position pos;
     protected String filename;
+    protected String type;
     protected Map<String,Double> allVariable = new LinkedHashMap<>();
 
     public double getATK(){
@@ -31,8 +36,12 @@ public class Gamecharacter {
         return pos;
     }
 
-    public void attack(Gamecharacter a){
-        hp = hp - a.getATK();
+    public String getType(){
+        return type;
+    }
+
+    public void attackedBy(Gamecharacter attacker){
+        hp = hp - attacker.getATK();
     }
 
     public void move(Double direction){
@@ -84,12 +93,15 @@ public class Gamecharacter {
     public void runGeneticcode(List<Virus> listVirus,List<Antibody> listAntibody) throws SyntaxError, FileNotFoundException{
         FileReader f = new FileReader(filename);
         Scanner reader = new Scanner(f);
-        do {
-            String l = reader.nextLine();
-            System.out.println(l);
-            Expressionparse e = new Expressionparse(l,this,allVariable,listVirus,listAntibody);
-            e.statementParse().evaluate(); 
-        } while (reader.hasNextLine());
+        StringBuilder all = new StringBuilder();
+        while (reader.hasNextLine()){
+            all.append(reader.nextLine());
+            all.append("\n");
+        }
+        Expressionparse exp = new Expressionparse(all.toString(), this , allVariable, listVirus, listAntibody);
+        Node parseExp = exp.parse();
+        parseExp.evaluate();
+ 
     }
     
 }
