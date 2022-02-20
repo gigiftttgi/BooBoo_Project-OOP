@@ -11,14 +11,19 @@ public class Gameplay {
   
   public static void main(String[] args) throws FileNotFoundException, SyntaxError {
     Field field = new Field();
-    for(int i=0 ;i<1 ;i++){
-      field.creatVirus();
-    }   
-    for(Virus v : field.getListVirus()){
-        System.out.println(v.getClass());
-        v.runGeneticcode(field.getListVirus(),field.getListAntibosy());
-        System.out.println("-------------------------------------------------");
-    }
+    /*// for(int i=0 ;i<1 ;i++){
+    //   field.creatVirus();
+    // }   
+    // for(Virus v : field.getListVirus()){
+    //     System.out.println(v.getClass());
+    //     v.runGeneticcode(field.getListVirus(),field.getListAntibosy());
+    //     System.out.println("-------------------------------------------------");
+    // }*/
+
+    Virus_X x = new Virus_X(10, 10);
+    System.out.println(x.getPos().PosX() + " " + x.getPos().PosY());
+    x.runGeneticcode(field.getListVirus(),field.getListAntibosy());
+    System.out.println(x.getPos().PosX() + " " + x.getPos().PosY());
 
     //test create virus with time (เกิดไม่ซ้ำกัน)
     // Field field = new Field();
