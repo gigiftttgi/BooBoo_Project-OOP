@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 
-class Field extends React.Component {
-    render() {
-      return (
-        <div className="Field">
-          I am Field
+const Field = () => {
+    return (
+        <div className='Field'>
+            <td className="w-6 h-6 cursor-pointer">
+            </td>
         </div>
-      );
-    }
-
+    );
 
 }
 

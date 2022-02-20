@@ -1,30 +1,40 @@
-import React, { Component } from 'react';
-import ShopCard from './ShopCard';
 
-class Shop extends React.Component {
-    render() {
-      return (
-        <div className="Shop">
-          I am Shop
-          <div className="CreditBar">
-            <p className="CreditText">Credit + Money</p>
+
+const Shop = () => {
+
+  return (
+    <div className='Shop'>
+      <div className='CreditBar'>
+        <p className="CreditText">Credit + Money</p>
+      </div>
+
+      <div className="px-100">
+        <div className='Card'>
+          <div className='Name'>
+            Antibody A
           </div>
-
-          <ShopCard>
-            <img src="frontend/src/image/antibody/antiA.png" alt="antiA shop" ></img>
-            
-          </ShopCard>
-          <ShopCard>
-            <img src="frontend/src/image/antibody/antiB.png" alt="antiB shop"></img>
-          </ShopCard>
-          <ShopCard>
-            <img src="frontend/src/image/antibody/antiC.png" alt="antiC shop"></img>
-          </ShopCard>
-
-
+          <img src={require('./image/antibody/antiA.png')} className="antiImg"></img>
+          <button className='BuyBtn'>Buy</button>
         </div>
-      );
-    }
+        <div className='Card'>
+          <div className='Name'>
+            Antibody B
+          </div>
+          <img src={require('./image/antibody/antiB.png')} className="antiImg"></img>
+          <button className='BuyBtn'>Buy</button>
+        </div>
+        <div className='Card'>
+          <div className='Name'>
+            Antibody C
+          </div>
+          <img src={require('./image/antibody/antiC.png')} className="antiImg"></img>
+          <button className='BuyBtn'>Buy</button>
+        </div>
+      </div>
+    </div>
+
+  );
+
 
 
 }
