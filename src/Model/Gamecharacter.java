@@ -92,48 +92,16 @@ public class Gamecharacter {
 
     public void runGeneticcode(List<Virus> listVirus,List<Antibody> listAntibody) throws SyntaxError, FileNotFoundException{
         FileReader f = new FileReader(filename);
-        ProgramNode pro = new ProgramNode();
         Scanner reader = new Scanner(f);
-        List<String> liststat = new LinkedList<>();
-        StringBuilder statement = new StringBuilder();
-        //StringBuilder whilestatement = new StringBuilder();
-        do {
-            String l = reader.nextLine();
-            String[] splitLine =  l.split(" ");
-            if(splitLine[0].equals("if") || splitLine[0].equals("") || splitLine[0].equals("else") ){
-                statement.append(l);
-            }
-            else if(splitLine[0].equals("while")){
-                if(!statement.toString().equals("")){
-                    liststat.add(statement.toString());   
-                }
-                     
-                statement = new StringBuilder();
-                statement.append(l);
-            }
-            else{
-                liststat.add(l);
-                if(!statement.toString().equals("")){
-                    liststat.add(statement.toString());
-                    statement = new StringBuilder();
-                }  
-            } 
-            //System.out.println("split : " + splitLine[0]);
-            // Expressionparse e = new Expressionparse(l,this,allVariable,listVirus,listAntibody);
-            // e.statementParse().evaluate(); 
-
-        } while (reader.hasNextLine());
-
-        if(!statement.toString().equals("")){
-            liststat.add(statement.toString());
+        StringBuilder all = new StringBuilder();
+        while (reader.hasNextLine()){
+            all.append(reader.nextLine());
+            all.append("\n");
         }
-        
-        //pro.addStatement(newStatement);
-
-        for(String s : liststat){
-            Expressionparse e = new Expressionparse(s,this,allVariable,listVirus,listAntibody);
-            e.statementParse().evaluate();
-        }
+        Expressionparse exp = new Expressionparse(all.toString(), this , allVariable, listVirus, listAntibody);
+        Node parseExp = exp.parse();
+        parseExp.evaluate();
+ 
     }
     
 }
