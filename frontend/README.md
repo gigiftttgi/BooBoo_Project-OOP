@@ -1,10 +1,11 @@
 # Modified REACT
 1. cd frontend
 2. npm install
-3. npm install react-bootstrap bootstrap@5.1.3
+3. npm install axios
+4. npm install react-bootstrap bootstrap@5.1.3
     see from https://react-bootstrap.github.io/getting-started/introduction/
 
-4. npm start
+5. npm start
 
 
 
