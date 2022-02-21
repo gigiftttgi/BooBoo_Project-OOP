@@ -7,7 +7,7 @@ public class Antibody_B extends Antibody {
         this.atk = 10;
         this.hp = 120;
         this.moveCost = 15;
-        this.filename = "src/main/java/com/booboo/CAREN/Model/Genetic/Genetic_B.txt";
+        this.filename = "CAREN/src/main/java/com/booboo/CAREN/Model/Genetic/Genetic_B.txt";
     }
     
 }

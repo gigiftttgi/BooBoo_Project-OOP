@@ -7,6 +7,6 @@ public class Virus_Y extends Virus {
         this.hp = 130;
         this.credit = 20;
         this.pos = new Position(posx, posy);
-        this.filename = "src/main/java/com/booboo/CAREN/Model/Genetic/Genetic_Y.txt";
+        this.filename = "CAREN/src/main/java/com/booboo/CAREN/Model/Genetic/Genetic_Y.txt";
     }
 }
