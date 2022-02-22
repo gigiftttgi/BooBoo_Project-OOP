@@ -17,6 +17,10 @@ public class Shop {
         return balance;
     }
 
+    public int getBalance(){
+        return balance;
+    }
+
     public void buyAntiA(String type,int btn){
         if(balance>=20 && type.equals("A") && btn == 1){
             Characterfactory facAnti = new Characterfactory();
