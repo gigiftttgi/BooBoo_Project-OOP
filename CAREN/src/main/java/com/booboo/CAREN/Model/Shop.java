@@ -22,9 +22,9 @@ public class Shop {
         return instance;
     }
 
-    public int getBalance() {
-        return balance;
-    }
+//    public int getBalance() {
+//        return balance;
+//    }
 
     public void buyAntiA(String type, int btn){
         if(balance>=20 && type.equals("A") && btn == 1){
