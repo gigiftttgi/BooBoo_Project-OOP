@@ -7,18 +7,19 @@ import com.booboo.CAREN.Controller.Button;
 public class Shop {
     
     protected int balance ;
+    private static Shop instance;
 
-    public Shop(){
+    private Shop(){
          this.balance = 100;
     }
 
-
-    public int getBalance(){
-        return balance;
-    }
-
-    public int getBalance(){
-        return balance;
+    public static Shop getShop()
+    {
+        if (instance == null)
+        {
+            instance = new Shop();
+        }
+        return instance;
     }
 
     public void buyAntiA(String type,int btn){

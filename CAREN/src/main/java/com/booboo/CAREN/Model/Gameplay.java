@@ -8,9 +8,23 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Gameplay {
+
+  Field field = new Field();
+  private static Gameplay instance;
+
+  public static Gameplay getGameplay()
+    {
+        if (instance == null)
+        {
+            instance = new Gameplay();
+        }
+        return instance;
+    }
+
+  Virus_X x = new Virus_X(10, 10);
   
-  public static void main(String[] args) throws FileNotFoundException, SyntaxError {
-    Field field = new Field();
+  // public static void main(String[] args) throws FileNotFoundException, SyntaxError {
+    // Field field = new Field();
     /*// for(int i=0 ;i<1 ;i++){
     //   field.creatVirus();
     // }   
@@ -20,10 +34,10 @@ public class Gameplay {
     //     System.out.println("-------------------------------------------------");
     // }*/
 
-    Virus_X x = new Virus_X(10, 10);
-    System.out.println(x.getPos().PosX() + " " + x.getPos().PosY());
-    x.runGeneticcode(field.getListVirus(),field.getListAntibosy());
-    System.out.println(x.getPos().PosX() + " " + x.getPos().PosY());
+    // Virus_X x = new Virus_X(10, 10);
+    // System.out.println(x.getPos().PosX() + " " + x.getPos().PosY());
+    // x.runGeneticcode(field.getListVirus(),field.getListAntibosy());
+    // System.out.println(x.getPos().PosX() + " " + x.getPos().PosY());
 
     //test create virus with time (เกิดไม่ซ้ำกัน)
     // Field field = new Field();
@@ -47,7 +61,7 @@ public class Gameplay {
     // };
     // timer.scheduleAtFixedRate(task, 0, 1000);
     
-  }
+  // }
 }
 // Test creat with time
 //     Timer timer = new Timer();
