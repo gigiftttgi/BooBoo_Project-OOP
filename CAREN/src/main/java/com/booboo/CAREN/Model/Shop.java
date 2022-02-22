@@ -22,7 +22,11 @@ public class Shop {
         return instance;
     }
 
-    public void buyAntiA(String type,int btn){
+    public int getBalance() {
+        return balance;
+    }
+
+    public void buyAntiA(String type, int btn){
         if(balance>=20 && type.equals("A") && btn == 1){
             Characterfactory facAnti = new Characterfactory();
             facAnti.createAntibody("A");
