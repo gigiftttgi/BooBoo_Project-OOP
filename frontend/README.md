@@ -1,3 +1,14 @@
+# Modified REACT
+1. cd frontend
+2. npm install
+3. npm install axios
+4. npm install react-bootstrap bootstrap@5.1.3
+    see from https://react-bootstrap.github.io/getting-started/introduction/
+
+5. npm start
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
