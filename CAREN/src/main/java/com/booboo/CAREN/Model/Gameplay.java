@@ -11,8 +11,11 @@ public class Gameplay {
 
   Field field = new Field();
   private static Gameplay instance;
+  private Gameplay(){
 
-  public static Gameplay getGameplay()
+  }
+
+  public static Gameplay getInsGameplay()
     {
         if (instance == null)
         {
