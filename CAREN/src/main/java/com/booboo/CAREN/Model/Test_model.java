@@ -17,16 +17,21 @@ public class Test_model {
     //test Shop.java
     public static void main(String[] args) {
         //press the button
-        Button btnA = new Button("Buy Antibody A");
-        Button btnB = new Button("Buy Antibody B");
+        // Button btnA = new Button("Buy Antibody A");
+        // Button btnB = new Button("Buy Antibody B");
+        Gameplay gp =Gameplay.getInsGameplay();
+        Shop shop = Shop.getInsShop();
+        System.out.println(shop.getMoney());
         
-       Shop shop = Shop.getShop();
-       System.out.println("Player start money is "+shop.balance);
-       shop.buyAntiA("A", btnA.buyAntiA_btn());
-       shop.buyAntiA("A", btnA.buyAntiA_btn());
-       shop.buyAntiB("B", btnB.buyAntiB_btn());
-       shop.buyAntiB("B", btnB.buyAntiB_btn());
-       System.out.println("Your final balance is "+shop.balance);
+        
+    //    Shop shop = new Shop();
+    //    System.out.println("Player start money is "+shop.balance);
+    //    shop.buyAntiA("A", btnA.buyAntiA_btn());
+    //    shop.buyAntiA("A", btnA.buyAntiA_btn());
+    //    shop.buyAntiB("B", btnB.buyAntiB_btn());
+    //    shop.buyAntiB("B", btnB.buyAntiB_btn());
+    //    System.out.println("Your final balance is "+shop.balance);
+
 
     }
 }

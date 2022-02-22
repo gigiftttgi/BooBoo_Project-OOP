@@ -13,7 +13,7 @@ public class Shop {
          this.balance = 100;
     }
 
-    public static Shop getShop()
+    public static Shop getInsShop()
     {
         if (instance == null)
         {
@@ -57,6 +57,10 @@ public class Shop {
         }else{
             System.out.println("you dont have enough money");
         }
+    }
+
+    public int getMoney(){
+        return balance;
     }
         
 
