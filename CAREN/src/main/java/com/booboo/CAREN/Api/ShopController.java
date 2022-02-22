@@ -1,9 +1,7 @@
 package com.booboo.CAREN.Api;
 
 import com.booboo.CAREN.Model.Shop;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 @CrossOrigin(origins = "https://localhost:3000")
@@ -25,9 +23,19 @@ public class ShopController {
     }
 
 
-//    @CrossOrigin
-//    @PostMapping("/buy")
-//    public String buyAnti(){
-//        return "buy";
-//    }
+    @CrossOrigin
+    @PostMapping()
+    @RequestMapping("/buy")
+    public String buyAnti(@RequestBody String antibody){
+        if(antibody == "antiA"){
+            shop.buyAntiA();
+        }else if(antibody == "antiB"){
+            shop.buyAntiB();
+        }else if(antibody == "antiC"){
+            shop.buyAntiC();
+        }
+
+        return "Sent Request Successfully";
+
+    }
 }
