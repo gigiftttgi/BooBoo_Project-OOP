@@ -22,12 +22,9 @@ public class Shop {
         return instance;
     }
 
-//    public int getBalance() {
-//        return balance;
-//    }
 
-    public void buyAntiA(String type, int btn){
-        if(balance>=20 && type.equals("A") && btn == 1){
+    public void buyAntiA(){
+        if(balance>=20 ){
             Characterfactory facAnti = new Characterfactory();
             facAnti.createAntibody("A");
             this.balance -=20;
@@ -37,8 +34,8 @@ public class Shop {
         }
     }
 
-    public void buyAntiB(String type,int btn){
-        if(balance>=50 && type.equals("B") && btn == 1){
+    public void buyAntiB(){
+        if(balance>=50 ){
             Characterfactory facAnti = new Characterfactory();
             facAnti.createAntibody("B");
             this.balance -=50;
@@ -48,8 +45,8 @@ public class Shop {
         }
     }
 
-    public void buyAntiC(String type,int btn){
-        if(balance>=50 && type.equals("C") && btn == 1){
+    public void buyAntiC(){
+        if(balance>=50){
             Characterfactory facAnti = new Characterfactory();
             facAnti.createAntibody("C");
             this.balance -=50;
