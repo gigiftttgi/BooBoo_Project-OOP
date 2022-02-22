@@ -3,31 +3,35 @@ import axios from 'axios';
 
 const Shop = () => {
 
-  const [money,setMoney] = usestate('');
+  const [money, setMoney] = useState('');
 
   useEffect(async () => {
-    const money = await axios('http://localhost:8080/booboo/shop/money');
-    setMoney(money.data);
-  });
+    const m = await axios('/shop/money',);
+    setMoney(m.data);
+    console.log(m.data);
+
+  }, []);
+
+  const [anti, setAnti] = useState('');
+
+  // function sendBuy(){
+  //   axios.post('http://localhost:8080/shop/buy')
+  //   .the
+  // }
 
 
-  const [anti,setAnti] = useState('');
 
-  function sentBuyAnti(){
-    fetch('http://localhost:8080/shop',{
-      method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(anti)
-    }).then(()=> {
-      console.log(anti)
-    })
+  function sentBuyAnti(anti) {
+    axios.post('/shop/buy',anti)
+    .then(response => setAnti(response.data.anti))
+
   }
- 
+
 
   return (
     <div className='Shop'>
       <div className='CreditBar'>
-        <p className="CreditText">Credit {data}</p>
+        <p className="CreditText">Credit: {money}</p>
       </div>
 
       <div className="px-100">
@@ -36,7 +40,9 @@ const Shop = () => {
             Antibody A
           </div>
           <img src={require('./image/antibody/antiA.png')} className="antiImg"></img>
-          <button className='BuyBtn' onClick={()=>{setAnti("antibodyA")}, {sentBuyAnti}}>Buy</button>
+          <button className='BuyBtn'
+          //  onClick={() => { sentBuyAnti(setAnti("antibodyA")) }}
+           >Buy</button>
 
         </div>
         <div className='Card'>
@@ -44,7 +50,9 @@ const Shop = () => {
             Antibody B
           </div>
           <img src={require('./image/antibody/antiB.png')} className="antiImg"></img>
-          <button className='BuyBtn' onClick={()=>{setAnti("antibodyB")}, {sentBuyAnti}}>Buy</button>
+          <button className='BuyBtn' 
+          // onClick={() => { setAnti("antibodyB") }, { sentBuyAnti }}
+          >Buy</button>
 
         </div>
         <div className='Card'>
@@ -52,15 +60,15 @@ const Shop = () => {
             Antibody C
           </div>
           <img src={require('./image/antibody/antiC.png')} className="antiImg"></img>
-          <button className='BuyBtn' onClick={()=>{setAnti("antibodyC")}, {sentBuyAnti}}>Buy</button>
-          
+          <button className='BuyBtn' 
+          // onClick={() => { setAnti("antibodyC") }, { sentBuyAnti }}
+          >Buy</button>
+
         </div>
       </div>
     </div>
 
   );
-
-
 
 }
 
