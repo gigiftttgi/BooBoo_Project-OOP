@@ -20,7 +20,7 @@ public class Test_model {
         Button btnA = new Button("Buy Antibody A");
         Button btnB = new Button("Buy Antibody B");
         
-       Shop shop = new Shop();
+       Shop shop = Shop.getShop();
        System.out.println("Player start money is "+shop.balance);
        shop.buyAntiA("A", btnA.buyAntiA_btn());
        shop.buyAntiA("A", btnA.buyAntiA_btn());

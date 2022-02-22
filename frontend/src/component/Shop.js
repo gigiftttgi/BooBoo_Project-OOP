@@ -3,10 +3,18 @@ import axios from 'axios';
 
 const Shop = () => {
 
+  const [money,setMoney] = usestate('');
+
+  useEffect(async () => {
+    const money = await axios('http://localhost:8080/booboo/shop/money');
+    setMoney(money.data);
+  });
+
+
   const [anti,setAnti] = useState('');
 
   function sentBuyAnti(){
-    fetch('http://localhost:8080/booboo/shop',{
+    fetch('http://localhost:8080/shop',{
       method: 'POST',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(anti)
@@ -14,25 +22,12 @@ const Shop = () => {
       console.log(anti)
     })
   }
-  // const buyAnti = async (e) => {
-  //   e.preventDefault();
-  //   await axios({
-  //     url: "http://localhost:8080/booboo/shop",
-  //     method: "POST",
-  //     data: {
-  //       antibody : setAnti,
-  //     },
-  //   }).then(res => {
-  //     console.log(res);
-  //     setLoggedIn(true);
-  //   })
-  //     .catch((err) => console.log(err));
-  //   };
+ 
 
   return (
     <div className='Shop'>
       <div className='CreditBar'>
-        <p className="CreditText">Credit</p>
+        <p className="CreditText">Credit {data}</p>
       </div>
 
       <div className="px-100">
