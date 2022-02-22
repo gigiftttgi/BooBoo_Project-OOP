@@ -23,8 +23,6 @@ public class Test_model {
         Shop shop = Shop.getInsShop();
         System.out.println(shop.getMoney());
         
-
-        
         
     //    Shop shop = new Shop();
     //    System.out.println("Player start money is "+shop.balance);
@@ -33,6 +31,7 @@ public class Test_model {
     //    shop.buyAntiB("B", btnB.buyAntiB_btn());
     //    shop.buyAntiB("B", btnB.buyAntiB_btn());
     //    System.out.println("Your final balance is "+shop.balance);
+
 
     }
 }
