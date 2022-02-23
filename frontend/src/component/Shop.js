@@ -12,20 +12,33 @@ const Shop = () => {
 
   }, []);
 
-  const [anti, setAnti] = useState('');
 
-  // function sendBuy(){
-  //   axios.post('http://localhost:8080/shop/buy')
-  //   .the
-  // }
+  function updateMoney() {
+    axios.get('/shop/money',)
+    .then((response) =>  setMoney(response.data));
+    // console.log(response.data);
+  }
 
 
 
-  function sentBuyAnti(anti) {
-    axios.post('/shop/buy',anti)
-    .then(response => setAnti(response.data.anti))
+  function sentBuyAntiA(anti) {
+    axios.post('/shop/buyA', anti)
+      .then(response => console.log(response.data));
 
   }
+
+  function sentBuyAntiB(anti) {
+    axios.post('/shop/buyB', anti)
+      .then(response => console.log(response.data));
+
+  }
+
+  function sentBuyAntiC(anti) {
+    axios.post('/shop/buyC', anti)
+      .then(response => console.log(response.data));
+
+  }
+
 
 
   return (
@@ -41,8 +54,8 @@ const Shop = () => {
           </div>
           <img src={require('./image/antibody/antiA.png')} className="antiImg"></img>
           <button className='BuyBtn'
-          //  onClick={() => { sentBuyAnti(setAnti("antibodyA")) }}
-           >Buy</button>
+            onClick={() => { sentBuyAntiA("antiA"); updateMoney(); }}
+          >Buy</button>
 
         </div>
         <div className='Card'>
@@ -50,8 +63,8 @@ const Shop = () => {
             Antibody B
           </div>
           <img src={require('./image/antibody/antiB.png')} className="antiImg"></img>
-          <button className='BuyBtn' 
-          // onClick={() => { setAnti("antibodyB") }, { sentBuyAnti }}
+          <button className='BuyBtn'
+            onClick={() => { sentBuyAntiB("antiB"); updateMoney(); }}
           >Buy</button>
 
         </div>
@@ -60,8 +73,8 @@ const Shop = () => {
             Antibody C
           </div>
           <img src={require('./image/antibody/antiC.png')} className="antiImg"></img>
-          <button className='BuyBtn' 
-          // onClick={() => { setAnti("antibodyC") }, { sentBuyAnti }}
+          <button className='BuyBtn'
+            onClick={() => { sentBuyAntiC("antiC"); updateMoney(); }}
           >Buy</button>
 
         </div>
