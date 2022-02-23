@@ -19,7 +19,7 @@ public class ProgramNode implements Node{
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         for(Node current : statement){
             current.evaluate();
         }

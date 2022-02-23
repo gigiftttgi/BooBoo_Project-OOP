@@ -16,7 +16,7 @@ public class AntibodyNode implements Node {
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         int min = Integer.MAX_VALUE;
         for(Antibody a : listAntibody){
             int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), a.getPos().PosX(), a.getPos().PosY());
@@ -25,7 +25,7 @@ public class AntibodyNode implements Node {
         }
         if(min == Integer.MAX_VALUE)
             return 0;
-        return (double) min;
+        return min;
     }
 
     public int findLocation(int hostX,int hostY,int targetX, int targetY){

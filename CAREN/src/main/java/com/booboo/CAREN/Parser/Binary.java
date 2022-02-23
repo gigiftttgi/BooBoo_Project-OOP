@@ -13,15 +13,15 @@ public class Binary implements Node{
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
-        double lv = left.evaluate();
-        double rv = right.evaluate();
+    public int evaluate() throws SyntaxError {
+        int lv = left.evaluate();
+        int rv = right.evaluate();
         if(op.equals("+")) return lv+rv;
         if(op.equals("-")) return lv-rv;
         if(op.equals("*")) return lv*rv;
         if(op.equals("/")) return lv/rv;
         if(op.equals("%")) return lv%rv;
-        if(op.equals("^")) return Math.pow(lv, rv);
+        if(op.equals("^")) return (int) Math.pow(lv, rv);
         throw new SyntaxError();
     }
     

@@ -23,7 +23,7 @@ public class AttackCommand implements Node{
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
 
         Position target = targetLocation(host.getPos(), direction.evaluate());
         if(host.getType().equals("virus")){

@@ -11,7 +11,7 @@ public class Command implements Node {
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         command.evaluate();
         return 0;
     }

@@ -12,11 +12,11 @@ public class Expressionparse {
 
     private Tokenizer tkz;
     private Gamecharacter host;
-    private Map<String,Double> allVariable;
+    private Map<String,Integer> allVariable;
     private List<Virus> listVirus;
     private List<Antibody> listAntibody;
 
-    public Expressionparse(String src, Gamecharacter host, Map<String,Double> allVariable ,List<Virus> listVirus ,List<Antibody> listAntibody ) throws SyntaxError{
+    public Expressionparse(String src, Gamecharacter host, Map<String,Integer> allVariable ,List<Virus> listVirus ,List<Antibody> listAntibody ) throws SyntaxError{
         this.tkz = new Tokenizer(src);
         this.host = host;
         this.allVariable = allVariable;
@@ -160,7 +160,7 @@ public class Expressionparse {
 
     // IfStatement → if ( Expression ) then Statement else Statement
     private Node ifParse() throws SyntaxError{
-        System.out.println("if parse");
+
         tkz.consume(); // if
         tkz.consume(); // (
         Node ifstat = parseE();
@@ -214,7 +214,6 @@ public class Expressionparse {
     private Node actionParse() throws SyntaxError{
         Node a = null;
         if(tkz.peek("move")){
-            System.out.println("action parse");
             a = new ActionCommand(moveParse());
         }
         else if(tkz.peek("shoot")){
@@ -234,7 +233,6 @@ public class Expressionparse {
     // MoveCommand → move Direction
     private Node moveParse() throws SyntaxError{
         Node m = null;
-        System.out.println("move parse");
         tkz.consume();
         m = new MoveCommand(directionParse(),host);
         return m;

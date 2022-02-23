@@ -12,7 +12,7 @@ public class WhileStatement implements Node{
 
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
 
         while(expression.evaluate() > 0){
             loopStatement.evaluate();

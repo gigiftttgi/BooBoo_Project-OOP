@@ -10,16 +10,16 @@ public class Direction implements Node{
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         switch (direct) {
-            case "up" -> { return 1.0; }
-            case "upright"  -> { return 2.0; }
-            case "right"  -> { return 3.0; }
-            case "downright"  -> { return 4.0; }
-            case "down"  -> { return 5.0; }
-            case "downleft"  -> { return 6.0; }
-            case "left"  -> { return 7.0; }
-            case "upleft"  -> { return 8.0; }
+            case "up" -> { return 1; }
+            case "upright"  -> { return 2; }
+            case "right"  -> { return 3; }
+            case "downright"  -> { return 4; }
+            case "down"  -> { return 5; }
+            case "downleft"  -> { return 6; }
+            case "left"  -> { return 7; }
+            case "upleft"  -> { return 8; }
         }
         return 0;
     }

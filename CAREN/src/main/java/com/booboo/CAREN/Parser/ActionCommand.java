@@ -9,7 +9,7 @@ public class ActionCommand implements Node {
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         action.evaluate();
         return 0;
     }

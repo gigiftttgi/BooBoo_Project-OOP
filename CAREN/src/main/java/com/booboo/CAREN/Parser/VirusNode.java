@@ -16,7 +16,7 @@ public class VirusNode implements Node{
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         int min = Integer.MAX_VALUE;
         for(Virus v : listVirus){
             int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), v.getPos().PosX(), v.getPos().PosY());
