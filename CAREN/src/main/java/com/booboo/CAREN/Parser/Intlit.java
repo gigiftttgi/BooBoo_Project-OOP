@@ -5,17 +5,17 @@ import java.util.Map;
 public class Intlit implements Node{
         
     private String val;
-    private Map<String,Double> allVariable;
+    private Map<String,Integer> allVariable;
         
-    Intlit (String val, Map<String,Double> allVariable){
+    Intlit (String val, Map<String,Integer> allVariable){
         this.val = val;
         this.allVariable = allVariable;
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         if(isNumber(val))
-            return Double.parseDouble(val);
+            return Integer.parseInt(val);
         else{
             Variable v = new Variable(val, allVariable);
             return v.evaluate();
