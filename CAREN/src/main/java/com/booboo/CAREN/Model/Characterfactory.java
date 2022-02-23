@@ -5,6 +5,7 @@ public class Characterfactory {
   protected int currentTime;
   protected int virusRate;
 
+
   protected int increaseVirusrate(int time) {
     return virusRate;
   }
@@ -30,38 +31,22 @@ public class Characterfactory {
       return new Virus_Z(posx, posy);
     }
   }
-  // ยังใช้ class time ไม่ได้
-  // public Virus createVirus(int time,int virusRate){
 
-  //     int randVirus = (int)(Math.random()*3)+1;
 
-  //     if (randVirus==1) {
-  //         System.out.println("Virus x is now create.");
-  //         return new Virus_X();
-  //     }else if(randVirus==2){
-  //         System.out.println("Virus y is now create.");
-  //         return new Virus_Y();
-  //     }else{
-  //         System.out.println("Virus z is now create.");
-  //         return new Virus_Z();
-  //     }
-  // }
 
-  //wait shop to finish
-    public Antibody createAntibody(String type) {
+    public Antibody createAntibody(String type,int posx,int posy) {
       if (type.equals("A")) {
         System.out.println("Antibody A is now create");
-        Antibody_A a = new Antibody_A();
-        return a;
+        return new Antibody_A(posx, posy);
       } else if (type.equals("B")) {
         System.out.println("Antibody B is now create");
-        Antibody_B b = new Antibody_B();
-        return b;
+        return new Antibody_B(posx, posy);
       } else if (type.equals("C")) {
         System.out.println("Antibody C is now create");
-        Antibody_C c = new Antibody_C();
-        return c;
+        return new Antibody_C(posx, posy);
       }
       return null;
     }
+
+    
 }

@@ -8,6 +8,8 @@ public class Shop {
     
     protected int balance ;
     private static Shop instance;
+    protected int px;
+    protected int py;
 
     private Shop(){
          this.balance = 100;
@@ -22,11 +24,15 @@ public class Shop {
         return instance;
     }
 
+    public void getWebPos(int x,int y){
+        px = x;
+        py = y;
+      }
 
     public void buyAntiA(){
         if(balance>=20 ){
             Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("A");
+            facAnti.createAntibody("A",px,py);
             this.balance -=20;
             System.out.println("your balance is "+this.balance);
         }else{
@@ -37,7 +43,8 @@ public class Shop {
     public void buyAntiB(){
         if(balance>=50 ){
             Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("B");
+            
+            facAnti.createAntibody("B",px,py);
             this.balance -=50;
             System.out.println("your balance is "+this.balance);
         }else{
@@ -48,7 +55,7 @@ public class Shop {
     public void buyAntiC(){
         if(balance>=50){
             Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("C");
+            facAnti.createAntibody("C",px,py);
             this.balance -=50;
             System.out.println("your balance is "+this.balance);
         }else{
