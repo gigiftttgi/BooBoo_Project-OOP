@@ -4,7 +4,7 @@ import com.booboo.CAREN.Model.Shop;
 import com.booboo.CAREN.Model.Time;
 
 
-public class Button extends Shop{
+public class Button{
 
   private boolean state;
   private String type;
