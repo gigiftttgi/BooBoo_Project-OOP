@@ -1,12 +1,8 @@
 package com.booboo.CAREN.Model;
 
-import javax.sql.rowset.spi.SyncResolver;
-
-import com.booboo.CAREN.Controller.Button;
-
 public class Shop {
     
-    protected int balance ;
+   private int balance ;
     private static Shop instance;
     private Field field = Field.getInstance();
     private Characterfactory facAnti = new Characterfactory();
@@ -26,9 +22,7 @@ public class Shop {
 
 
     public void buyAntiA(){
-        if(balance >= 20 ){
-            //Characterfactory facAnti = new Characterfactory();
-            //Antibody a = facAnti.createAntibody("A");
+        if(this.balance >= 20 ){    
             this.balance -=20;
             System.out.println("your balance is " + this.balance);
             field.addAntibody(facAnti.createAntibody("A"));
@@ -38,9 +32,7 @@ public class Shop {
     }
 
     public void buyAntiB(){
-        if(balance>=50 ){
-            //Characterfactory facAnti = new Characterfactory();
-            //facAnti.createAntibody("B");
+        if(this.balance>=50 ){
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
             field.addAntibody(facAnti.createAntibody("B"));
@@ -50,9 +42,7 @@ public class Shop {
     }
 
     public void buyAntiC(){
-        if(balance>=50){
-            //Characterfactory facAnti = new Characterfactory();
-            //facAnti.createAntibody("C");
+        if(this.balance>=50){
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
             field.addAntibody(facAnti.createAntibody("C"));
