@@ -25,7 +25,7 @@ public class Intlit implements Node{
 
     private boolean isNumber(String s){
         try {
-            Double.parseDouble(s);
+            Integer.parseInt(s);
             return true;
         }
         catch( Exception e ) {
