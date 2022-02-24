@@ -3,6 +3,7 @@ package com.booboo.CAREN.Parser;
 import java.util.List;
 
 import com.booboo.CAREN.Model.Antibody;
+import com.booboo.CAREN.Model.Field;
 import com.booboo.CAREN.Model.Gamecharacter;
 import com.booboo.CAREN.Model.Virus;
 
@@ -12,12 +13,15 @@ public class Nearby implements Node{
     private Gamecharacter host;
     private List<Virus> listVirus;
     private List<Antibody> listAntibody;
+    private Field field = Field.getInstance();
 
-    Nearby(Node direct, Gamecharacter host, List<Virus> listVirus, List<Antibody> listAntibody){
+
+    Nearby(Node direct, Gamecharacter host){
         this.direct = direct;
         this.host = host;
-        this.listVirus = listVirus;
-        this.listAntibody = listAntibody;
+        this.listVirus = field.getListVirus();
+        this.listAntibody = field.getListAntibody();
+        this.field = field;
     }
 
     @Override
