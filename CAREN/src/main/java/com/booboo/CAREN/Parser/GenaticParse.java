@@ -74,7 +74,7 @@ public class GenaticParse {
 
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
-        if (isNumber(tkz.peek()) || tkz.peek().matches("[a-zA-Z]+")) {
+        if (tkz.peek().matches("[a-zA-Z0-9]+")) {
             if(tkz.peek("virus") || tkz.peek("antibody") || tkz.peek("nearby")){
                 return new SensorExpression(sensorParse());
             } 
