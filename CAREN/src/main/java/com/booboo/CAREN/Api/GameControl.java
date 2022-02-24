@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/booboo")
 public class GameControl {
 
-    Gameplay game = Gameplay.getInsGameplay();
+    // Gameplay game = Gameplay.getInsGameplay();
 
     @CrossOrigin
     @GetMapping("/pos")
