@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 
-import com.booboo.CAREN.Parser.Expressionparse;
+import com.booboo.CAREN.Parser.GenaticParse;
 import com.booboo.CAREN.Parser.Node;
 import com.booboo.CAREN.Parser.ProgramNode;
 import com.booboo.CAREN.Parser.SyntaxError;
@@ -38,6 +38,10 @@ public class Gamecharacter {
 
     public String getType(){
         return type;
+    }
+
+    public Map<String,Integer> getAllVar(){
+        return allVariable;
     }
 
     public void attackedBy(Gamecharacter attacker){
@@ -90,7 +94,7 @@ public class Gamecharacter {
 
     }
 
-    public void runGeneticcode(List<Virus> listVirus,List<Antibody> listAntibody) throws SyntaxError, FileNotFoundException{
+    public void runGeneticcode() throws SyntaxError, FileNotFoundException{
         FileReader f = new FileReader(filename);
         Scanner reader = new Scanner(f);
         StringBuilder all = new StringBuilder();
@@ -98,7 +102,7 @@ public class Gamecharacter {
             all.append(reader.nextLine());
             all.append("\n");
         }
-        Expressionparse exp = new Expressionparse(all.toString(), this , allVariable, listVirus, listAntibody);
+        GenaticParse exp = new GenaticParse(all.toString(), this);
         Node parseExp = exp.parse();
         parseExp.evaluate();
  
