@@ -26,23 +26,28 @@ public class Nearby implements Node{
 
     @Override
     public int evaluate() throws SyntaxError {
-        int min = Integer.MAX_VALUE;
+        int min_virus = Integer.MAX_VALUE;
+        int min_anti = Integer.MAX_VALUE;
+
         for(Virus v : listVirus){
             int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), v.getPos().PosX(), v.getPos().PosY());
-            if(newmin < min && newmin%10 == direct.evaluate())
-                min = newmin;
+            if(newmin < min_virus && newmin%10 == direct.evaluate())
+                min_virus = newmin;
         }
 
         for(Antibody a : listAntibody){
             int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), a.getPos().PosX(), a.getPos().PosY());
-            if(newmin < min && newmin%10 == direct.evaluate())
-                min = newmin;
+            if(newmin < min_anti && newmin%10 == direct.evaluate())
+                min_anti = newmin;
         }
 
-        if(min == Integer.MAX_VALUE)
+        if(min_anti == Integer.MAX_VALUE && min_virus == Integer.MAX_VALUE)
             return 0;
-            
-        return min;
+        
+        if(min_virus < min_anti)
+            return min_virus+1;
+        else
+            return min_anti+2;
     }
     
     public int findLocation(int hostX,int hostY,int targetX, int targetY){
@@ -51,34 +56,35 @@ public class Nearby implements Node{
         if(diffY > 0){
             // locate 6
             if( hostX < targetX && targetX - hostX == hostY - targetY )
-                return ( targetX - hostX )*10 + 6;
+                return ( targetX - hostX )*10;
             // locate 8
             if(  hostX > targetX && hostX - targetX == hostY - targetY )
-                return ( hostX - targetX )*10 + 8;
+                return ( hostX - targetX )*10;
             // locate 7
             if( hostX == targetX )
-                return ( hostY - targetY )*10 + 7;
+                return ( hostY - targetY )*10;
         }
         // locate 2,3,4
         else if(diffY < 0){
             // local 4
             if( hostX < targetX && targetX - hostX == targetY - hostY )
-                return ( targetX - hostX )*10 + 4;
+                return ( targetX - hostX )*10;
             // locate 2
             if(  hostX > targetX && hostX - targetX == targetY - hostY)
-                return ( hostX - targetX )*10 + 2;
+                return ( hostX - targetX )*10;
             // locate 3
             if( hostX == targetX )
-                return ( targetY - hostY ) * 10 + 3;
+                return ( targetY - hostY ) * 10;
         }
         // locate 1,5
         else{
             if( hostX > targetX )
-                return ( hostX - targetX )*10 + 1;
-            else
-                return ( targetX - hostX )*10 + 5;
+                return ( hostX - targetX )*10;
+            if( hostX < targetX )
+                return ( targetX - hostX )*10;
 
         }
         return Integer.MAX_VALUE;
     }
+    
 }
