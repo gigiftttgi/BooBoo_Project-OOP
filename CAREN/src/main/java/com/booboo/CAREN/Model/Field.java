@@ -33,6 +33,7 @@ public class Field {
 
   }
 
+  // for testing
   public void addVirus(Virus v){
     listVirus.add(v);
   }
@@ -41,12 +42,13 @@ public class Field {
     listAntibody.add(a);
   }
 
-  public void dieVirus(Virus v){
-    listVirus.remove(v);
-  }
-
-  public void dieAntibody(Antibody a){
-    listAntibody.remove(a);
+  public void charDie(Gamecharacter g){
+    if(g.getType().equals("antibody")){
+      listAntibody.remove(g);
+    }
+    else{
+      listVirus.remove(g);
+    }
   }
 
   public void creatVirus() {
