@@ -12,7 +12,7 @@ public class IfStatement implements Node {
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         // positive is true
         if(expression.evaluate() > 0){
             thenStatement.evaluate();

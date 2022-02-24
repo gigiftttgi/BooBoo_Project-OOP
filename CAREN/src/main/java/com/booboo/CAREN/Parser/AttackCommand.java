@@ -4,6 +4,7 @@ package com.booboo.CAREN.Parser;
 import java.util.List;
 
 import com.booboo.CAREN.Model.Antibody;
+import com.booboo.CAREN.Model.Field;
 import com.booboo.CAREN.Model.Gamecharacter;
 import com.booboo.CAREN.Model.Position;
 import com.booboo.CAREN.Model.Virus;
@@ -14,22 +15,26 @@ public class AttackCommand implements Node{
     protected Gamecharacter host;
     private List<Virus> listVirus;
     private List<Antibody> listAntibody;
+    private Field field = Field.getInstance();
 
-    AttackCommand(Node direction, Gamecharacter host ,List<Virus> listVirus, List<Antibody> listAntibody){
+    AttackCommand(Node direction, Gamecharacter host){
         this.direction = direction;
         this.host = host;
-        this.listVirus = listVirus;
-        this.listAntibody = listAntibody;
+        this.listAntibody = field.getListAntibody();
+        this.listVirus = field.getListVirus();
     }
 
     @Override
     public int evaluate() throws SyntaxError {
-
+        System.out.println("attack -> " + direction.evaluate());
         Position target = targetLocation(host.getPos(), direction.evaluate());
-        if(host.getType().equals("virus")){
+        System.out.println("host type : " + host.getType());
+        if(host.getType().equals("antibody")){
             for(Virus v : listVirus){
-                if(v.getPos().equalPos(target))
+                if(v.getPos().equalPos(target)){
+                    System.out.println("attack by ");
                     v.attackedBy(host);
+                }
             }
         }
         else{
@@ -42,7 +47,7 @@ public class AttackCommand implements Node{
         return 0;
     }
 
-    public Position targetLocation(Position hostPos,double direction){
+    public Position targetLocation(Position hostPos,int direction){
         
         switch((int) direction){
             case 1 : {

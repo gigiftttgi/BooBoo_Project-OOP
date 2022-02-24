@@ -3,16 +3,20 @@ package com.booboo.CAREN.Parser;
 import java.util.List;
 
 import com.booboo.CAREN.Model.Antibody;
+import com.booboo.CAREN.Model.Field;
 import com.booboo.CAREN.Model.Gamecharacter;
 
 public class AntibodyNode implements Node {
     
     private Gamecharacter host;
     private List<Antibody> listAntibody;
+    private Field field = Field.getInstance();
 
-    AntibodyNode(Gamecharacter host, List<Antibody> listAntibody){
+
+    AntibodyNode(Gamecharacter host){
         this.host = host;
-        this.listAntibody = listAntibody;
+        this.listAntibody = field.getListAntibody();
+        this.field = field;
     }
 
     @Override
