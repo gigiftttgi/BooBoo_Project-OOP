@@ -8,9 +8,11 @@ public class Shop {
     
     protected int balance ;
     private static Shop instance;
+    private Field field = Field.getInstance();
+    private Characterfactory facAnti = new Characterfactory();
 
     private Shop(){
-         this.balance = 100;
+        this.balance = 100;
     }
 
     public static Shop getInsShop()
@@ -24,11 +26,12 @@ public class Shop {
 
 
     public void buyAntiA(){
-        if(balance>=20 ){
-            Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("A");
+        if(balance >= 20 ){
+            //Characterfactory facAnti = new Characterfactory();
+            //Antibody a = facAnti.createAntibody("A");
             this.balance -=20;
-            System.out.println("your balance is "+this.balance);
+            System.out.println("your balance is " + this.balance);
+            field.addAntibody(facAnti.createAntibody("A"));
         }else{
             System.out.println("you dont have enough money");
         }
@@ -36,10 +39,11 @@ public class Shop {
 
     public void buyAntiB(){
         if(balance>=50 ){
-            Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("B");
+            //Characterfactory facAnti = new Characterfactory();
+            //facAnti.createAntibody("B");
             this.balance -=50;
-            System.out.println("your balance is "+this.balance);
+            System.out.println("your balance is "+ this.balance);
+            field.addAntibody(facAnti.createAntibody("B"));
         }else{
             System.out.println("you dont have enough money");
         }
@@ -47,10 +51,11 @@ public class Shop {
 
     public void buyAntiC(){
         if(balance>=50){
-            Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("C");
+            //Characterfactory facAnti = new Characterfactory();
+            //facAnti.createAntibody("C");
             this.balance -=50;
-            System.out.println("your balance is "+this.balance);
+            System.out.println("your balance is "+ this.balance);
+            field.addAntibody(facAnti.createAntibody("C"));
         }else{
             System.out.println("you dont have enough money");
         }
