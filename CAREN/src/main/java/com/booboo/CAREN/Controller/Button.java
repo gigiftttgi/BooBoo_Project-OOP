@@ -8,7 +8,7 @@ public class Button{
 
   private boolean state;
   private String type;
-  // protected Shop buy = new Shop();
+
 
   public Button(String type) {
     this.type = type;
