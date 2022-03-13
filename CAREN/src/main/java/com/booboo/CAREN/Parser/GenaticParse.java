@@ -1,20 +1,15 @@
 package com.booboo.CAREN.Parser;
 
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
-import com.booboo.CAREN.Model.Antibody;
 import com.booboo.CAREN.Model.Gamecharacter;
-import com.booboo.CAREN.Model.Virus;
+
 
 public class GenaticParse {
 
     private Tokenizer tkz;
     private Gamecharacter host;
     private Map<String,Integer> allVariable;
-    private List<Virus> listVirus;
-    private List<Antibody> listAntibody;
 
     public GenaticParse(String src, Gamecharacter host) throws SyntaxError{
         this.tkz = new Tokenizer(src);
@@ -222,15 +217,6 @@ public class GenaticParse {
             return new Direction(tkz.peek());
         return null;
     }
-   
-    private boolean isNumber(String s){
-        try {
-            Integer.parseInt(s);
-            return true;
-        }
-        catch( Exception e ) {
-            return false;
-        }
-    }
+
 
 }

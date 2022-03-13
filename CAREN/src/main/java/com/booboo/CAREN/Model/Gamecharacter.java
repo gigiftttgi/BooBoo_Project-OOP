@@ -23,6 +23,7 @@ public class Gamecharacter {
     protected String filename;
     protected String type;
     protected Map<String,Integer> allVariable = new LinkedHashMap<>();
+    private Field field = Field.getInstance();
 
     public double getATK(){
         return atk;
@@ -46,6 +47,9 @@ public class Gamecharacter {
 
     public void attackedBy(Gamecharacter attacker){
         hp = hp - attacker.getATK();
+        if(hp <=0 ){
+            field.charDie(this);
+        }
     }
 
     public void move(int direction){
