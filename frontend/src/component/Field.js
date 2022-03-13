@@ -4,9 +4,6 @@ import APIService from './APIService';
 const Field  = () => {
 
 
-
-
-
    return(
        <div className="Field">
        </div>
@@ -19,4 +16,4 @@ const Field  = () => {
 }
 
 
-// export default Field;
+export default Field;
