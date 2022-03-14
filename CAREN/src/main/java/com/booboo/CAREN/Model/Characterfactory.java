@@ -47,21 +47,27 @@ public class Characterfactory {
   //     }
   // }
 
-  //wait shop to finish
-    public Antibody createAntibody(String type) {
-      if (type.equals("A")) {
-        System.out.println("Antibody A is now create");
-        Antibody_A a = new Antibody_A();
-        return a;
-      } else if (type.equals("B")) {
-        System.out.println("Antibody B is now create");
-        Antibody_B b = new Antibody_B();
-        return b;
-      } else if (type.equals("C")) {
-        System.out.println("Antibody C is now create");
-        Antibody_C c = new Antibody_C();
-        return c;
-      }
-      return null;
-    }
+//  //wait shop to finish
+//    public Antibody createAntibody(String type) {
+//      if (type.equals("A")) {
+//        System.out.println("Antibody A is now create");
+//        Antibody_A a = new Antibody_A();
+//        return a;
+//      } else if (type.equals("B")) {
+//        System.out.println("Antibody B is now create");
+//        Antibody_B b = new Antibody_B();
+//        return b;
+//      } else if (type.equals("C")) {
+//        System.out.println("Antibody C is now create");
+//        Antibody_C c = new Antibody_C();
+//        return c;
+//      }
+//      return null;
+//    }
+
+
+  //use this
+    //createAntibodyA(int posx, int posy)
+    //createAntibodyB(int posx, int posy)
+    //createAntibodyC(int posx, int posy)
 }
