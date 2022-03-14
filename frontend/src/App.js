@@ -18,15 +18,8 @@ function App() {
       <Field>
         </Field>
       <div className='Container'>
-        {/* <Field>
-        </Field>
-        <div className='selectZone'>
           <Menu>
           </Menu>
-          <Shop></Shop>
-
-        </div> */}
-
 
       </div>
 
