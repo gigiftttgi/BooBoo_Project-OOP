@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.List;
 
 public class Gameplay {
 
@@ -27,16 +28,31 @@ public class Gameplay {
   // Virus_X x = new Virus_X(10, 10);
   
   public static void main(String[] args) throws FileNotFoundException, SyntaxError {
+    boolean endState = false;
     Field field = Field.getInstance();
+    //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
     Virus_X x = new Virus_X(5, 5);
     field.addVirus(x);
+    Antibody_A a = new Antibody_A(5, 4);
+    field.addAntibody(a);
+    List<Virus> listV = field.getListVirus();
+    List<Antibody> listA = field.getListAntibody();
+
+    while(endState==false){
+      //game running
+      System.out.println("game is running");
+      if(listV.isEmpty() || listA.isEmpty()){
+        endState = true;
+      }
+    }
+
+
     // Virus_Y y = new Virus_Y(12, 15);
     // field.addVirus(y);
     // field.addVirus(new Virus_Z(20, 19));
     // field.addVirus(new Virus_X(30, 10));
 
-    Antibody_A a = new Antibody_A(5, 4);
-    field.addAntibody(a);
+
     // Antibody_B b = new Antibody_B(12, 16);
     // field.addAntibody(b);
     // field.addAntibody(new Antibody_C(20, 22));

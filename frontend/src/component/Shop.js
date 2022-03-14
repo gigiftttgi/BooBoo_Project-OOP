@@ -5,20 +5,27 @@ const Shop = () => {
 
   const [money, setMoney] = useState('');
 
+
+  const fetchMoney = async () => {
+    try {
+      const m = await axios('/shop/money',);
+      setMoney(m.data);
+      console.log(m.data);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   useEffect(async () => {
-    const m = await axios('/shop/money',);
-    setMoney(m.data);
-    console.log(m.data);
+    fetchMoney()
+
+    const interval = setInterval(() => {
+      fetchMoney()
+    }, 1000)
+    return () => clearInterval(interval)
+
 
   }, []);
-
-
-  function updateMoney() {
-    axios.get('/shop/money',)
-    .then((response) =>  setMoney(response.data));
-    // console.log(response.data);
-  }
-
 
 
   function sentBuyAntiA(anti) {
@@ -47,14 +54,14 @@ const Shop = () => {
         <p className="CreditText">Credit: {money}</p>
       </div>
 
-      <div className="px-100">
+      <div className='shopcontainer'>
         <div className='Card'>
           <div className='Name'>
             Antibody A
           </div>
           <img src={require('./image/antibody/antiA.png')} className="antiImg"></img>
           <button className='BuyBtn'
-            onClick={() => { sentBuyAntiA("antiA"); updateMoney(); }}
+            onClick={() => { sentBuyAntiA("antiA"); }}
           >Buy</button>
 
         </div>
@@ -64,7 +71,7 @@ const Shop = () => {
           </div>
           <img src={require('./image/antibody/antiB.png')} className="antiImg"></img>
           <button className='BuyBtn'
-            onClick={() => { sentBuyAntiB("antiB"); updateMoney(); }}
+            onClick={() => { sentBuyAntiB("antiB"); }}
           >Buy</button>
 
         </div>
@@ -74,12 +81,17 @@ const Shop = () => {
           </div>
           <img src={require('./image/antibody/antiC.png')} className="antiImg"></img>
           <button className='BuyBtn'
-            onClick={() => { sentBuyAntiC("antiC"); updateMoney(); }}
+            onClick={() => { sentBuyAntiC("antiC"); }}
           >Buy</button>
 
         </div>
+
       </div>
+
+
+
     </div>
+
 
   );
 
