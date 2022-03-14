@@ -97,6 +97,33 @@
   height:70%;
 }
 
+
+
+/* .Field {
+  
+  width: 1024px;
+  height: 700px;
+  margin-left: auto;
+  margin-bottom: auto;
+  background: #F9E6CF;
+
+} */
+
+
+.Menu {
+  /* position: absolute; */
+  /* display: flex; */
+  /* display: inline-flex;
+  /* width: 18%;
+  height: 10%; */
+  /* margin-left: 80%; */
+  margin-top: 1%;
+  margin-bottom: 1%; 
+  /* margin-right: 800px; */
+  /* background-color: #F9E6CF;
+  border-radius: 10px; */
+}
+
 .Card {
   /* width: 193px;
   height: 200px; */
