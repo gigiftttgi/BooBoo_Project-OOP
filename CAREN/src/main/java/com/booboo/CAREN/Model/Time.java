@@ -7,17 +7,24 @@ import java.util.TimerTask;
 public class Time {
 
   private int currtime;
+  private int speed;
 
   public Time() {
     currtime = LocalDateTime.now().getSecond();
   }
 
   public void speedUP() {
-    currtime = currtime * 2;
+    // currtime = currtime * 2;
+    speed = 1;
   }
 
   public void speedDown() {
-    currtime = currtime * -2;
+    // currtime = currtime * -2;
+    speed = 3;
+  }
+
+  public int getSpeed(){
+    return speed;
   }
 
   public void pause() {
