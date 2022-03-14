@@ -7,25 +7,6 @@ const Field  = () => {
 
    return(
        <div className="Field">
-            {/* <div className = "Cell">
-           
-
-           </div> */}
-           {/* <script>
-               var max = 10;
-           document.write("<table className = "Table">");
-
-                document.write("<tr>");
-
-                for(var j = 1; j < max; j++){
-                    document.write("<tr className = 'Cell' > </td>");
-                }       
-
-                document.write("</tr>"); 
-            
-           document.write("</table>");
-
-           </script> */}
             
             <table className = "Table">
                
@@ -34,6 +15,7 @@ const Field  = () => {
                     )}
                 
             </table>
+            
        </div>
        
 
