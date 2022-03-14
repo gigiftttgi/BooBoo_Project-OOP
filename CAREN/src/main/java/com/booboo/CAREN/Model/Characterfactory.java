@@ -55,9 +55,19 @@ public class Characterfactory {
 
 
   //use this
-    //createAntibodyA(int posx, int posy)
-    //createAntibodyB(int posx, int posy)
-    //createAntibodyC(int posx, int posy)
+  public Antibody_A createAntibodyA(int posx, int posy){
+    return new Antibody_A(posx, posy);
+  }
+
+  public Antibody_B createAntibodyB(int posx, int posy){
+    return new Antibody_B(posx, posy);
+  }
+
+  public Antibody_C createAntibodyC(int posx, int posy){
+    return new Antibody_C(posx, posy);
+  }
+
+
 // =======
 //     public Antibody createAntibody(String type,int posx,int posy) {
 //       if (type.equals("A")) {
@@ -95,4 +105,4 @@ public class Characterfactory {
 
     
 // >>>>>>> master
-// }
+}
