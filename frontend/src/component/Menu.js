@@ -12,21 +12,25 @@ const Menu = () => {
 
 
     return (
-        <div className="Menu">
-             <button className='menuBtn'>
+        <div className = "Menu">
+             <button className='menuBtn' >
+              <img className='imgMenu' src={require('./image/button/pause button.png')}></img>
             </button>
-            <button className='menuBtn'>
-              {/* <img className='menuBtn' src={require('./Buttonimage/speedDownBtn.png')}></img> */}
-            </button>
-            <button className='menuBtn'>
-              {/* <img className='menuBtn' src={require('./Buttonimage/speedUpBtn.png')}></img> */}
-            </button>
-            <button className='menuBtn'>
-              {/* <img className='menuBtn' src={require('./image/plus.png')}></img> */}
 
-            </button>
             <button className='menuBtn'>
-              {/* <img className='menuBtn' src={require('./Buttonimage/ZoomOutBtn.png')}></img> */}
+              <img className='imgMenu' src={require('./image/button/speed down.png')}></img>
+            </button>
+
+            <button className='menuBtn'>
+              <img className='imgMenu' src={require('./image/button/speed up.png')}></img>
+            </button>
+
+            <button className='menuBtn'>
+              <img className='imgMenu' src={require('./image/button/zoom in.png')}></img>
+            </button>
+
+            <button className='menuBtn'>
+              <img className='imgMenu' src={require('./image/button/zoom out.png')}></img>
             </button>
         </div>
     );
