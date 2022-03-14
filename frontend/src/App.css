@@ -73,6 +73,18 @@
   height:70%;
 }
 
+<<<<<<< HEAD
+.Field {
+  /* position: absolute; */
+  width: 1024px;
+  height: 700px;
+  margin-left: auto;
+  margin-bottom: auto;
+  background: #F9E6CF;
+
+}
+=======
+>>>>>>> b37a26b348524d6917ace726676e67efcd2c71e2
 
 .Menu {
   /* position: absolute; */

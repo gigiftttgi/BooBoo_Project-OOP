@@ -51,17 +51,4 @@ public class Field {
     }
   }
 
-  public void creatVirus() {
-    Random_int r = new Random_int(51);
-    Characterfactory fac = new Characterfactory();
-    int r1 = r.randomInt();
-    int r2 = r.randomInt();
-    while(pos[r1][r2] == 1) {
-      r1 = r.randomInt();
-      r2 = r.randomInt();
-    }
-    pos[r1][r2] = 1;
-    listVirus.add(fac.createVirus(r1, r2));
-  }
-  
 }
