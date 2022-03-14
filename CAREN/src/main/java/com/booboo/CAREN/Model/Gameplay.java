@@ -28,7 +28,7 @@ public class Gameplay {
   // Virus_X x = new Virus_X(10, 10);
   
   public static void main(String[] args) throws FileNotFoundException, SyntaxError {
-    boolean endState = false;
+    //boolean endState = false;
     Field field = Field.getInstance();
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
     Virus_X x = new Virus_X(5, 5);
@@ -38,13 +38,13 @@ public class Gameplay {
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
 
-    while(endState==false){
-      //game running
-      System.out.println("game is running");
-      if(listV.isEmpty() || listA.isEmpty()){
-        endState = true;
-      }
-    }
+    // while(endState==false){
+    //   //game running
+    //   System.out.println("game is running");
+    //   if(listV.isEmpty() || listA.isEmpty()){
+    //     endState = true;
+    //   }
+    // }
 
 
     // Virus_Y y = new Virus_Y(12, 15);
