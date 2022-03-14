@@ -26,25 +26,25 @@ public class ShopController {
     @CrossOrigin
     @PostMapping()
     @RequestMapping("/buyA")
-    public String buyantiA(@RequestBody String antibody){
-        shop.buyAntiA();
-        return "Sent Request Successfully, " + antibody +shop.getMoney();
+    public String buyantiA(@RequestBody Position p){
+        shop.buyAntiA(p.getPosx(), p.getPosy());
+        return "Sent Request Successfully, posx,y " +p.getPosx() +", " + p.getPosy() +"  ,"  +shop.getMoney();
 
     }
 
     @CrossOrigin
     @PostMapping
     @RequestMapping("/buyB")
-    public String buyantiB(@RequestBody String anti){
-        shop.buyAntiB();
-        return "Sent Request Successfully, " + anti + shop.getMoney();
+    public String buyantiB(@RequestBody Position p){
+        shop.buyAntiB(p.getPosx(), p.getPosy());
+        return "Sent Request Successfully, posx,y " +p.getPosx() +", " + p.getPosy() +"  ,"  +shop.getMoney();
     }
 
     @CrossOrigin
     @PostMapping
     @RequestMapping("/buyC")
-    public String buyantiC(@RequestBody String anti){
-        shop.buyAntiC();
-        return "Sent Request Successfully, " + anti +shop.getMoney();
+    public String buyantiC(@RequestBody Position p){
+        shop.buyAntiC(p.getPosx(), p.getPosy());
+        return "Sent Request Successfully, posx,y "  +p.getPosx() +", " + p.getPosy() +"  ,"  +shop.getMoney();
     }
 }

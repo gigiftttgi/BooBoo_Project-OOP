@@ -14,22 +14,21 @@ function App() {
 
   return (
 
-    <div className='MainGame'>
-
-      <div className='container'>
-        <Field>
+    <div>
+      <Field>
+        </Field>
+      <div className='Container'>
+        {/* <Field>
         </Field>
         <div className='selectZone'>
           <Menu>
           </Menu>
           <Shop></Shop>
 
-        </div>
+        </div> */}
 
 
       </div>
-
-
 
     </div>
 
