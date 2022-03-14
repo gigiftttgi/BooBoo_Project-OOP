@@ -25,31 +25,31 @@ public class Shop {
         py = y;
       }
 
-    public void buyAntiA(){
+    public void buyAntiA(int posx, int posy){
         if(this.balance >= 20 ){    
             this.balance -=20;
             System.out.println("your balance is " + this.balance);
-            field.addAntibody(facAnti.createAntibody("A",1,1));
+            field.addAntibody(facAnti.createAntibodyA(posx, posy));
         }else{
             System.out.println("you dont have enough money");
         }
     }
 
-    public void buyAntiB(){
+    public void buyAntiB(int posx, int posy){
         if(this.balance>=50 ){
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
-            field.addAntibody(facAnti.createAntibody("B",1,1));
+            field.addAntibody(facAnti.createAntibodyB(posx, posy));
         }else{
             System.out.println("you dont have enough money");
         }
     }
 
-    public void buyAntiC(){
+    public void buyAntiC(int posx, int posy){
         if(this.balance>=50){
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
-            field.addAntibody(facAnti.createAntibody("C",1,1));
+            field.addAntibody(facAnti.createAntibodyC(posx, posy));
         }else{
             System.out.println("you dont have enough money");
         }
