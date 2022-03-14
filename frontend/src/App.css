@@ -1,11 +1,46 @@
 
 .MainGame {
- margin: auto;
- width: '90%';
- height: '90%';
- background-color: #000000; 
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: 2%;
   
 }
+
+.Field {
+  /* background: #000000; */
+  background-color: #2A2F4E;
+  /* width: 100%;
+  padding-top: 100%; */
+  position: absolute;
+  top: 3%; right: 30%; bottom : 3%; left: 10%;
+  border-radius: 10px;
+  padding-top: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+}
+
+.Cell {
+  background-color: #F9E6CF;
+  border-radius: 5px;
+  width: 3%;
+  height: 3%;
+}
+
+.Table {
+  width: 100%;
+  height: 100%;
+}
+
+.Container{
+  position: absolute;
+  top: 3%; right: 10%; bottom : 3%; left: 70%;
+  background-color: #2A2F4E;
+  margin-left: 10px;
+}
+
 
 .antiImg{
   display: block;
@@ -15,8 +50,8 @@
   width: 70%;
 }
 .selectZone {
-  margin-left: 80%;
-  margin-right: auto;
+  /* margin-left: 80%; */
+  margin-right: 5%;
 }
 
 .Shop {
@@ -32,20 +67,12 @@
   margin-right: 10%;
   background-color: #F9E6CF;
   height: 70%;
+
 }
 .shopcontainer{
   height:70%;
 }
 
-.Field {
-  /* position: absolute; */
-  /* width: 1024px;
-  height: 700px; */
-  margin-left: auto;
-  margin-bottom: auto;
-  background: #F9E6CF;
-
-}
 
 .Menu {
   /* position: absolute; */
@@ -103,11 +130,6 @@
   padding: 2%;
   width: 40px;
   height: 40px; */
-}
-
-
-.container{
-  display: flex;
 }
 
 .BuyBtn{
