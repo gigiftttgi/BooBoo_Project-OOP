@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 
-import com.booboo.CAREN.Parser.Expressionparse;
+import com.booboo.CAREN.Parser.GenaticParse;
 import com.booboo.CAREN.Parser.Node;
 import com.booboo.CAREN.Parser.ProgramNode;
 import com.booboo.CAREN.Parser.SyntaxError;
@@ -22,7 +22,8 @@ public class Gamecharacter {
     protected Position pos;
     protected String filename;
     protected String type;
-    protected Map<String,Double> allVariable = new LinkedHashMap<>();
+    protected Map<String,Integer> allVariable = new LinkedHashMap<>();
+    private Field field = Field.getInstance();
 
     public double getATK(){
         return atk;
@@ -40,48 +41,55 @@ public class Gamecharacter {
         return type;
     }
 
-    public void attackedBy(Gamecharacter attacker){
-        hp = hp - attacker.getATK();
+    public Map<String,Integer> getAllVar(){
+        return allVariable;
     }
 
-    public void move(Double direction){
-        switch(direction.toString()){
-            case "1.0" : { 
+    public void attackedBy(Gamecharacter attacker){
+        hp = hp - attacker.getATK();
+        if(hp <=0 ){
+            field.charDie(this);
+        }
+    }
+
+    public void move(int direction){
+        switch(direction){
+            case  1 : { 
                 System.out.println("move -> up");
                 pos.movePosition(0, 1);
                 break;
             }
-            case "2.0" : { 
+            case 2 : { 
                 System.out.println("move -> upright");
                 pos.movePosition(1, 1);
                 break;
             }
-            case "3.0" : { 
+            case 3 : { 
                 System.out.println("move -> right");
                 pos.movePosition(1, 0);
                 break;
             }
-            case "4.0" : { 
+            case 4 : { 
                 System.out.println("move -> downright");                
                 pos.movePosition(1, -1);
                 break;
             }
-            case "5.0" : { 
+            case 5 : { 
                 System.out.println("move -> down");
                 pos.movePosition(0, -1);
                 break;
             }
-            case "6.0" : { 
+            case 6: { 
                 System.out.println("move -> downleft");
                 pos.movePosition(-1, -1);
                 break;
             }
-            case "7.0" : { 
+            case 7 : { 
                 System.out.println("move -> left");
                 pos.movePosition(-1, 0);
                 break;
             }
-            case "8.0" : { 
+            case 8 : { 
                 System.out.println("move -> upleft");
                 pos.movePosition(-1, 1);
                 break;
@@ -90,7 +98,7 @@ public class Gamecharacter {
 
     }
 
-    public void runGeneticcode(List<Virus> listVirus,List<Antibody> listAntibody) throws SyntaxError, FileNotFoundException{
+    public void runGeneticcode() throws SyntaxError, FileNotFoundException{
         FileReader f = new FileReader(filename);
         Scanner reader = new Scanner(f);
         StringBuilder all = new StringBuilder();
@@ -98,7 +106,7 @@ public class Gamecharacter {
             all.append(reader.nextLine());
             all.append("\n");
         }
-        Expressionparse exp = new Expressionparse(all.toString(), this , allVariable, listVirus, listAntibody);
+        GenaticParse exp = new GenaticParse(all.toString(), this);
         Node parseExp = exp.parse();
         parseExp.evaluate();
  

@@ -9,7 +9,7 @@ public class StatementNode implements Node{
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         statement.evaluate();
         return 0;
     }

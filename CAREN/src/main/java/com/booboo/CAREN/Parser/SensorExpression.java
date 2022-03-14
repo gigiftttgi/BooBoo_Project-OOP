@@ -9,7 +9,7 @@ public class SensorExpression implements Node {
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         return sensor.evaluate();
     }
     

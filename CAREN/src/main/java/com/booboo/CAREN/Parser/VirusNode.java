@@ -2,6 +2,7 @@ package com.booboo.CAREN.Parser;
 
 import java.util.List;
 
+import com.booboo.CAREN.Model.Field;
 import com.booboo.CAREN.Model.Gamecharacter;
 import com.booboo.CAREN.Model.Virus;
 
@@ -9,14 +10,16 @@ public class VirusNode implements Node{
     
     private Gamecharacter host;
     private List<Virus> listVirus;
-
-    VirusNode(Gamecharacter host, List<Virus> listVirus){
+    private Field field = Field.getInstance();
+    
+    VirusNode(Gamecharacter host){
         this.host = host;
-        this.listVirus = listVirus;
+        this.listVirus = field.getListVirus();
+        this.field = field;
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         int min = Integer.MAX_VALUE;
         for(Virus v : listVirus){
             int newmin = findLocation(host.getPos().PosX(), host.getPos().PosY(), v.getPos().PosX(), v.getPos().PosY());

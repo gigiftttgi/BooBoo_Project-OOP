@@ -13,7 +13,7 @@ public class MoveCommand implements Node{
     }
 
     @Override
-    public double evaluate() throws SyntaxError {
+    public int evaluate() throws SyntaxError {
         host.move(direction.evaluate());        
         return 0;
     }

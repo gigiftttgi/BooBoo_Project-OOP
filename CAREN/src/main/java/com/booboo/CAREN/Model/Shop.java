@@ -1,16 +1,14 @@
 package com.booboo.CAREN.Model;
 
-import javax.sql.rowset.spi.SyncResolver;
-
-import com.booboo.CAREN.Controller.Button;
-
 public class Shop {
     
-    protected int balance ;
+   private int balance,px,py ;
     private static Shop instance;
+    private Field field = Field.getInstance();
+    private Characterfactory facAnti = new Characterfactory();
 
     private Shop(){
-         this.balance = 100;
+        this.balance = 100;
     }
 
     public static Shop getInsShop()
@@ -22,35 +20,36 @@ public class Shop {
         return instance;
     }
 
+    public void getWebPos(int x,int y){
+        px = x;
+        py = y;
+      }
 
     public void buyAntiA(){
-        if(balance>=20 ){
-            Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("A");
+        if(this.balance >= 20 ){    
             this.balance -=20;
-            System.out.println("your balance is "+this.balance);
+            System.out.println("your balance is " + this.balance);
+            field.addAntibody(facAnti.createAntibody("A",1,1));
         }else{
             System.out.println("you dont have enough money");
         }
     }
 
     public void buyAntiB(){
-        if(balance>=50 ){
-            Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("B");
+        if(this.balance>=50 ){
             this.balance -=50;
-            System.out.println("your balance is "+this.balance);
+            System.out.println("your balance is "+ this.balance);
+            field.addAntibody(facAnti.createAntibody("B",1,1));
         }else{
             System.out.println("you dont have enough money");
         }
     }
 
     public void buyAntiC(){
-        if(balance>=50){
-            Characterfactory facAnti = new Characterfactory();
-            facAnti.createAntibody("C");
+        if(this.balance>=50){
             this.balance -=50;
-            System.out.println("your balance is "+this.balance);
+            System.out.println("your balance is "+ this.balance);
+            field.addAntibody(facAnti.createAntibody("C",1,1));
         }else{
             System.out.println("you dont have enough money");
         }

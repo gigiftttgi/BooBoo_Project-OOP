@@ -1,27 +1,20 @@
 package com.booboo.CAREN.Parser;
 
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
-import com.booboo.CAREN.Model.Antibody;
 import com.booboo.CAREN.Model.Gamecharacter;
-import com.booboo.CAREN.Model.Virus;
 
-public class Expressionparse {
+
+public class GenaticParse {
 
     private Tokenizer tkz;
     private Gamecharacter host;
-    private Map<String,Double> allVariable;
-    private List<Virus> listVirus;
-    private List<Antibody> listAntibody;
+    private Map<String,Integer> allVariable;
 
-    public Expressionparse(String src, Gamecharacter host, Map<String,Double> allVariable ,List<Virus> listVirus ,List<Antibody> listAntibody ) throws SyntaxError{
+    public GenaticParse(String src, Gamecharacter host) throws SyntaxError{
         this.tkz = new Tokenizer(src);
         this.host = host;
-        this.allVariable = allVariable;
-        this.listVirus = listVirus;
-        this.listAntibody = listAntibody;
+        this.allVariable = host.getAllVar();
     }
 
     // Program → Statement+
@@ -62,21 +55,21 @@ public class Expressionparse {
     private Node sensorParse() throws SyntaxError {
         Node s = null;
         if(tkz.peek("virus")){
-            return new VirusNode(host, listVirus);
+            return new VirusNode(host);
         }
         if(tkz.peek("antibody")){
-            return new AntibodyNode(host, listAntibody);
+            return new AntibodyNode(host);
         }
         if(tkz.peek("nearby")){
             tkz.consume();
-            return new Nearby(directionParse(), host, listVirus, listAntibody);
+            return new Nearby(directionParse(), host);
         }
         return s;
     }
 
     // Power → <number> | <identifier> | ( Expression ) | SensorExpressio
     private Node parseP() throws SyntaxError {
-        if (isNumber(tkz.peek()) || tkz.peek().matches("[a-zA-Z]+")) {
+        if (tkz.peek().matches("[a-zA-Z0-9]+")) {
             if(tkz.peek("virus") || tkz.peek("antibody") || tkz.peek("nearby")){
                 return new SensorExpression(sensorParse());
             } 
@@ -137,30 +130,9 @@ public class Expressionparse {
         return t;
     }
 
-    // Statement → Command | BlockStatement | IfStatement | WhileStatement
-    private Node statementParse() throws SyntaxError {
-        
-        if(tkz.peek("if") || tkz.peek("else")){
-            return new StatementNode(ifParse());
-        }
-        else if(tkz.peek("while")){
-            return new StatementNode(whileParse());
-        }
-        else{
-            return new StatementNode(commandParse());
-        }
-    }
-
-    // BlockStatement → { Statement* }
-    // private Node blockParse() throws SyntaxError{
-    //     tkz.consume(); 
-    //     Node block = new BlockStatement(statementParse());
-    //     return block;
-    // }
-
     // IfStatement → if ( Expression ) then Statement else Statement
     private Node ifParse() throws SyntaxError{
-        System.out.println("if parse");
+
         tkz.consume(); // if
         tkz.consume(); // (
         Node ifstat = parseE();
@@ -214,7 +186,6 @@ public class Expressionparse {
     private Node actionParse() throws SyntaxError{
         Node a = null;
         if(tkz.peek("move")){
-            System.out.println("action parse");
             a = new ActionCommand(moveParse());
         }
         else if(tkz.peek("shoot")){
@@ -227,14 +198,13 @@ public class Expressionparse {
     private Node shootParse() throws SyntaxError{
         Node s = null;
         tkz.consume();
-        s = new AttackCommand(directionParse(),host,listVirus,listAntibody);
+        s = new AttackCommand(directionParse(),host);
         return s;
     }
 
     // MoveCommand → move Direction
     private Node moveParse() throws SyntaxError{
         Node m = null;
-        System.out.println("move parse");
         tkz.consume();
         m = new MoveCommand(directionParse(),host);
         return m;
@@ -247,15 +217,6 @@ public class Expressionparse {
             return new Direction(tkz.peek());
         return null;
     }
-   
-    private boolean isNumber(String s){
-        try {
-            Integer.parseInt(s);
-            return true;
-        }
-        catch( Exception e ) {
-            return false;
-        }
-    }
+
 
 }
