@@ -3,6 +3,14 @@
 
 
 const Menu = () => {
+
+  // function sentPause(state) {
+  //   axios.put('/gameState', anti)
+  //     .then(response => console.log(response.data));
+
+  // }
+
+
     return (
         <div className="Menu">
              <button className='menuBtn'>

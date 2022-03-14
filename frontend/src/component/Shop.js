@@ -7,11 +7,11 @@ const Shop = () => {
 
 
   const fetchMoney = async () => {
-    try{
+    try {
       const m = await axios('/shop/money',);
       setMoney(m.data);
       console.log(m.data);
-    }catch(err){
+    } catch (err) {
       console.error(err.message);
     }
   };
@@ -54,7 +54,7 @@ const Shop = () => {
         <p className="CreditText">Credit: {money}</p>
       </div>
 
-      <div className="px-100">
+      <div className='shopcontainer'>
         <div className='Card'>
           <div className='Name'>
             Antibody A
@@ -71,7 +71,7 @@ const Shop = () => {
           </div>
           <img src={require('./image/antibody/antiB.png')} className="antiImg"></img>
           <button className='BuyBtn'
-            onClick={() => { sentBuyAntiB("antiB");  }}
+            onClick={() => { sentBuyAntiB("antiB"); }}
           >Buy</button>
 
         </div>
@@ -81,12 +81,17 @@ const Shop = () => {
           </div>
           <img src={require('./image/antibody/antiC.png')} className="antiImg"></img>
           <button className='BuyBtn'
-            onClick={() => { sentBuyAntiC("antiC");  }}
+            onClick={() => { sentBuyAntiC("antiC"); }}
           >Buy</button>
 
         </div>
+
       </div>
+
+
+
     </div>
+
 
   );
 
