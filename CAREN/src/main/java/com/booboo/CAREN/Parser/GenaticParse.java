@@ -86,7 +86,7 @@ public class GenaticParse {
         Node p = parseP();
         while (tkz.peek("^")){
             tkz.consume();
-            p = new Binary(p,"^",parseP());
+            p = new RighBinary(parseP(),"^",p);
         }
         return p;
     }

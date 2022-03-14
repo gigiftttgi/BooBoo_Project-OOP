@@ -52,7 +52,6 @@ public class Field {
   }
 
   public void creatVirus() {
-
     Random_int r = new Random_int(51);
     Characterfactory fac = new Characterfactory();
     int r1 = r.randomInt();
@@ -63,6 +62,6 @@ public class Field {
     }
     pos[r1][r2] = 1;
     listVirus.add(fac.createVirus(r1, r2));
-
   }
+  
 }

@@ -6,18 +6,8 @@ import Shop from './component/Shop';
 function App() {
   return (
 
-    <div className='MainGame'>
-      <Menu>
-      </Menu>
-
-
-
-      <div className='container'>
-        <Field>
-        </Field>
-        <Shop></Shop>
-      </div>
-
+    <div className ='MainGame'>
+      
     </div>
 
   );
