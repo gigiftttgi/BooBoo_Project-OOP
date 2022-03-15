@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
-const ImgCell = (id,{Img}) => {
+const ImgCell = (id) => {
     
     
     return(
         <div>
             {/* <img className='AntiImg' src={require('./image/antibody/AntibodyB.png')}/> */}
-            {Img}
+        
         </div>
     )
 } 
