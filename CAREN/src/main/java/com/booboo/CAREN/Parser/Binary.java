@@ -21,7 +21,6 @@ public class Binary implements Node{
         if(op.equals("*")) return lv*rv;
         if(op.equals("/")) return lv/rv;
         if(op.equals("%")) return lv%rv;
-        if(op.equals("^")) return (int) Math.pow(lv, rv);
         throw new SyntaxError();
     }
     

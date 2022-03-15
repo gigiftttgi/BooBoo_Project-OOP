@@ -1,146 +1,179 @@
+
 .MainGame {
- margin: auto;
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: 2%;
   
 }
 
-.antiImg{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2%;
-  width: 70%;
-}
-.selectZone {
-  margin-left: 80%;
-  margin-right: auto;
-}
-
-.Shop {
-  /* width: 263px;
-  height: 800px; */
-  /* margin-left: 3%;
-  margin-right: 3%;
-  margin-bottom: 3%; */
-
-  /* margin-left: 80%; */
-
-  margin-left: 10%;
-  margin-right: 10%;
-  background-color: #F9E6CF;
-  height: 70%;
-}
-.shopcontainer{
-  height:70%;
-}
-
 .Field {
-  /* position: absolute; */
-  /* width: 1024px;
-  height: 700px; */
-  margin-left: auto;
-  margin-bottom: auto;
-  background: #F9E6CF;
+
+  background-color: #2A2F4E;
+  position: fixed;
+  top: 3%; right: 30%; bottom : 3%; left: 10%;
+  border-radius: 10px;
+  padding-top: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+
+}
+
+.Cell {
+  background-color: #F9E6CF;
+  border-radius: 5px;
+  width: 3%;
+  height: 3%;
+}
+
+.Table {
+  width: 100%;
+  height: 100%;
+}
+
+.Container{
+
+  display: flex;
+
+  flex-direction: column;
+  position: fixed;
+  top: 3%; right: 10%; bottom : 3%; left: 70%;
+  margin-left: 15px;
 
 }
 
 .Menu {
-  /* position: absolute; */
-  /* display: flex; */
-  display: inline-flex;
-  /* width: 18%;
-  height: 10%; */
-  /* margin-left: 80%; */
-  margin-top: 1%;
-  margin-bottom: 1%;
-  /* margin-right: 800px; */
+  position: static;
+  width: 100%;
+  align-content: center;
+  top: 0px; right: 0px; left: 0px; 
   background-color: #F9E6CF;
-  border-radius: 10px;
-}
-
-.Card {
-  /* width: 193px;
-  height: 200px; */
-  margin-left: 7%;
-  margin-right: 7%;
-  margin-bottom: 7%;
-  background: #92A1B9;
-  border-radius: 10px;
-  display: flow-root;
-}
-
-
-.CreditBar{
-  
-  text-align:initial;
-  display: flexbox;
-  margin-left: 5%;
-  margin-right: 5%;
-  /* top: 0%;
-  bottom: 0%; */
-
-  /* padding-top: 15 px;
-  padding-bottom: 15 px; */
-
-  background: #2A2F4E;
-  border-radius: 12px;
-  
-  
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 125%;
+  height: fit-content;
+  border-radius: 5px;
+  padding-top: 4%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+  padding-left: 4%;
+  margin-bottom: 5px;
 }
 
 .menuBtn{
-  /* display: flex; */
-  background: #2A2F4E;
-  mix-blend-mode: normal;
-  margin: 2%;
-  border-radius: 12px;
-  padding: 2%;
-  width: 40px;
-  height: 40px;
+  width : 19%;
+  background-color: #2A2F4E;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 5px;
 }
 
+.imgMenu{
+  max-width: 100%;  
+  height: auto;  
+}
 
-.container{
+.Shop {
   display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  width: 100%;
+  background-color: #F9E6CF;
+  border-radius: 5px;
+
+  padding-top: 4%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+  padding-left: 4%;
+  
+}
+
+.Shoptext{
+  font-family: 'Staatliches', cursive;
+  border-radius: 10px;
+  /* margin-bottom: 5px; */
+  color: #000000;
+  text-align: center;
+  font-size: 180%;
+}
+
+.CreditBar{
+  font-family: 'Staatliches', cursive;
+  background: #2A2F4E;
+  border-radius: 10px;
+  margin-bottom: 5px;
+ 
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 175%;
+}
+
+.AntiShop{
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  /* height: 100%; */
+}
+
+.AntiBox{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+
+  border: 4px solid #2A2F4E;
+  /* background: #2A2F4E; */
+  border-radius: 10px;
+  margin-bottom: 5px;
+
+  /* padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px; */
+  padding-top: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+}
+
+.AntiTextBox{
+  align-content: center;
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+}
+
+.AntiText{
+  font-family: 'Staatliches', cursive;
+  font-size: 150%;
+  color: #2A2F4E;
+  text-align:center;
+  font-size: 150%;
+}
+
+.AntiImgBox{
+  height: auto;
+  width: 45%;
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+}
+
+.AntiImg{
+  max-width: 100%;  
+  height: auto; 
 }
 
 .BuyBtn{
-background: #2A2F4E;
-padding-left: 5%;
-padding-right: 5%;
-margin-bottom: 3%;
-margin-left: 5%;
-margin-right: 5%;
 
-display: block;
-width: 90%;
+background: #2A2F4E;
+width: 100%;
 
 border-radius: 5px;
-/* text */
+
+font-family: 'Staatliches', cursive;
 color: #FFFFFF;
 text-align:center;
 font-size: 125%;
 }
-
-.Name{
-  margin-top: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  /* padding-left: 5%;
-  padding-right: 5%; */
-
-  margin-bottom: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
-
-  background: #2A2F4E;
-  border-radius: 5px;
-
-  color: #FFFFFF;
-  text-align:center;
-  font-size: 120%;
-}
-
 
