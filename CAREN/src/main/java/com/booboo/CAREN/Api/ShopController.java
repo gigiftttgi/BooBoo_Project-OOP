@@ -26,7 +26,7 @@ public class ShopController {
     @CrossOrigin
     @PostMapping()
     @RequestMapping("/buyA")
-    public String buyantiA(@RequestBody Position p){
+    public String buyantiA(@RequestBody PositionApi p){
         int y = p.getP()%25;
         if(y==0){
             y=25;
@@ -41,7 +41,7 @@ public class ShopController {
     @CrossOrigin
     @PostMapping
     @RequestMapping("/buyB")
-    public String buyantiB(@RequestBody Position p){
+    public String buyantiB(@RequestBody PositionApi p){
         int y = p.getP()%25;
         if(y==0){
             y=25;
@@ -55,7 +55,7 @@ public class ShopController {
     @CrossOrigin
     @PostMapping
     @RequestMapping("/buyC")
-    public String buyantiC(@RequestBody Position p){
+    public String buyantiC(@RequestBody PositionApi p){
         int y = (p.getP())%25;
         if(y==0){
             y=25;

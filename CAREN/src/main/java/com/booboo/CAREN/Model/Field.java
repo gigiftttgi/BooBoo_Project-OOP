@@ -29,8 +29,13 @@ public class Field {
     return listAntibody;
   }
 
+<<<<<<< Updated upstream
   public void updateStatus(){
 
+=======
+  public List<Gamecharacter> getAllChar() {
+    return allChar;
+>>>>>>> Stashed changes
   }
 
   // for testing
