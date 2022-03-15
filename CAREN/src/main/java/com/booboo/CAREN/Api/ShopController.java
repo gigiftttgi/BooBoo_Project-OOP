@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/shop")
 public class ShopController {
     Shop shop = Shop.getInsShop();
+    String antibody;
 
     @CrossOrigin
     @GetMapping("/")
@@ -20,6 +21,22 @@ public class ShopController {
     @GetMapping("/money")
     public int getMoney(){
         return shop.getMoney();
+    }
+
+
+    @CrossOrigin
+    @PostMapping()
+    @RequestMapping("/setAnti")
+    public void setAnti(@RequestBody String anti){
+        antibody = anti;
+//        return "kuy"+antibody;
+    }
+
+    @CrossOrigin
+    @GetMapping()
+    @RequestMapping("/getAnti")
+    public String getAnti(){
+        return antibody;
     }
 
 
