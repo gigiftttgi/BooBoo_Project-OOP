@@ -34,7 +34,7 @@ public class ShopController {
         int x = ((p.getP()- y) / 25) + 1;
 
         shop.buyAntiA(x, y);
-        return "Sent Request Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
+        return "Sent Request A Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
 
     }
 
@@ -49,7 +49,7 @@ public class ShopController {
         int x = ((p.getP()- y) / 25) + 1;
 
         shop.buyAntiB(x, y);
-        return "Sent Request Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
+        return "Sent Request B Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
     }
 
     @CrossOrigin
@@ -63,6 +63,6 @@ public class ShopController {
         int x = ((p.getP()- y) / 25) + 1;
 
         shop.buyAntiC(x, y);
-        return "Sent Request Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
+        return "Sent Request C Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
     }
 }
