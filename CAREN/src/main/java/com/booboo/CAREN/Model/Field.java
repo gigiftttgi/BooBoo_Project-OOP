@@ -7,7 +7,8 @@ public class Field {
 
   private List<Virus> listVirus;
   private List<Antibody> listAntibody;
-  protected int[][] pos = new int[50][50];
+  private List<Gamecharacter> allChar;
+  protected Gamecharacter[][] pos = new Gamecharacter[27][15];
   protected String[][] statusCell = new String[50][50];
 
   private static Field instance = new Field();
@@ -15,6 +16,7 @@ public class Field {
   private Field() {
     listVirus = new ArrayList<>();
     listAntibody = new ArrayList<>();
+    allChar = new ArrayList<>();
   }
 
   public static Field getInstance(){
@@ -29,22 +31,21 @@ public class Field {
     return listAntibody;
   }
 
-<<<<<<< Updated upstream
-  public void updateStatus(){
 
-=======
   public List<Gamecharacter> getAllChar() {
     return allChar;
->>>>>>> Stashed changes
   }
+
 
   // for testing
   public void addVirus(Virus v){
     listVirus.add(v);
+    allChar.add(v);
   }
 
   public void addAntibody(Antibody a){
     listAntibody.add(a);
+    allChar.add(a);
   }
 
   public void charDie(Gamecharacter g){
