@@ -1,6 +1,6 @@
 package com.booboo.CAREN.Api;
 
-public class Position {
+public class PositionApi {
     private int p;
 
     public int getP(){
