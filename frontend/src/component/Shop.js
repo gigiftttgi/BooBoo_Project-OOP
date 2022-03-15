@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
 const Shop = ({Antibody}) => {
 
   const [money, setMoney] = useState('');
   
+
   const fetchMoney = async () => {
     try {
       const m = await axios('/shop/money',);
@@ -25,6 +27,7 @@ const Shop = ({Antibody}) => {
 
 
   }, []);
+
 
 
   function sentBuyAntiA(anti) {
@@ -112,4 +115,4 @@ const Shop = ({Antibody}) => {
 
 
 
-export default Shop;
+export default Shop
