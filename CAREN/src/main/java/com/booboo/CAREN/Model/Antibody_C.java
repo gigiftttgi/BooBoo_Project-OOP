@@ -3,7 +3,7 @@ package com.booboo.CAREN.Model;
 public class Antibody_C extends Antibody {
 
     Antibody_C(int posx, int posy){
-        this.type = "antibody";
+        this.type = "C";
         this.atk = 10;
         this.hp = 120;
         this.moveCost = 15;

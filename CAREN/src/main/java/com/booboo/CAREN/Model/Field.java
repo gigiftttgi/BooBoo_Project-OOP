@@ -31,6 +31,12 @@ public class Field {
     return listAntibody;
   }
 
+
+  public List<Gamecharacter> getAllChar() {
+    return allChar;
+  }
+
+
   // for testing
   public void addVirus(Virus v){
     listVirus.add(v);

@@ -1,4 +1,8 @@
 package com.booboo.CAREN.Model;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Position {
 
     protected int x;
