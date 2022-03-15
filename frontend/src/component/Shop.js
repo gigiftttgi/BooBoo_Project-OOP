@@ -5,13 +5,11 @@ import axios from 'axios';
 const Shop = ({Antibody}) => {
 
   const [money, setMoney] = useState('');
-  
 
   const fetchMoney = async () => {
     try {
       const m = await axios('/shop/money',);
       setMoney(m.data);
-      // console.log(m.data);
     } catch (err) {
       console.error(err.message);
     }
@@ -30,21 +28,28 @@ const Shop = ({Antibody}) => {
 
 
 
-  function sentBuyAntiA(anti) {
-    // axios.post('/shop/buyA', anti)
-    //   .then(response => console.log(response.data));
+  function sentBuyAntiA() {
+  
+    if(money == 0){
+      alert("BOO BOO");
+    }
+
     Antibody('A');
   }
 
-  function sentBuyAntiB(anti) {
-    // axios.post('/shop/buyB', anti)
-    //   .then(response => console.log(response.data));
+  function sentBuyAntiB() {
+   
+    if(money == 0){
+      alert("BOO BOO");
+    }
     Antibody('B');
   }
 
-  function sentBuyAntiC(anti) {
-    // axios.post('/shop/buyC', anti)
-    //   .then(response => console.log(response.data));
+  function sentBuyAntiC() {
+    
+    if(money == 0){
+      alert("BOO BOO");
+    }
     Antibody('C');
   }
 
@@ -69,8 +74,7 @@ const Shop = ({Antibody}) => {
             <div className="AntiText">
               Antibody A <br /> HI
             </div>
-            <button className='BuyBtn' onClick={() =>  
-              {sentBuyAntiA()}
+            <button className='BuyBtn' onClick={() => {sentBuyAntiA()}
               } >20 Credit</button>
           </div>
         </div>

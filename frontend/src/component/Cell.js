@@ -18,29 +18,22 @@ const Cell = ({ id, SentAntiF }) => {
 
 
   function setBuyreq() {
-    if (SentAntiF === "A") {
-
-      console.log("It's A", pos);
-
-      axios.post('/shop/buyA',
-        { "p": pos }
-      )
-        .then(response => console.log(response.data));
-
-    } else if (SentAntiF === "B") {
-      console.log("It's B", pos
-      );
-      axios.post('/shop/buyB', 
-      { "p": pos }
-      )
-        .then(response => console.log(response.data));
-    } else if (SentAntiF === "C") {
-      console.log("It's C", pos);
-      axios.post('/shop/buyC', 
-      { "p": pos }
-      )
-        .then(response => console.log(response.data));
-    }
+      if(SentAntiF != null){
+        if (SentAntiF === "A"){
+            console.log("It's A", pos);
+            axios.post('/shop/buyA', { "p": pos })
+                .then(response => console.log(response.data));
+        } else if (SentAntiF === "B") {
+            console.log("It's B", pos);
+            axios.post('/shop/buyB', { "p": pos })
+                .then(response => console.log(response.data));
+        } else if (SentAntiF === "C") {
+            console.log("It's C", pos);
+            axios.post('/shop/buyC', { "p": pos })
+                .then(response => console.log(response.data));
+        }
+      }
+    SentAntiF = null;
   }
 
 

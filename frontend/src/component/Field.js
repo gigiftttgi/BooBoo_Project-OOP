@@ -6,20 +6,9 @@ const Field = ({PositionApp,SentAnti}) => {
 
     let i = 1;
 
-    // const [sell, setCell] = useState('');
-    // const [Pos,setPos] = React.useState(null);
-    
-    // const Position = (pos) =>{
-    //     // setPos(pos);
-    //     PositionApp(pos);
-        
-    // }
 
     const Anti = SentAnti;
-    // const SentAntiF = () => {
-    //     SetAnti(SentAnti);
-    //   }
-
+  
     return (
         <div className="Field">
 
