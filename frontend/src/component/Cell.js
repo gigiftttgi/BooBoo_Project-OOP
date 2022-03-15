@@ -1,72 +1,54 @@
 import { useState } from "react";
 import ImgCell from "./ImgCell";
+import axios from 'axios';
 
-const Cell  = ({id,SentAntiF}) => {
+const Cell = ({ id, SentAntiF }) => {
 
-  let pos = id;
-  var y = pos.id%25;
-    if(y==0) y=25;
-    var x = ((pos.id - y) /25) +1;
+  const pos = id;
+  // var y = pos.id % 25;
+  // if (y == 0) y = 25;
+  // var x = ((pos.id - y) / 25) + 1;
 
   const [anti, setAnti] = useState('');
- 
-
-//   const fetchAnti = async () => {
-//     try {
-//       const m = await axios('/shop/getAnti',);
-//       setAnti(m.data);
-//       console.log(m.data);
-//     } catch (err) {
-//       console.error(err.message);
-//     }
-//   };
-
-  // useEffect(async () => {
-  //   fetchAnti()
-
-  //   const interval = setInterval(() => {
-  //     fetchAnti()
-  //   }, 1000)
-  //   return () => clearInterval(interval)
 
 
-  // }, []);
+  function sentpos() {
+    console.log(SentAntiF);
+  }
 
 
-//   function sentpos(pos) {
-//     var y = pos.id % 25;
-//     if (y == 0) y = 25;
-//     var x = ((pos.id - y) / 25) + 1;
-//     console.log(x, y);
+  function setBuyreq() {
+    if (SentAntiF === "A") {
 
-//     fetchAnti();
-//     console.log(anti === "antiA");
+      console.log("It's A", pos);
 
+      axios.post('/shop/buyA',
+        { "p": pos }
+      )
+        .then(response => console.log(response.data));
 
-//     if (anti === "antiA") {
-//       console.log("A");
-
-//     } else if (anti === "antiB") {
-//       console.log("B");
-//     } else if (anti == "antiC") {
-//       console.log("C");
-//     } else {
-
-//     }
-// }
-
-
-
-   function sentpos(){
-        console.log(SentAntiF);
+    } else if (SentAntiF === "B") {
+      console.log("It's B", pos
+      );
+      axios.post('/shop/buyB', 
+      { "p": pos }
+      )
+        .then(response => console.log(response.data));
+    } else if (SentAntiF === "C") {
+      console.log("It's C", pos);
+      axios.post('/shop/buyC', 
+      { "p": pos }
+      )
+        .then(response => console.log(response.data));
     }
+  }
 
 
 
 
   return (
-    <td className="Cell" onClick={() => {sentpos()}} >
-        {/* <ImgCell id={pos}  ></ImgCell> */}
+    <td className="Cell" onClick={() => { setBuyreq() }} >
+      {/* <ImgCell id={pos}  ></ImgCell> */}
     </td>
 
   )

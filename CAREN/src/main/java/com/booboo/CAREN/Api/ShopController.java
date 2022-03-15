@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/shop")
 public class ShopController {
     Shop shop = Shop.getInsShop();
-    String antibody;
 
     @CrossOrigin
     @GetMapping("/")
@@ -26,26 +25,16 @@ public class ShopController {
 
     @CrossOrigin
     @PostMapping()
-    @RequestMapping("/setAnti")
-    public void setAnti(@RequestBody String anti){
-        antibody = anti;
-//        return "kuy"+antibody;
-    }
-
-    @CrossOrigin
-    @GetMapping()
-    @RequestMapping("/getAnti")
-    public String getAnti(){
-        return antibody;
-    }
-
-
-    @CrossOrigin
-    @PostMapping()
     @RequestMapping("/buyA")
     public String buyantiA(@RequestBody Position p){
-        shop.buyAntiA(p.getPosx(), p.getPosy());
-        return "Sent Request Successfully, posx,y " +p.getPosx() +", " + p.getPosy() +"  ,"  +shop.getMoney();
+        int y = p.getP()%25;
+        if(y==0){
+            y=25;
+        }
+        int x = ((p.getP()- y) / 25) + 1;
+
+        shop.buyAntiA(x, y);
+        return "Sent Request Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
 
     }
 
@@ -53,15 +42,27 @@ public class ShopController {
     @PostMapping
     @RequestMapping("/buyB")
     public String buyantiB(@RequestBody Position p){
-        shop.buyAntiB(p.getPosx(), p.getPosy());
-        return "Sent Request Successfully, posx,y " +p.getPosx() +", " + p.getPosy() +"  ,"  +shop.getMoney();
+        int y = p.getP()%25;
+        if(y==0){
+            y=25;
+        }
+        int x = ((p.getP()- y) / 25) + 1;
+
+        shop.buyAntiA(x, y);
+        return "Sent Request Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
     }
 
     @CrossOrigin
     @PostMapping
     @RequestMapping("/buyC")
     public String buyantiC(@RequestBody Position p){
-        shop.buyAntiC(p.getPosx(), p.getPosy());
-        return "Sent Request Successfully, posx,y "  +p.getPosx() +", " + p.getPosy() +"  ,"  +shop.getMoney();
+        int y = (p.getP())%25;
+        if(y==0){
+            y=25;
+        }
+        int x = ((p.getP()- y) / 25) + 1;
+
+        shop.buyAntiA(x, y);
+        return "Sent Request Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
     }
 }
