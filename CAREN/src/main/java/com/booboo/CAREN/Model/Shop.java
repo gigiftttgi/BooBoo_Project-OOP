@@ -30,9 +30,8 @@ public class Shop {
             this.balance -=20;
             System.out.println("your balance is " + this.balance);
 
-            field.addAntibody(facAnti.createAntibodyA(1,1));
-
-//            field.addAntibody(facAnti.createAntibodyA(posx, posy));
+//            field.addAntibody(facAnti.createAntibodyA(1,1));
+            field.addAntibody(facAnti.createAntibodyA(posx, posy));
 
         }else{
             System.out.println("you dont have enough money");
@@ -43,9 +42,10 @@ public class Shop {
         if(this.balance>=50 ){
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
-     field.addAntibody(facAnti.createAntibodyB(1,1));
 
-//            field.addAntibody(facAnti.createAntibodyB(posx, posy));
+//             field.addAntibody(facAnti.createAntibodyB(1,1));
+
+            field.addAntibody(facAnti.createAntibodyB(posx, posy));
 
         }else{
             System.out.println("you dont have enough money");
@@ -57,9 +57,11 @@ public class Shop {
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
 
-            field.addAntibody(facAnti.createAntibodyC(1,1));
+            field.addAntibody(facAnti.createAntibodyC(posx, posy));
 
-//            field.addAntibody(facAnti.createAntibodyC(posx, posy));
+//            field.addAntibody(facAnti.createAntibodyC(1,1));
+
+           
 
         }else{
             System.out.println("you dont have enough money");
