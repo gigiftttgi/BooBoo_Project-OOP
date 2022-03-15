@@ -49,47 +49,53 @@ const Shop = () => {
 
 
   return (
-    <div className='Shop'>
-      <div className='CreditBar'>
-        <p className="CreditText">Credit: {money}</p>
+
+    <div className = "Shop">
+      <div className="Shoptext">SHOP</div>
+      <div className= "CreditBar">
+        {money} Credit
       </div>
 
-      <div className='shopcontainer'>
-        <div className='Card'>
-          <div className='Name'>
-            Antibody A
-          </div>
-          <img src={require('./image/antibody/antiA.png')} className="antiImg"></img>
-          <button className='BuyBtn'
-            onClick={() => { sentBuyAntiA("antiA"); }}
-          >Buy</button>
+      <div className = "AntiShop">
 
-        </div>
-        <div className='Card'>
-          <div className='Name'>
-            Antibody B
+        <div className = "AntiBox">
+          <div className = "AntiImgBox">
+            <img className="AntiImg" src={require('./image/antibody/AntibodyA.png')}></img>
           </div>
-          <img src={require('./image/antibody/antiB.png')} className="antiImg"></img>
-          <button className='BuyBtn'
-            onClick={() => { sentBuyAntiB("antiB"); }}
-          >Buy</button>
-
-        </div>
-        <div className='Card'>
-          <div className='Name'>
-            Antibody C
+          <div className = "AntiTextBox">
+            <div className = "AntiText">
+              Antibody A <br/> HI
+            </div>
+            <button className='BuyBtn' onClick={() => { sentBuyAntiA("antiA"); }} >20 Credit</button>
           </div>
-          <img src={require('./image/antibody/antiC.png')} className="antiImg"></img>
-          <button className='BuyBtn'
-            onClick={() => { sentBuyAntiC("antiC"); }}
-          >Buy</button>
-
         </div>
+
+        <div className = "AntiBox">
+          <div className = "AntiImgBox">
+            <img className="AntiImg" src={require('./image/antibody/AntibodyB.png')}></img>
+          </div>
+          <div className = "AntiTextBox">
+            <div className = "AntiText">
+              Antibody B <br/> HI
+            </div>
+            <button className='BuyBtn' onClick={() => { sentBuyAntiB("antiB"); }} >30 Credit</button>
+          </div>
+        </div>
+
+        <div className = "AntiBox">
+          <div className = "AntiImgBox">
+            <img className="AntiImg" src={require('./image/antibody/AntibodyC.png')} ></img>
+          </div>
+          <div className = "AntiTextBox">
+            <div className = "AntiText">
+              Antibody C <br/> HI
+            </div>
+            <button className='BuyBtn' onClick={() => { sentBuyAntiC("antiC"); }} >40 Credit</button>
+          </div>
+          </div>
 
       </div>
-
-
-
+      
     </div>
 
 

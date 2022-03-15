@@ -18,9 +18,8 @@ function App() {
       <Field>
         </Field>
       <div className='Container'>
-          <Menu>
-          </Menu>
-
+        <Menu></Menu>
+        <Shop></Shop>
       </div>
 
     </div>
