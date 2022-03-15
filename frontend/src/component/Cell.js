@@ -1,12 +1,12 @@
+import { useState } from "react";
+import ImgCell from "./ImgCell";
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Shop, seeAnti } from './Shop';
-
-
-const Cell = (id) => {
+const Cell  = ({id,SentAntiF}) => {
 
   let pos = id;
+  var y = pos.id%25;
+    if(y==0) y=25;
+    var x = ((pos.id - y) /25) +1;
 
   const [anti, setAnti] = useState('');
   // const getAnti = (data) => {
@@ -55,10 +55,22 @@ const Cell = (id) => {
     } else {
 
     }
+}
 
 
 
-  }
+   function sentpos(){
+        console.log(SentAntiF);
+    }
+
+   
+//     console.log(x,y)
+//     showImg();
+    // document.innerHTML = "<img className='AntiImg' src={require('./image/antibody/AntibodyB.png')}/>";
+    // var img = document.createElement('img')
+    // img.src = './image/antibody/AntibodyB.png';
+    // document.getElementById(id).appendChild(img);  
+// }
 
 
 
@@ -93,10 +105,8 @@ const Cell = (id) => {
 
 
   return (
-    <td className="Cell"
-      onClick={() => { sentpos(pos) }}
-    >
-
+    <td className="Cell" onClick={() => {sentpos()}} >
+        {/* <ImgCell id={pos}  ></ImgCell> */}
     </td>
 
   )

@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+<<<<<<< HEAD
+const Shop = ({Antibody}) => {
+
+  const [money, setMoney] = useState('');
+  
+=======
 
 // const antibody = ;
 
@@ -15,6 +21,7 @@ const Shop = () => {
   }
   
 
+>>>>>>> 4df2dfd1d5f7f018d65e65919ac701c94977cd2f
   const fetchMoney = async () => {
     try {
       const m = await axios('/shop/money',);
@@ -37,6 +44,24 @@ const Shop = () => {
   }, []);
 
 
+<<<<<<< HEAD
+  function sentBuyAntiA(anti) {
+    // axios.post('/shop/buyA', anti)
+    //   .then(response => console.log(response.data));
+    Antibody('A');
+  }
+
+  function sentBuyAntiB(anti) {
+    // axios.post('/shop/buyB', anti)
+    //   .then(response => console.log(response.data));
+    Antibody('B');
+  }
+
+  function sentBuyAntiC(anti) {
+    // axios.post('/shop/buyC', anti)
+    //   .then(response => console.log(response.data));
+    Antibody('C');
+=======
 
 
   // function sentBuyAnti(){
@@ -69,6 +94,7 @@ const Shop = () => {
     .then(response => console.log(response.data));
     setAnti('');
 
+>>>>>>> 4df2dfd1d5f7f018d65e65919ac701c94977cd2f
   }
 
 
