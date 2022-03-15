@@ -48,7 +48,7 @@ public class ShopController {
         }
         int x = ((p.getP()- y) / 25) + 1;
 
-        shop.buyAntiA(x, y);
+        shop.buyAntiB(x, y);
         return "Sent Request Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
     }
 
@@ -62,7 +62,7 @@ public class ShopController {
         }
         int x = ((p.getP()- y) / 25) + 1;
 
-        shop.buyAntiA(x, y);
+        shop.buyAntiC(x, y);
         return "Sent Request Successfully, posx,y " +x +", " + y +"  ,"  +shop.getMoney();
     }
 }
