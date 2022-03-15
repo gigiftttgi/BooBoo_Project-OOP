@@ -2,7 +2,7 @@ package com.booboo.CAREN.Model;
 
 public class Shop {
     
-   private int balance,px,py ;
+   private int balance;
     private static Shop instance;
     private Field field = Field.getInstance();
     private Characterfactory facAnti = new Characterfactory();
@@ -20,10 +20,6 @@ public class Shop {
         return instance;
     }
 
-    public void getWebPos(int x,int y){
-        px = x;
-        py = y;
-      }
 
     public void buyAntiA(int posx, int posy){
         if(this.balance >= 20 ){    
@@ -31,7 +27,7 @@ public class Shop {
             System.out.println("your balance is " + this.balance);
 
 //            field.addAntibody(facAnti.createAntibodyA(1,1));
-            field.addAntibody(facAnti.createAntibodyA(posx, posy));
+            facAnti.createAntibodyA(posx, posy);
 
         }else{
             System.out.println("you dont have enough money");
@@ -45,7 +41,7 @@ public class Shop {
 
 //             field.addAntibody(facAnti.createAntibodyB(1,1));
 
-            field.addAntibody(facAnti.createAntibodyB(posx, posy));
+            facAnti.createAntibodyB(posx, posy);
 
         }else{
             System.out.println("you dont have enough money");
@@ -57,7 +53,7 @@ public class Shop {
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
 
-            field.addAntibody(facAnti.createAntibodyC(posx, posy));
+            facAnti.createAntibodyC(posx, posy);
 
 //            field.addAntibody(facAnti.createAntibodyC(1,1));
 
