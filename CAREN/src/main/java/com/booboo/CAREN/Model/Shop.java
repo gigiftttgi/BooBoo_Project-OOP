@@ -29,6 +29,10 @@ public class Shop {
         if(this.balance >= 20 ){    
             this.balance -=20;
             System.out.println("your balance is " + this.balance);
+<<<<<<< Updated upstream
+=======
+//            field.addAntibody(facAnti.createAntibodyA(1,1));
+>>>>>>> Stashed changes
             field.addAntibody(facAnti.createAntibodyA(posx, posy));
         }else{
             System.out.println("you dont have enough money");
@@ -39,6 +43,10 @@ public class Shop {
         if(this.balance>=50 ){
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
+<<<<<<< Updated upstream
+=======
+//            field.addAntibody(facAnti.createAntibodyB(1,1));
+>>>>>>> Stashed changes
             field.addAntibody(facAnti.createAntibodyB(posx, posy));
         }else{
             System.out.println("you dont have enough money");
@@ -49,7 +57,14 @@ public class Shop {
         if(this.balance>=50){
             this.balance -=50;
             System.out.println("your balance is "+ this.balance);
+<<<<<<< Updated upstream
             field.addAntibody(facAnti.createAntibodyC(posx, posy));
+=======
+//            field.addAntibody(facAnti.createAntibodyC(1,1));
+
+            field.addAntibody(facAnti.createAntibodyC(posx, posy));
+
+>>>>>>> Stashed changes
         }else{
             System.out.println("you dont have enough money");
         }
