@@ -12,19 +12,6 @@ const Cell = ({ id, SentAntiF }) => {
   const [anti, setAnti] = useState('');
 
 
-
-
-  //   const fetchAnti = async () => {
-  //     try {
-  //       const m = await axios('/shop/getAnti',);
-  //       setAnti(m.data);
-  //       console.log(m.data);
-  //     } catch (err) {
-  //       console.error(err.message);
-  //     }
-  //   };
-
-
   // useEffect(async () => {
   //   fetchAnti()
 
@@ -38,6 +25,7 @@ const Cell = ({ id, SentAntiF }) => {
 
 
 
+
   function sentpos() {
     console.log(SentAntiF);
   }
@@ -45,7 +33,7 @@ const Cell = ({ id, SentAntiF }) => {
 
   function setBuyreq() {
     if (SentAntiF === "A") {
-      
+
       console.log("It's A", pos);
 
       axios.post('/shop/buyA', pos)
@@ -62,45 +50,7 @@ const Cell = ({ id, SentAntiF }) => {
     }
   }
 
-   
-//     console.log(x,y)
-//     showImg();
-    // document.innerHTML = "<img className='AntiImg' src={require('./image/antibody/AntibodyB.png')}/>";
-    // var img = document.createElement('img')
-    // img.src = './image/antibody/AntibodyB.png';
-    // document.getElementById(id).appendChild(img);  
-// }
 
-
-
-
-  // function sentposA(pos){
-  //   var x = pos.id%24;
-  //   var y = pos.id- (25*((pos.id%24)-1));
-  //   console.log(x,y);
-  // }
-  // function sentposB(pos){
-  //   var x = pos.id%24;
-  //   var y = pos.id- (25*((pos.id%24)-1));
-  //   console.log(x,y);
-  // }
-  // function sentposC(pos){
-  //   var x = pos.id%24;
-  //   var y = pos.id- (25*((pos.id%24)-1));
-  //   console.log(x,y);
-  // }
-
-  // function sentposbuyB(pos){
-  //   var x = pos.id%25;
-  //   var y = pos.id%17;
-  //   console.log(x,y);
-  // }
-
-  // function sentposbuyC(pos){
-  // var x = pos.id%24;
-  // var y = pos.id- (25*((pos.id%24)-1));
-  // console.log(x,y);
-  // }
 
 
   return (
