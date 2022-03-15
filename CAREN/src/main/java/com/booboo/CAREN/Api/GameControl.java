@@ -11,11 +11,11 @@ public class GameControl {
 
     // Gameplay game = Gameplay.getInsGameplay();
 
-    @CrossOrigin
-    @GetMapping("/pos")
-    public Position getPos(){
-        Position pos = new Position(1,3);
-        return pos;
-    }
+//    @CrossOrigin
+//    @GetMapping("/pos")
+//    public Position getPos(){
+//        Position pos = new Position(1,3);
+//        return pos;
+//    }
 
 }
