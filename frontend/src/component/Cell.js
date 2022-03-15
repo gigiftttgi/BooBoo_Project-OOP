@@ -4,12 +4,15 @@ import ImgCell from "./ImgCell";
 const Cell  = (id) => {
 
   let pos = id;
+  var y = pos.id%25;
+    if(y==0) y=25;
+    var x = ((pos.id - y) /25) +1;
 
   const [data, setData] = useState('');
 
   function sentpos(pos){
-    var x = pos.id%24;
-    var y = pos.id- (25*((pos.id%24)-1));
+   
+    console.log(x,y)
     showImg();
     // document.innerHTML = "<img className='AntiImg' src={require('./image/antibody/AntibodyB.png')}/>";
     // var img = document.createElement('img')
