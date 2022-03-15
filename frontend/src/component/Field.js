@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 import APIService from './APIService';
 import Cell from './Cell';
 
-const Field = () => {
+const Field = ({PositionApp,SentAnti}) => {
 
     let i = 1;
 
-    const [sell, setCell] = useState('');
+    // const [sell, setCell] = useState('');
+    // const [Pos,setPos] = React.useState(null);
+    
+    // const Position = (pos) =>{
+    //     // setPos(pos);
+    //     PositionApp(pos);
+        
+    // }
 
+    const Anti = SentAnti;
+    // const SentAntiF = () => {
+    //     SetAnti(SentAnti);
+    //   }
 
     return (
         <div className="Field">
@@ -17,7 +28,7 @@ const Field = () => {
                     {Array.from({ length: 17 }, _ =>
                         <tr>{Array.from({ length: 25 }, _ =>
                             
-                            <Cell id={i++}>
+                            <Cell id={i++} SentAntiF = {Anti}>
                             </Cell>
                             )} 
                             </tr>)}
