@@ -72,10 +72,10 @@ const Shop = ({Antibody}) => {
           </div>
           <div className="AntiTextBox">
             <div className="AntiText">
-              Antibody A <br /> HI
+              Antibody A <br /> <span className='inform'>HP : 100 | ATK : 15</span>
             </div>
             <button className='BuyBtn' onClick={() => {sentBuyAntiA()}
-              } >20 Credit</button>
+              } >30 Credit</button>
           </div>
         </div>
 
@@ -85,12 +85,12 @@ const Shop = ({Antibody}) => {
           </div>
           <div className="AntiTextBox">
             <div className="AntiText">
-              Antibody B <br /> HI
+              Antibody B <br /> <span className='inform'>HP : 110 | ATK : 10</span>
             </div>
             <button className='BuyBtn' onClick={() => 
              {sentBuyAntiB()}
 
-              } >30 Credit</button>
+              } >50 Credit</button>
           </div>
         </div>
 
@@ -100,11 +100,11 @@ const Shop = ({Antibody}) => {
           </div>
           <div className="AntiTextBox">
             <div className="AntiText">
-              Antibody C <br /> HI
+              Antibody C <br /> <span className='inform'>HP : 120 | ATK : 10</span>
             </div>
             <button className='BuyBtn' onClick={() => 
               {sentBuyAntiC()} 
-              }  >40 Credit </button>
+              }  >80 Credit </button>
           </div>
         </div>
 
