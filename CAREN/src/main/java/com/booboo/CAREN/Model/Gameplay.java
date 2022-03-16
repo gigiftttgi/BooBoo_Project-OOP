@@ -1,5 +1,6 @@
 package com.booboo.CAREN.Model;
 
+import com.booboo.CAREN.Controller.Button;
 import com.booboo.CAREN.Parser.SyntaxError;
 import java.io.FileNotFoundException;
 import java.sql.Date;
@@ -9,7 +10,8 @@ import java.util.TimerTask;
 import java.util.List;
 
 public class Gameplay {
-  public static void main(String[] args) throws FileNotFoundException, SyntaxError, InterruptedException {
+
+  public void test() throws InterruptedException{
     boolean endState = false;
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
@@ -20,13 +22,17 @@ public class Gameplay {
     field.addAntibody(a);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
-    Time t = new Time();
-    t.speedDown();
+    Button btn_speedUp = new Button("speedUp");
 
     while(endState==false){
-      if(listA.isEmpty()||listV.isEmpty()) endState = true;
+      int sp;
       Time time = new Time();
-      System.out.println("curr time: "+time.getcurrTime());
+      if(listA.isEmpty()||listV.isEmpty()) endState = true;
+      if(btn_speedUp.speedUpBtn(true)){
+        sp = time.getSpeed();
+      }
+      
+      System.out.println("now sec is: "+time.getcurrTime());
       fac.createVirus();
       try {
         for(Gamecharacter g : listV)
@@ -38,10 +44,51 @@ public class Gameplay {
         // TODO Auto-generated catch block
         e.printStackTrace();
       }
-      System.out.println("now speed level is "+t.getSpeed());
       System.out.println("===============================================");
-      Thread.sleep(t.getSpeed()*1000);
+      // int speed = sp * 1000;
+      Thread.sleep(2000);
     }
+  }
+  public static void main(String[] args) throws FileNotFoundException, SyntaxError, InterruptedException {
+    // boolean endState = false;
+    // Field field = Field.getInstance();
+    // Characterfactory fac = new Characterfactory();
+    // //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
+    // Virus_X x = new Virus_X(5, 5);
+    // field.addVirus(x);
+    // Antibody_A a = new Antibody_A(5, 4);
+    // field.addAntibody(a);
+    // List<Virus> listV = field.getListVirus();
+    // List<Antibody> listA = field.getListAntibody();
+    // Button btn_speedUp = new Button("speedUp");
+
+    // while(endState==false){
+    //   int sp;
+    //   Time time = new Time();
+    //   if(listA.isEmpty()||listV.isEmpty()) endState = true;
+    //   if(btn_speedUp.speedUpBtn(true)){
+    //     sp = time.getSpeed();
+    //   }
+      
+    //   System.out.println("curr time: "+time.getcurrTime());
+    //   fac.createVirus();
+    //   try {
+    //     for(Gamecharacter g : listV)
+    //         g.runGeneticcode();
+    //   } catch (FileNotFoundException e) {
+    //     // TODO Auto-generated catch block
+    //     e.printStackTrace();
+    //   } catch (SyntaxError e) {
+    //     // TODO Auto-generated catch block
+    //     e.printStackTrace();
+    //   }
+    //   // System.out.println("now speed level is "+t.getSpeed());
+    //   System.out.println("===============================================");
+    //   int speed = sp * 1000;
+    //   Thread.sleep(sp*1000);
+    // }
+    Gameplay gameplay = new Gameplay();
+    gameplay.test();
 
 
   

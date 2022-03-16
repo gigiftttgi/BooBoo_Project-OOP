@@ -1,8 +1,7 @@
 package com.booboo.CAREN.Model;
 
 import java.time.LocalDateTime;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 public class Time {
 
