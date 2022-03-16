@@ -102,6 +102,8 @@ const Field = ({ PositionApp, SentPos }) => {
       var dropCharfrom = event.dataTransfer.getData("oldpos")
       var newPos = pos;
       console.log("drop",dropCharfrom,"at",newPos)
+      axios.post('/field/move', { "p": dropCharfrom , "q":newPos})
+          .then(response => console.log(response.data));
   }
 
   function ondrag(event){

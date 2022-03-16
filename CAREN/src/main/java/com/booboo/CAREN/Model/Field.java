@@ -63,6 +63,7 @@ public class Field {
 
 //  private Shop shop = Shop.getInsShop();
   public int movetoPosition(int oldPos,int newPos){
+    System.out.println("old" + oldPos + "new" + newPos);
     int cost = 0;
        for(Antibody a : listAntibody){
          if((((a.pos.x - 1) * 25) + a.pos.y) == oldPos){
@@ -72,8 +73,9 @@ public class Field {
           }
           int posX = ((newPos- posY) / 25) + 1;
             a.pos = new Position(posX,posY);
+            cost = a.moveCost;
          }
-         cost = a.moveCost;
+
 
 //         shop.moveCost(a.moveCost);
        }
