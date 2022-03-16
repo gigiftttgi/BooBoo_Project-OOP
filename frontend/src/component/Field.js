@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Cell from './Cell';
 import axios from 'axios';
 import iAntibobyA from './image/antibody/AntibodyA.png'
 import iAntibobyB from './image/antibody/AntibodyB.png'
@@ -133,7 +132,7 @@ const Field = ({ PositionApp, SentPos }) => {
     console.log(pos,show);
       return (
         <td className="Cell" onDragStart = {ondragstart} onDrag={ondrag} onDragOver={ondragover} >
-              <img className = "AntiImgCell" src={imgSrc} />
+              <div><img className = "AntiImgCell" src={imgSrc} /></div>
         </td>
       )
       

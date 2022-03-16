@@ -37,6 +37,7 @@ function Start() {
             <div className='BTN'>
                 <Link to="/gameplay" className='play-btn' onClick={() => { startGame() }}>play</Link>
             </div>
+
         </div>
 
 
