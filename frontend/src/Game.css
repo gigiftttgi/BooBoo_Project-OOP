@@ -161,8 +161,50 @@
   font-size: 150%;
   color: #2A2F4E;
   text-align:center;
+<<<<<<< Updated upstream
   font-size: 150%;
 }
+=======
+
+  font-size: 125%;
+  }
+  
+  .hide{
+    display: none;
+  }
+  .AntiImgCell{
+    max-width: 83%;
+    height: auto;
+   
+    display: block;
+    /* flex-grow: 1; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    /* align-items: center; */
+  }
+  
+  .GamoverBlock{
+    margin-top: 5px;
+
+  }
+
+  .playAgainBut{
+    font-family: 'Staatliches', cursive;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
+
+  /* font-size: 150%;
+} */
+>>>>>>> Stashed changes
 
 .AntiImgBox{
   height: auto;
