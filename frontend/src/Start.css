@@ -1,7 +1,11 @@
+
 .BTN{
   text-align: center;
-  margin-top: 2%;
-  
+  /* margin-top: 1%; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
 }
 
 .name{
@@ -30,6 +34,7 @@
     font-size: 700%;
     text-align: center;
     margin-top: 5%;
+    margin-bottom: 2%;
   }
   
   .play-btn{
@@ -44,12 +49,15 @@
     background-color:#F76E11;  
     font-family: 'Staatliches', cursive;
     color: white;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .block{
-    height: 45%;
-    width: 18%;
-    margin: auto;
+    height: 48%;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .Rule {
@@ -76,9 +84,9 @@
 
   .txt{
     font-family: 'Staatliches', cursive;
-    font-size: 100%;
+    font-size: 150%;
     color: white;
-    padding-top: 5%;
+    padding-top: 3%;
     content-visibility: visible;
   }
 
@@ -101,6 +109,7 @@
     font-family: 'Staatliches', cursive;
     font-size: 100%;
     color: white;
+    margin-bottom: 5%;
     visibility: hidden;
   }
 
