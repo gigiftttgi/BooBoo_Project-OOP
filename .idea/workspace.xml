@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c217432f-c904-47c8-a519-cbc4e855327a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/component/Cell.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/component/Cell.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/component/Field.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/component/Field.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/component/Shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/component/Shop.js" afterDir="false" />
@@ -18,6 +19,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="26QGqRkS92D0fOHGwGsoceWrzY9" />
   <component name="ProjectViewState">
@@ -82,5 +86,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/BooBoo_1$CarenApplication.ic" NAME="CarenApplication Coverage Results" MODIFIED="1647362432162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.booboo.CAREN.*</FILTER>
+    </SUITE>
   </component>
 </project>
