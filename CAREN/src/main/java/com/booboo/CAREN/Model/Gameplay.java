@@ -11,23 +11,24 @@ import java.util.List;
 
 public class Gameplay {
 
-  public void test() throws InterruptedException{
+  public void startGame() throws InterruptedException{
     boolean endState = false;
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
     Virus_X x = new Virus_X(5, 5);
     field.addVirus(x);
-    Antibody_A a = new Antibody_A(5, 4);
-    field.addAntibody(a);
+//     Antibody_A a = new Antibody_A(5, 4);
+//     field.addAntibody(a);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
+    List<Gamecharacter> allChar = field.getAllChar();
     Button btn_speedUp = new Button("speedUp");
 
     while(endState==false){
       int sp;
       Time time = new Time();
-      if(listA.isEmpty()||listV.isEmpty()) endState = true;
+      if(listV.isEmpty()) endState = true;
       if(btn_speedUp.speedUpBtn(true)){
         sp = time.getSpeed();
       }
@@ -35,7 +36,7 @@ public class Gameplay {
       System.out.println("now sec is: "+time.getcurrTime());
       fac.createVirus();
       try {
-        for(Gamecharacter g : listV)
+        for(Gamecharacter g : allChar)
             g.runGeneticcode();
       } catch (FileNotFoundException e) {
         // TODO Auto-generated catch block
@@ -49,6 +50,7 @@ public class Gameplay {
       Thread.sleep(2000);
     }
   }
+  
   public static void main(String[] args) throws FileNotFoundException, SyntaxError, InterruptedException {
     // boolean endState = false;
     // Field field = Field.getInstance();
@@ -88,7 +90,7 @@ public class Gameplay {
     //   Thread.sleep(sp*1000);
     // }
     Gameplay gameplay = new Gameplay();
-    gameplay.test();
+    gameplay.startGame();
 
 
   
