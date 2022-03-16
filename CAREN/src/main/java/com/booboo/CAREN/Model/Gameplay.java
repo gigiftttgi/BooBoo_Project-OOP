@@ -36,7 +36,7 @@ public class Gameplay {
   }
 
   boolean btn_speedUp = false;
-  boolean btn_speedDown = false;
+  boolean btn_speedDown = true;
   boolean btn_pause = false;
   boolean rsm = false;
   int pNum = 0;
