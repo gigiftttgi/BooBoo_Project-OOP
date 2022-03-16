@@ -15,8 +15,9 @@ public class GameControl {
 
 
     @CrossOrigin
-    @PutMapping("/start/{state}")
-    public String gameState(@PathVariable String state) throws InterruptedException {
+    @PostMapping
+    @RequestMapping("/start")
+    public String gameState(@RequestBody String state) throws InterruptedException {
         game.startGame();
         return "run start game";
     }
@@ -47,18 +48,46 @@ public class GameControl {
     }
 
     @CrossOrigin
+    @PostMapping
+    @RequestMapping("/speedup")
+    public String speedUpState(@RequestBody String state) throws InterruptedException {
+        System.out.println("call speedup");
+
+        game.setSpeedUpState(true);
+//            game.resumeGame(false);
+
+        return "Speed Up is click";
+
+    }
+
+    @CrossOrigin
+    @PostMapping
+    @RequestMapping("/speeddown")
+    public String speedDowmState(@RequestBody String state) throws InterruptedException {
+        System.out.println("call speeddown");
+
+        game.setSpeedDownState(true);
+//            game.resumeGame(false);
+
+        return "Speed Down is click";
+
+    }
+
+    @CrossOrigin
     @GetMapping
     @RequestMapping("/gameover")
     public String isOver(){
-        if(game.endState){
-            if(game.iswin){
+        System.out.println("eP" + game.getEndState() + " iWP" + game.getIsWin());
+        if(game.getEndState()){
+            System.out.println("ifEnd" );
+            if(game.getIsWin()){
+                System.out.println("ifWin" );
                 return "You win";
             }
             return "You lose";
         }
         return "Playing";
-//        return "You win";
-//        return "You lose";
+
     }
 
 }
