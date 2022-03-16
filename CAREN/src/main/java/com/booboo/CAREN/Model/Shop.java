@@ -8,7 +8,7 @@ public class Shop {
     private Characterfactory facAnti = new Characterfactory();
 
     private Shop(){
-        this.balance = 100;
+        this.balance = 3000;
     }
 
     public static Shop getInsShop()
@@ -22,8 +22,8 @@ public class Shop {
 
 
     public void buyAntiA(int posx, int posy){
-        if(this.balance >= 20 ){    
-            this.balance -=20;
+        if(this.balance >= 30 ){
+            this.balance -=30;
             System.out.println("your balance is " + this.balance);
 
 //            field.addAntibody(facAnti.createAntibodyA(1,1));
@@ -49,8 +49,8 @@ public class Shop {
     }
 
     public void buyAntiC(int posx, int posy){
-        if(this.balance>=50){
-            this.balance -=50;
+        if(this.balance>=80){
+            this.balance -=80;
             System.out.println("your balance is "+ this.balance);
 
             facAnti.createAntibodyC(posx, posy);
@@ -66,6 +66,10 @@ public class Shop {
 
     public int getMoney(){
         return balance;
+    }
+
+    public void moveCost(int cost){
+        balance -= cost;
     }
         
 

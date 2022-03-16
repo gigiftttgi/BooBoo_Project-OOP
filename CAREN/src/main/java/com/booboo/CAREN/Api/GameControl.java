@@ -13,8 +13,8 @@ public class GameControl {
 
 //    @CrossOrigin
 //    @GetMapping("/pos")
-//    public Position getPos(){
-//        Position pos = new Position(1,3);
+//    public PositionApi getPos(){
+//        PositionApi pos = new PositionApi(1,3);
 //        return pos;
 //    }
 
