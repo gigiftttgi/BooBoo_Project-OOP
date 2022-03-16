@@ -16,8 +16,8 @@ public class Characterfactory {
   public void createVirus() {
     List<Gamecharacter> list = field.getAllChar();
     Random_int r = new Random_int(3);
-    Random_int randomX = new Random_int(17);
-    Random_int randomY = new Random_int(25);
+    Random_int randomX = new Random_int(10);
+    Random_int randomY = new Random_int(15);
     int rand = r.randomInt();
     int r1 = randomX.randomInt()+1;
     int r2 = randomY.randomInt()+1;
