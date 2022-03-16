@@ -46,7 +46,7 @@ const Field = ({ PositionApp, SentPos }) => {
 
     const interval = setInterval(() => {
      fetchAnti()
-    }, 5000)
+    }, 1000)
     return () => {
         clearInterval(interval)
         controller.abort();
@@ -91,7 +91,7 @@ const Field = ({ PositionApp, SentPos }) => {
       const controller = new AbortController();
       const interval = setInterval(() => {
           showID()
-      },5000)
+      },1000)
       return () => {
           clearInterval(interval)
         controller.abort();}
