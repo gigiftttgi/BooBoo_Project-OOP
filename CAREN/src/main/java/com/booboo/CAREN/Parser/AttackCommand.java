@@ -30,7 +30,16 @@ public class AttackCommand implements Node{
         Position target = targetLocation(host.getPos(), direction.evaluate());
         System.out.println("Pos Target -> x : " + target.PosX() + "y : " + target.PosY());
         if(host.getType().equals("A") || host.getType().equals("B") || host.getType().equals("C")){
-            for(Virus v : listVirus){
+
+//            for(Virus v : listVirus){
+//                if(v.getPos().equalPos(target)){
+//                    System.out.println(v.getType() + " attack by " + host.getType());
+//                    v.attackedBy(host);
+//                }
+//            }
+            for(int i=0; i<listVirus.size() ; i++){
+                Virus v = listVirus.get(i);
+
                 if(v.getPos().equalPos(target)){
                     System.out.println(v.getType() + " attack by " + host.getType());
                     v.attackedBy(host);
