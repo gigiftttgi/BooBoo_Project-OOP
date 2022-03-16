@@ -30,6 +30,7 @@ function App() {
         .then(response => console.log(response.data));
     }
 
+    SetAnti(null);
   }
 
   const Antibody = (anti) => {
