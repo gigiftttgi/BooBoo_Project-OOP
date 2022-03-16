@@ -8,8 +8,6 @@ public class Field {
   private List<Virus> listVirus;
   private List<Antibody> listAntibody;
   private List<Gamecharacter> allChar;
-  protected Gamecharacter[][] pos = new Gamecharacter[27][15];
-  protected String[][] statusCell = new String[50][50];
 
   private static Field instanceF;
 
@@ -59,6 +57,7 @@ public class Field {
     else{
       listVirus.remove(g);
     }
+    allChar.remove(g);
   }
 
 //  private Shop shop = Shop.getInsShop();

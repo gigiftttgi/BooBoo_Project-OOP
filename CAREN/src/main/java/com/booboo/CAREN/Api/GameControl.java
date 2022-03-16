@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/booboo")
+@RequestMapping("/")
 public class GameControl {
 
-    // Gameplay game = Gameplay.getInsGameplay();
+     Gameplay game = new Gameplay();
 
-//    @CrossOrigin
-//    @GetMapping("/pos")
-//    public PositionApi getPos(){
-//        PositionApi pos = new PositionApi(1,3);
-//        return pos;
-//    }
+    @CrossOrigin
+    @PutMapping("/start/{state}")
+    public String gameState(@PathVariable String state) throws InterruptedException {
+        game.startGame();
+        return "run start game";
+    }
 
 }
