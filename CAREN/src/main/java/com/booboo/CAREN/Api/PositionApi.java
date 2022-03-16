@@ -1,5 +1,8 @@
 package com.booboo.CAREN.Api;
 
+import lombok.Data;
+
+@Data
 public class PositionApi {
     private int p;
     private int q;

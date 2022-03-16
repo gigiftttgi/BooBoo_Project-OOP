@@ -5,7 +5,7 @@ public class Characterfactory {
   protected int currentTime;
   protected int virusRate;
   protected int[][] pos = new int[50][50];
-  Field field = Field.getInstance();
+  protected Field field = Field.getInstance();
 
   protected int increaseVirusrate(int time) {
     return virusRate;

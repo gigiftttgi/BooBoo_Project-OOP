@@ -4,7 +4,7 @@ public class Shop {
     
    private int balance;
     private static Shop instance;
-    private Field field = Field.getInstance();
+//    private Field field = Field.getInstance();
     private Characterfactory facAnti = new Characterfactory();
 
     private Shop(){
