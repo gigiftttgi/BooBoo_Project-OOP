@@ -67,6 +67,10 @@ public class Shop {
     public int getMoney(){
         return balance;
     }
+
+    public void moveCost(int cost){
+        balance -= cost;
+    }
         
 
 }

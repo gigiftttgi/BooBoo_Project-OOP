@@ -36,7 +36,6 @@ public class Field {
     return allChar;
   }
 
-
   // for testing
   public void addVirus(Virus v){
     listVirus.add(v);
@@ -55,6 +54,23 @@ public class Field {
     else{
       listVirus.remove(g);
     }
+  }
+
+  private Shop shop = Shop.getInsShop();
+  public void movetoPosition(int oldPos,int newPos){
+       for(Antibody a : listAntibody){
+         if((((a.pos.x - 1) * 25) + a.pos.y) == oldPos){
+          int posY =  newPos%25;
+          if(posY == 0){
+            posY = 25;
+          }
+          int posX = ((newPos- posY) / 25) + 1;
+            a.pos = new Position(posX,posY);
+         }
+
+         shop.moveCost(a.moveCost);
+       }
+             
   }
 
 }

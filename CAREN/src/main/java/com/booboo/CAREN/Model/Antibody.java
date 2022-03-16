@@ -2,12 +2,11 @@ package com.booboo.CAREN.Model;
 public class Antibody extends Gamecharacter {
     
     protected int moveCost;
+    // private Shop shop = Shop.getInsShop();
     
-    public int movetoPosition(Position pos){
-        //เปลี่ยนที่โดยผู้เล่น -> เสียเงิน
-        return moveCost;        
-    }
-
- 
+    // public void movetoPosition(Position oldPos,Position newPos){
+       
+             
+    // }
 
 }
