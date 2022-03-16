@@ -36,13 +36,12 @@ function Start() {
             </div>
 
             <div className='BTN'>
-<<<<<<< Updated upstream
-                <Link to = "/gameplay" className='play-btn'>play</Link>
+
             </div> 
-=======
+
                 <Link to="/gameplay" className='play-btn' onClick={() => {startGame()}}>play</Link>
             </div>
->>>>>>> Stashed changes
+
         </div>
 
     );
