@@ -26,7 +26,22 @@
   border-radius: 5px;
   width: 3%;
   height: 3%;
+  /* padding-top: 1px;
+  padding-right: 1px;
+  padding-bottom: 1px;
+  padding-left: 1px; */
+  /* align-content: center; */
 }
+
+.AntiImgCell{
+  max-width: 65%;
+  display: block;
+  /* flex-grow: 1; */
+  margin-left: auto;
+  margin-right: auto;
+  /* align-items: center; */
+}
+
 
 .Table {
   width: 100%;
@@ -147,7 +162,13 @@
   font-size: 150%;
   color: #2A2F4E;
   text-align:center;
-  font-size: 150%;
+}
+
+.inform{
+  font-family: 'Staatliches', cursive;
+  font-size: 80%;
+  color: #2A2F4E;
+  text-align:center;
 }
 
 .AntiImgBox{
@@ -159,7 +180,7 @@
   padding-left: 4px;
 }
 
-.AntiImg{
+.AntiImgShop{
   max-width: 100%;  
   height: auto; 
 }

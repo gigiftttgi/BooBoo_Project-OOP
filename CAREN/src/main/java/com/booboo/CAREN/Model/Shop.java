@@ -8,7 +8,7 @@ public class Shop {
     private Characterfactory facAnti = new Characterfactory();
 
     private Shop(){
-        this.balance = 100;
+        this.balance = 3000;
     }
 
     public static Shop getInsShop()

@@ -2,7 +2,7 @@ package com.booboo.CAREN.Model;
 public class Virus_Y extends Virus {
     
     Virus_Y(int posx,int posy){
-        this.type = "virus";
+        this.type = "Y";
         this.atk = 10;
         this.hp = 130;
         this.credit = 20;
