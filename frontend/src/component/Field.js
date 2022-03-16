@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import APIService from './APIService';
 import Cell from './Cell';
 import axios from 'axios';
 import iAntibobyA from './image/antibody/AntibodyA.png'
@@ -37,8 +36,6 @@ const Field = ({ PositionApp, SentPos }) => {
             // console.error(err.message);
         }
     };
-   
-    // const type = '';
 
     useEffect(async () => {
         await fetchAnti();
@@ -125,7 +122,6 @@ const Field = ({ PositionApp, SentPos }) => {
 
     return (
         <div className="Field">
-
             <table className="Table">
                 <tbody>
                     {Array.from({ length: 17 }, _ =>
