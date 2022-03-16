@@ -10,7 +10,6 @@ function Start() {
         axios.put('/start/{status}', status)
             .then(response => console.log(response.data));
 
-
     }
     return (
 
