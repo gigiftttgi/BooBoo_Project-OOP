@@ -4,9 +4,11 @@ import axios from 'axios';
 import iAntibobyA from './image/antibody/AntibodyA.png'
 import iAntibobyB from './image/antibody/AntibodyB.png'
 import iAntibobyC from './image/antibody/AntibodyC.png'
-import iVirusX from './image/antibody/AntibodyA.png'
-import iVirusY from './image/antibody/AntibodyA.png'
-import iVirusZ from './image/antibody/AntibodyA.png'
+import iVirusX from './image/virus/VirusX.png'
+import iVirusY from './image/virus/VirusY.png'
+import iVirusZ from './image/virus/VirusZ.png'
+
+// const GET_AREA_URL = 'http://localhost:8080/game/field';
 
 
 const Field = ({ PositionApp, SentPos }) => {
@@ -14,6 +16,7 @@ const Field = ({ PositionApp, SentPos }) => {
     let i = 1;
     var Char = [''];
     const [position,setPosition] = useState(null);
+    const [oldPos,setoldPos] = useState(0);
 
     const SentPosCell = (pos) => {
         SentPos(pos);
@@ -25,8 +28,8 @@ const Field = ({ PositionApp, SentPos }) => {
                 .then((res) => {
 
                     Char = res.data.map(datas => ({
-                        id: ((datas.pos.x - 1) * 25) + datas.pos.y,
-                        type: datas.type
+                        id : ((datas.pos.x - 1) * 25) + datas.pos.y,
+                        type : datas.type
                     }
                     ));
                    console.log(Char)
@@ -39,14 +42,15 @@ const Field = ({ PositionApp, SentPos }) => {
 
     useEffect(async () => {
         await fetchAnti();
-   
+        const controller = new AbortController();
 
     const interval = setInterval(() => {
      fetchAnti()
-    }, 3000)
-    return () => clearInterval(interval)
-
-
+    }, 5000)
+    return () => {
+        clearInterval(interval)
+        controller.abort();
+    }
   }, []);
 
   const Cell = ({ id, SentPosCell }) => {
@@ -62,12 +66,12 @@ const Field = ({ PositionApp, SentPos }) => {
     function showID() {
         // setShow(0);
         Char.forEach(host => {
-            // console.log(host.id,pos)
           if(host.id === pos){
+            console.log(host.id,pos)
             type = host.type;
+            // cellkey = host.key;
             chooseImgPath(type)
             setShow(1);
-            
         }
       }); 
       
@@ -77,34 +81,57 @@ const Field = ({ PositionApp, SentPos }) => {
       if (type === 'A') setimgSrc(iAntibobyA);
       else if (type === 'B') setimgSrc(iAntibobyB);
       else if (type === 'C') setimgSrc(iAntibobyC);
-      else if (type === 'X') return iVirusX;
-      else if (type === 'Y') return iVirusY;
-      else if (type === 'Z') return iVirusZ;
+      else if (type === 'X') setimgSrc(iVirusX);
+      else if (type === 'Y') setimgSrc(iVirusY);
+      else if (type === 'Z') setimgSrc(iVirusZ);
     }
   
     useEffect(async () => {
       showID();
-      //showinCell()
+      const controller = new AbortController();
       const interval = setInterval(() => {
           showID()
-      },3000)
-      return () => clearInterval(interval)
+      },5000)
+      return () => {
+          clearInterval(interval)
+        controller.abort();}
   }, []);
+
+  function ondrop(event){
+      event.preventDefault();
+      var dropCharfrom = event.dataTransfer.getData("oldpos")
+      var newPos = pos;
+      console.log("drop",dropCharfrom,"at",newPos)
+  }
+
+  function ondrag(event){
+    console.log(pos, 'dragging')
+  }
+
+  function ondragstart(event){
+    console.log("drag start" , pos);
+    //setoldPos(pos)
+    event.dataTransfer.setData("oldpos", pos);
+  }
+
+  function ondragover(event){
+    //console.log(pos,"drag end");
+    event.preventDefault();
+  }
   
-//   console.log("anti",SentAntiF);
-    if (show === 1) {
+
+     if (show === 1) {
     console.log(pos,show);
       return (
-        <td className="Cell" >
+        <td className="Cell" onDragStart = {ondragstart} onDrag={ondrag} onDragOver={ondragover} >
               <img className = "AntiImgCell" src={imgSrc} />
         </td>
       )
       
     }
     else {
-        console.log("pass else")
       return (
-        <td className="Cell" onClick={() => { getPos() }} >
+        <td className="Cell" onClick={() => SentPos(pos)} onDragOver={ondragover} onDrop={ondrop} >
           {/* <ImgCell id={pos}  ></ImgCell> */} 
         </td>
   
@@ -114,8 +141,6 @@ const Field = ({ PositionApp, SentPos }) => {
     function getPos() {
         SentPosCell(pos);
     }
-  
-  
 
   }
   
