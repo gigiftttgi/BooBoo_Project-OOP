@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c217432f-c904-47c8-a519-cbc4e855327a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Controller/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Controller/Button.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Start.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Start.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,9 @@
     <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="26QGqRkS92D0fOHGwGsoceWrzY9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

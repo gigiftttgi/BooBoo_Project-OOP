@@ -36,7 +36,7 @@ public class Gameplay {
   }
 
   boolean btn_speedUp = false;
-  boolean btn_speedDown = true;
+  boolean btn_speedDown = false;
   boolean btn_pause = false;
   boolean rsm = false;
   int pNum = 0;
@@ -70,7 +70,7 @@ public class Gameplay {
     return t_pause;
   }
 
-//  Button pBtn = new Button("pause");
+  //  Button pBtn = new Button("pause");
   public Thread createThread_resume(){
     System.out.println("createResumeT");
     Thread t_resume = new Thread(new Runnable() {
