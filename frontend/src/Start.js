@@ -37,12 +37,11 @@ function Start() {
 
             <div className='BTN'>
 
-            </div> 
-
-                <Link to="/gameplay" className='play-btn' onClick={() => {startGame()}}>play</Link>
             </div>
 
+            <Link to="/gameplay" className='play-btn' onClick={() => { startGame() }}>play</Link>
         </div>
+
 
     );
 }
