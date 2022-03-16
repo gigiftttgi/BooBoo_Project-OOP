@@ -97,7 +97,7 @@ public class Gameplay {
 
   public void startGame() throws InterruptedException{
     boolean endState = false;
-    boolean isPause = false;
+    // boolean isPause = false;
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
@@ -105,6 +105,8 @@ public class Gameplay {
     field.addVirus(x);
     Antibody_A a = new Antibody_A(5, 4);
     field.addAntibody(a);
+    Antibody_B b = new Antibody_B(5, 6);
+    field.addAntibody(b);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
 //    Button btn_speedUp = new Button("speedUp");
@@ -129,7 +131,7 @@ public class Gameplay {
       }
 
       System.out.println("now sec is: "+time.getcurrTime());
-      fac.createVirus();
+      // fac.createVirus();
       try {
 //        for(Gamecharacter g : field.getAllChar())
 //          g.runGeneticcode();
@@ -155,7 +157,6 @@ public class Gameplay {
 
     }
   }
-
   public static void main(String[] args) throws FileNotFoundException, SyntaxError, InterruptedException {
     Gameplay gameplay = new Gameplay();
     gameplay.startGame();
