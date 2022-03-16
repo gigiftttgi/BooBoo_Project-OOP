@@ -4,7 +4,7 @@ import iAntibobyA from './image/antibody/AntibodyA.png'
 import iAntibobyB from './image/antibody/AntibodyB.png'
 import iAntibobyC from './image/antibody/AntibodyC.png'
 
-const Shop = ({Antibody}) => {
+const Shop = ({ Antibody }) => {
 
   const [money, setMoney] = useState('');
 
@@ -31,8 +31,8 @@ const Shop = ({Antibody}) => {
 
 
   function sentBuyAntiA() {
-  
-    if(money <= 30){
+
+    if (money <= 30) {
       alert("You don't have enough money to buy it!!!");
     }
 
@@ -40,16 +40,16 @@ const Shop = ({Antibody}) => {
   }
 
   function sentBuyAntiB() {
-   
-    if(money <= 50){
+
+    if (money <= 50) {
       alert("You don't have enough money to buy it!!!");
     }
     Antibody('B');
   }
 
   function sentBuyAntiC() {
-    
-    if(money <= 80){
+
+    if (money <= 80) {
       alert("You don't have enough money to buy it!!!");
     }
     Antibody('C');
@@ -76,8 +76,8 @@ const Shop = ({Antibody}) => {
             <div className="AntiText">
               Antibody A <br /> <span className='inform'>HP : 100 | ATK : 15</span>
             </div>
-            <button className='BuyBtn' onClick={() => {sentBuyAntiA()}
-              } >30 Credit</button>
+            <button className='BuyBtn' onClick={() => { sentBuyAntiA() }
+            } >30 Credit</button>
           </div>
         </div>
 
@@ -89,10 +89,7 @@ const Shop = ({Antibody}) => {
             <div className="AntiText">
               Antibody B <br /> <span className='inform'>HP : 110 | ATK : 10</span>
             </div>
-            <button className='BuyBtn' onClick={() => 
-             {sentBuyAntiB()}
-
-              } >50 Credit</button>
+            <button className='BuyBtn' onClick={() => {sentBuyAntiB()}} >50 Credit</button>
           </div>
         </div>
 
@@ -104,9 +101,7 @@ const Shop = ({Antibody}) => {
             <div className="AntiText">
               Antibody C <br /> <span className='inform'>HP : 120 | ATK : 10</span>
             </div>
-            <button className='BuyBtn' onClick={() => 
-              {sentBuyAntiC()} 
-              }  >80 Credit </button>
+            <button className='BuyBtn' onClick={() => {sentBuyAntiB()}}  >80 Credit </button>
           </div>
         </div>
 
