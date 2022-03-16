@@ -24,6 +24,8 @@ public class Gamecharacter {
     protected String type;
     protected Map<String,Integer> allVariable = new LinkedHashMap<>();
     private Field field = Field.getInstance();
+    private Random_int r = new Random_int(3);
+    private Shop shop = Shop.getInsShop();
 
     public double getATK(){
         return atk;
@@ -48,7 +50,7 @@ public class Gamecharacter {
     public void attackedBy(Gamecharacter attacker){
         hp = hp - attacker.getATK();
         if(hp <=0 ){
-            field.charDie(this);
+            shop.virusDead(field.charDie(this));
         }
     }
 

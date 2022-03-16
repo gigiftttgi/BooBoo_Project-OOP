@@ -42,7 +42,6 @@ public class Gameplay {
   int pNum = 0;
 
 
-
   public void setPauseState(boolean state){
     System.out.println("setPauseState");
     btn_pause = state;
@@ -70,7 +69,6 @@ public class Gameplay {
     return t_pause;
   }
 
-  //  Button pBtn = new Button("pause");
   public Thread createThread_resume(){
     System.out.println("createResumeT");
     Thread t_resume = new Thread(new Runnable() {
@@ -99,6 +97,7 @@ public class Gameplay {
 
   public void startGame() throws InterruptedException{
     boolean endState = false;
+
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
@@ -115,6 +114,7 @@ public class Gameplay {
       //create virus every 5 second / normal mode
       int sp = 5;
       Time time = new Time();
+
 
       if(listV.isEmpty()) {
         endState = true;
@@ -146,14 +146,21 @@ public class Gameplay {
           sp = 5;
           System.out.println("speedDown is press, after speed is "+sp);
         }
+
       }else if(btn_pause && pNum==1){
         runThread();
       }
 
       System.out.println("now sec is: "+time.getcurrTime());
+
       System.out.println("now speed is: "+sp);
       // fac.createVirus();
+
+      // fac.createVirus();
       try {
+//        for(Gamecharacter g : field.getAllChar())
+//          g.runGeneticcode();
+
         for(int i = 0; i < field.getAllChar().size() ; i++){
           Gamecharacter g = field.getAllChar().get(i);
           g.runGeneticcode();

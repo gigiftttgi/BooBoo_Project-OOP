@@ -50,14 +50,17 @@ public class Field {
     allChar.add(a);
   }
 
-  public void charDie(Gamecharacter g){
-    if(g.getType().equals("antibody")){
+  public int charDie(Gamecharacter g){
+    allChar.remove(g);
+    if(g.getType().equals("A") || g.getType().equals("B") || g.getType().equals("C")){
       listAntibody.remove(g);
+      return 0;
     }
     else{
+      Virus x = (Virus) g;
       listVirus.remove(g);
+      return x.credit;
     }
-    allChar.remove(g);
   }
 
 //  private Shop shop = Shop.getInsShop();
@@ -65,7 +68,9 @@ public class Field {
     System.out.println("old" + oldPos + "new" + newPos);
     int cost = 0;
        for(Antibody a : listAntibody){
+
          if((((a.pos.x - 1) * 15) + a.pos.y) == oldPos){
+
           int posY =  newPos%15;
           if(posY == 0){
             posY = 15;

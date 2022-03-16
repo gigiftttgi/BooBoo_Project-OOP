@@ -31,32 +31,6 @@ const Shop = ({ Antibody }) => {
   
 
 
-  // function sentBuyAntiA() {
-  //   if (money <= 30) {
-  //     alert("You don't have enough money to buy it!!!");
-  //   }
-  //   Antibody('A');
-    
-  // }
-
-  // function sentBuyAntiB() {
-  //   if (money <= 50) {
-  //     alert("You don't have enough money to buy it!!!");
-  //   }
-  //   Antibody('B');
-   
-  // }
-
-  // function sentBuyAntiC() {
-
-  //   if (money <= 80) {
-  //     alert("You don't have enough money to buy it!!!");
-  //   }
-  //   Antibody('C');
-    
-  // }
-
-
   function sentType(type){
     axios.post('/shop/type', type)
           .then(response => console.log(response.data));

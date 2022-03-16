@@ -10,7 +10,6 @@ function Start() {
         axios.put('/start/{status}', status)
             .then(response => console.log(response.data));
 
-
     }
     return (
 
@@ -39,7 +38,6 @@ function Start() {
                 <Link to="/gameplay" className='play-btn' onClick={() => { startGame() }}>play</Link>
             </div>
 
-            
         </div>
 
 

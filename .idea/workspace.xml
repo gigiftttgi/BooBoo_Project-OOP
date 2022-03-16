@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c217432f-c904-47c8-a519-cbc4e855327a" name="Changes" comment="">
+
       <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Start.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Start.js" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

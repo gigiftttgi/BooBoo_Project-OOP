@@ -22,16 +22,7 @@ public class Characterfactory {
     int r1 = randomX.randomInt()+1;
     int r2 = randomY.randomInt()+1;
     System.out.println("r1 : " + r1 + " , r2 : " + r2);
-    boolean check  = true;
-    // if (pos[r1][r2] == 1) {
-    //   System.out.println("HERE");
-    //   while (pos[r1][r2] == 1) {
-    //     System.out.println("r1 : " + r1 + " , r2 : " + r2);
-    //     r1 = random.randomInt();
-    //     r2 = random.randomInt();
-    //   }
-    // }
-    // pos[r1][r2] = 1;
+
       for(Gamecharacter g : list){
         while(g.getPos().PosX() == r1 && g.getPos().PosX() == r2){
           r1 = randomX.randomInt();
@@ -66,56 +57,4 @@ public class Characterfactory {
      field.addAntibody(new Antibody_C(posx, posy));
    }
 
-//  public void createAntibody(String type,int Pos){
-//    int posY =  Pos%25;
-//    if(posY == 0){
-//      posY = 25;
-//    }
-//    int posX = ((Pos- posY) / 25) + 1;
-//    if(type.equals('A')){
-//      field.addAntibody(new Antibody_A(posX, posY));
-//    }
-//    else if(type.equals('B')){
-//      field.addAntibody(new Antibody_B(posX, posY));
-//    }
-//    else if(type.equals('C')){
-//      field.addAntibody(new Antibody_C(posX, posY));
-//    }
-//  }
-  // =======
-  //     public Antibody createAntibody(String type,int posx,int posy) {
-  //       if (type.equals("A")) {
-  //         System.out.println("Antibody A is now create");
-  //         Antibody_A a = new Antibody_A(1,1);
-  //         return a;
-  //       } else if (type.equals("B")) {
-  //         System.out.println("Antibody B is now create");
-  //         Antibody_B b = new Antibody_B(1,1);
-  //         return b;
-  //       } else if (type.equals("C")) {
-  //         System.out.println("Antibody C is now create");
-  //         Antibody_C c = new Antibody_C(1,1);
-  //         return c;
-  //       }
-  //       return null;
-  //     }
-
-  //     public Antibody createAntibodytest(String type,int posx, int posy) {
-  //       if (type.equals("A")) {
-  //         System.out.println("Antibody A is now create");
-  //         Antibody_A a = new Antibody_A(1,1);
-  //         return a;
-  //       } else if (type.equals("B")) {
-  //         System.out.println("Antibody B is now create");
-  //         Antibody_B b = new Antibody_B(1,1);
-  //         return b;
-  //       } else if (type.equals("C")) {
-  //         System.out.println("Antibody C is now create");
-  //         Antibody_C c = new Antibody_C(1,1);
-  //         return c;
-  //       }
-  //       return null;
-  //     }
-
-  // >>>>>>> master
 }
