@@ -52,13 +52,13 @@ public class Field {
 
   public int charDie(Gamecharacter g){
     allChar.remove(g);
-    if(g.getType().equals("antibody")){
+    if(g.getType().equals("A") || g.getType().equals("B") || g.getType().equals("C")){
       listAntibody.remove(g);
       return 0;
     }
     else{
-      listVirus.remove(g);
       Virus x = (Virus) g;
+      listVirus.remove(g);
       return x.credit;
     }
   }
