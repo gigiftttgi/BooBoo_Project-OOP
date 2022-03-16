@@ -21,46 +21,22 @@ public class Shop {
     }
 
 
-    public void buyAntiA(int posx, int posy){
-        if(this.balance >= 30 ){
-            this.balance -=30;
-            System.out.println("your balance is " + this.balance);
-
-//            field.addAntibody(facAnti.createAntibodyA(1,1));
-            facAnti.createAntibodyA(posx, posy);
-
-        }else{
-            System.out.println("you dont have enough money");
+    public void buyAnti(String type, int newPos) {
+        System.out.println("Hi");
+        int posY = newPos % 25;
+        if (posY == 0) {
+            posY = 25;
         }
-    }
-
-    public void buyAntiB(int posx, int posy){
-        if(this.balance>=50 ){
-            this.balance -=50;
-            System.out.println("your balance is "+ this.balance);
-
-//             field.addAntibody(facAnti.createAntibodyB(1,1));
-
-            facAnti.createAntibodyB(posx, posy);
-
-        }else{
-            System.out.println("you dont have enough money");
-        }
-    }
-
-    public void buyAntiC(int posx, int posy){
-        if(this.balance>=80){
-            this.balance -=80;
-            System.out.println("your balance is "+ this.balance);
-
-            facAnti.createAntibodyC(posx, posy);
-
-//            field.addAntibody(facAnti.createAntibodyC(1,1));
-
-           
-
-        }else{
-            System.out.println("you dont have enough money");
+        int posX = ((newPos - posY) / 25) + 1;
+        if (type.equals("A")) {
+            facAnti.createAntibodyA(posX, posY);
+            balance -= 30;
+        } else if (type.equals("B")) {
+            facAnti.createAntibodyB(posX, posY);
+            balance -= 50;
+        } else if (type.equals("C")) {
+            facAnti.createAntibodyC(posX, posY);
+            balance -= 80;
         }
     }
 
