@@ -7,6 +7,7 @@ import com.booboo.CAREN.Model.Time;
 public class Button{
 
   private boolean state;
+  private boolean pauseState = false;
   private String type;
 
 
@@ -14,16 +15,27 @@ public class Button{
     this.type = type;
   }
 
-  public void pauseBtn(boolean state) {
-    if (state == false || !type.equals("pause")) {
-      System.out.println("Button type isn't pause");
-    } else {
-      Time t = new Time();
-      t.pause();
-    }
+  public void setPauseState(boolean pauseState){
+    this.pauseState = pauseState;
   }
 
-  public boolean speedUpBtn(boolean state) {
+  public boolean getPauseState(){
+    return pauseState;
+  }
+  public boolean pauseBtn() {
+    if (pauseState == false || !type.equals("pause")) {
+      System.out.println("Button type isn't pause");
+    } else {
+
+      Time t = new Time();
+      t.pause();
+      pauseState = false;
+      return true;
+    }
+    return false;
+  }
+
+  public boolean speedUpBtn() {
     if (state == false || !type.equals("speedUp")) {
       System.out.println("Button type isn't speedUp");
     } else {
@@ -34,13 +46,15 @@ public class Button{
     return false;
   }
 
-  public void speedDownBtn(boolean state) {
+  public boolean speedDownBtn() {
     if (state == false || !type.equals("speedDown")) {
       System.out.println("Button type isn't speedDown");
     } else {
       Time t = new Time();
       t.speedDown();
+      return true;
     }
+    return false;
   }
 
   public void zoomInBtn(boolean state) {
