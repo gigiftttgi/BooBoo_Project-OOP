@@ -47,11 +47,19 @@ public class AttackCommand implements Node{
             }
         }
         else{
-            for(Antibody a : listAntibody){
+//            for(Antibody a : listAntibody){
+//                if(a.getPos().equalPos(target)){
+//                    System.out.println(a.getType() + " attack by " + host.getType());
+//                     a.attackedBy(host);
+//                }
+//            }
+            for(int i=0; i< listAntibody.size() ; i++){
+                Antibody a = listAntibody.get(i);
                 if(a.getPos().equalPos(target)){
                     System.out.println(a.getType() + " attack by " + host.getType());
-                     a.attackedBy(host);
                 }
+                a.attackedBy(host);
+
             }
         }
 
