@@ -18,8 +18,8 @@ public class Gameplay {
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
     Virus_X x = new Virus_X(5, 5);
     field.addVirus(x);
-//     Antibody_A a = new Antibody_A(5, 4);
-//     field.addAntibody(a);
+     Antibody_A a = new Antibody_A(5, 4);
+     field.addAntibody(a);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
     List<Gamecharacter> allChar = field.getAllChar();
@@ -34,7 +34,7 @@ public class Gameplay {
       }
       
       System.out.println("now sec is: "+time.getcurrTime());
-      fac.createVirus();
+      //fac.createVirus();
       try {
         for(Gamecharacter g : allChar)
             g.runGeneticcode();
@@ -47,7 +47,7 @@ public class Gameplay {
       }
       System.out.println("===============================================");
       // int speed = sp * 1000;
-      Thread.sleep(2000);
+      Thread.sleep(5000);
     }
   }
   
