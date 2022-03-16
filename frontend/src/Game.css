@@ -32,8 +32,13 @@
   .Cell {
     background-color: #F9E6CF;
     border-radius: 5px;
-    width: 3%;
-    height: 3%;
+    width: 5%;
+    height: 10%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+  
   }
   
   .Table {
@@ -43,8 +48,8 @@
   
   .Container{
   
-    display: flex;
-  
+    /* display: flex;
+   */
     flex-direction: column;
     position: fixed;
     top: 3%; right: 10%; bottom : 3%; left: 70%;
@@ -161,7 +166,7 @@
   
   .AntiImgBox{
     height: auto;
-    width: 45%;
+    width: 35%;
     padding-top: 4px;
     padding-right: 4px;
     padding-bottom: 4px;
@@ -190,11 +195,31 @@
     display: none;
   }
   .AntiImgCell{
-    max-width: 65%;
+    max-width: 83%;
+    height: auto;
+   
     display: block;
     /* flex-grow: 1; */
     margin-left: auto;
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
     /* align-items: center; */
   }
   
+  .GamoverBlock{
+    margin-top: 5px;
+
+  }
+
+  .playAgainBut{
+    font-family: 'Staatliches', cursive;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
