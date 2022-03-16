@@ -50,14 +50,17 @@ public class Field {
     allChar.add(a);
   }
 
-  public void charDie(Gamecharacter g){
+  public int charDie(Gamecharacter g){
+    allChar.remove(g);
     if(g.getType().equals("antibody")){
       listAntibody.remove(g);
+      return 0;
     }
     else{
       listVirus.remove(g);
+      Virus x = (Virus) g;
+      return x.credit;
     }
-    allChar.remove(g);
   }
 
 //  private Shop shop = Shop.getInsShop();

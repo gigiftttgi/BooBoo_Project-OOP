@@ -47,6 +47,10 @@ public class Shop {
     public void moveCost(int cost){
         balance -= cost;
     }
+
+    public void virusDead(int credit){
+        balance += credit;
+    }
         
 
 }

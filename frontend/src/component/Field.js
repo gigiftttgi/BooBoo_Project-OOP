@@ -56,12 +56,11 @@ const Field = ({ PositionApp, SentPos }) => {
   const Cell = ({ id, SentPosCell }) => {
 
     let pos = id;
-    // let type = '';
+    let type = '';
   
     // var antiBuy = SentAntiF;
 
     const [imgSrc, setimgSrc] = useState('');
-    const [type, setType] = useState('');
     const [show, setShow] = useState(0);
     
     function showID() {

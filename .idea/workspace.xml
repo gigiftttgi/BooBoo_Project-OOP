@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c217432f-c904-47c8-a519-cbc4e855327a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Controller/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Controller/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Characterfactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Characterfactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gamecharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gamecharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Virus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
