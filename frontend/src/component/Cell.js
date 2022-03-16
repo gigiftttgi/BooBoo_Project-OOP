@@ -9,31 +9,19 @@ import iVirusY from './image/antibody/AntibodyB.png'
 import iVirusZ from './image/antibody/AntibodyC.png'
 
 
-var Char = [''];
-
-
-
-const Cell = ({ id, SentAntiF, Img, hostId }) => {
-
+const Cell = ({ id, SentAntiF, v }) => {
   const pos = id;
-  const type = Img;
+  let [type, setType] = useState('');
   const [imgSrc, setimgSrc] = useState('');
-  // const [show, setShow] = useState(0);
+  let [show, setShow] = useState(0);
+  const visible = v;
 
-  const hId = hostId;
-
-  // console.log(document.getElementById('td').innerText)
-  // if(document.getElementById('td').innerText === '1'){
-  //   console.log(document.getElementById('td').innerText)
+  // function sentpos() {
+  //   console.log(SentAntiF);
   // }
-
-  function sentpos() {
-    console.log(SentAntiF);
-  }
 
 
   function setBuyreq() {
-
     if (SentAntiF != null) {
       if (SentAntiF === "A") {
         console.log("It's A", pos);
@@ -50,66 +38,68 @@ const Cell = ({ id, SentAntiF, Img, hostId }) => {
       }
     }
     SentAntiF = null;
-    // fetchAnti();
+    
+  }
 
-
+  function showID() {
+    console.log(visible)
+    visible.forEach(host => {
+      // console.log("host", host.id, "pos" , pos)
+      if (host.id === pos) {
+        setType(host.type);
+        setimgSrc(chooseImgPath(host.type))
+        setShow(1);
+      }
+    });
   }
 
 
   function chooseImgPath(type) {
-    console.log("Image");
-    if (type === 'A') setimgSrc('./image/antibody/AntibodyA.png');
-    else if (type === 'B') return iAntibobyB;
-    else if (type === 'C') return iAntibobyC;
+    console.log(type);
+    if (type === 'A') return './image/antibody/AntibodyA.png';
+    else if (type === 'B') return './image/antibody/AntibodyB.png';
+    else if (type === 'C') return './image/antibody/AntibodyC.png';
     else if (type === 'X') return iVirusX;
     else if (type === 'Y') return iVirusY;
     else if (type === 'Z') return iVirusZ;
 
   }
 
-  const [oldpos, setoldpos] = useState(0);
-  // if(o === 1){
-  //   setoldpos(1);
-  // }
+  useEffect(async () => {
+    await showID()
+    const interval = setInterval(() => {
+      showID()
+    }, 3000)
+    return () => clearInterval(interval)
+  }, []);
 
 
-  console.log(oldpos,"hId", hId,"pos", pos);
-  // console.log("hId", hId);
-  // console.log("pos", pos);
-  
-  if (hId === pos || oldpos === 1) {
-    setoldpos(1);
-    console.log("HI")
-    // setimgSrc(chooseImgPath(type));
-    // chooseImgPath(type);
-    // console.log(type);
-    // console.log(imgSrc);
-    return (
-      <td className="Cell"  id='td' >
-        {/* {chooseImgPath(type)} */}
-        {/* <ImgCell id={pos}  ></ImgCell> */}
-        {/* <img src={imgSrc} /> */}
-        1
-      </td>
-
-    )
-    // document
+  const render = () => {
+    console.log("render", show)
+    if (show === 1) {
+      // setimgSrc(chooseImgPath(type))
+      console.log(imgSrc);
+      return (
+        // <td className="Cell" id='td' >
+          <img src={imgSrc}/>
+        // </td>
+        // <img src={require({imgSrc})}/>
+      )
+    } else {
+      // return (
+      //   // <td className="Cell" id='td' onClick={() => { setBuyreq() }} >
+      //   //   {/* <ImgCell id={pos}  ></ImgCell> */}
+      //   // </td>
+      // )
+    }
   }
-  else {
-    // console.log(hId)
-    return (
-      <td className="Cell" id='td' onClick={() => { setBuyreq() }} >
-        {/* <ImgCell id={pos}  ></ImgCell> */}
-      </td>
 
-    )
-  }
 
   return (
-    <td className="Cell" id='td' onClick={() => { setBuyreq() }} >
-      <ImgCell id={pos}  ></ImgCell>
-    </td>
 
+    <td className="Cell" onClick={() => { setBuyreq() }} >
+      {render()}  
+    </td>
   )
 }
 

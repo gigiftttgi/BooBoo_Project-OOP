@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import APIService from './APIService';
 import Cell from './Cell';
 import axios from 'axios';
-var Char = [''];
+
+let Char = [' '];
 
 const Field = ({ PositionApp, SentAnti }) => {
 
     let i = 1;
     
-    // console.log(document.getElementById('td').innerText)
-
+    const Anti = SentAnti;
+    const [visi,setVisi] = useState(['']);
+    
     const fetchAnti = async () => {
         try {
             await axios.get('/field/character')
@@ -20,66 +21,37 @@ const Field = ({ PositionApp, SentAnti }) => {
                         type: datas.type
                     }
                     ));
-                    console.log(Char)
+                    // setVisi(Char);
+                    // console.log(visi);
+                    // console.log("char",Char)
+                    // Char = ['']
                 })
-
-            showID();
-            // console.log(antiField);
         } catch (err) {
             // console.error(err.message);
         }
     };
-   
-    // const type = '';
 
     useEffect(async () => {
-    fetchAnti();
-   
+        await fetchAnti()
+        const interval = setInterval(() => {
+            fetchAnti()
+            setVisi(Char);
 
-    const interval = setInterval(() => {
-      fetchAnti()
-    }, 3000)
-    return () => clearInterval(interval)
-
-
-  }, []);
-
-    const [anti, setAnti] = useState('');
-    const [imgSrc, setimgSrc] = useState('');
-    const [type, setType] = useState('');
+        }, 3000)
+        return () => clearInterval(interval)
+    }, []);
 
 
-    const Anti = SentAnti;
-
-    const [hostId, sethostId] = useState(0);
-    const [show, setShow] = useState(0);
-
-
-    function showID() {
-
-        Char.forEach(host => {
     
-          console.log("host", host.id);
-
-          sethostId(host.id);
-          let t = host.type;
-          setType(t);
-          setShow(1);
-    
-      
-        });
-    }
 
     return (
         <div className="Field">
-
             <table className="Table">
                 <tbody>
                     {Array.from({ length: 17 }, _ =>
                         <tr>{Array.from({ length: 25 }, _ =>
-
-                            
-                            <Cell id={i++} SentAntiF={Anti} Img={type} hostId={hostId}><p>1</p>
+                            // {console.log(visi)},
+                            <Cell id={i++} SentAntiF={Anti} v={visi}>
                             </Cell>
                         )}
                         </tr>)}
