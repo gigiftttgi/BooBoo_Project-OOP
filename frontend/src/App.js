@@ -8,18 +8,28 @@ import Shop from './component/Shop';
 function App() {
 
   const [gameover, setGameover] = useState('');
-  //const [Pos,setPos] = useState(null);
-  const [Anti,SetAnti] = useState(null);
+  const [Anti, SetAnti] = useState(null);
+  //const [position, setPosition] = useState(null);
   if (gameover === "Gameover") {
     alert("GameOver");
   }
 
-  // const PositionApp = (pos) =>{
-  //   setPos(pos);
-  //   // console.log(pos);
-  // } 
-  const SentAnti = () => {
-    SetAnti(Anti);
+  const SentPos = (pos) => {
+  
+    if (Anti === "A") {
+      console.log("It's A", pos);
+      axios.post('/shop/buyA', { "p": pos })
+        .then(response => console.log(response.data));
+    } else if (Anti === "B") {
+      console.log("It's B", pos);
+      axios.post('/shop/buyB', { "p": pos })
+        .then(response => console.log(response.data));
+    } else if (Anti === "C") {
+      console.log("It's C", pos);
+      axios.post('/shop/buyC', { "p": pos })
+        .then(response => console.log(response.data));
+    }
+
   }
 
   const Antibody = (anti) => {
@@ -30,9 +40,9 @@ function App() {
   return (
 
     <div>
-      <Field SentAnti = {Anti}>
-        </Field>
-      <div className='Container'>
+      <Field SentPos = {SentPos}>
+      </Field>
+      <div className = 'Container'>
         <Menu></Menu>
         <Shop Antibody = {Antibody} ></Shop>
       </div>

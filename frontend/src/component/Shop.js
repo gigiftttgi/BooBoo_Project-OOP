@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import iAntibobyA from './image/antibody/AntibodyA.png'
+import iAntibobyB from './image/antibody/AntibodyB.png'
+import iAntibobyC from './image/antibody/AntibodyC.png'
 
 const Shop = ({Antibody}) => {
 
@@ -30,8 +32,8 @@ const Shop = ({Antibody}) => {
 
   function sentBuyAntiA() {
   
-    if(money == 0){
-      alert("BOO BOO");
+    if(money <= 30){
+      alert("You don't have enough money to buy it!!!");
     }
 
     Antibody('A');
@@ -39,16 +41,16 @@ const Shop = ({Antibody}) => {
 
   function sentBuyAntiB() {
    
-    if(money == 0){
-      alert("BOO BOO");
+    if(money <= 50){
+      alert("You don't have enough money to buy it!!!");
     }
     Antibody('B');
   }
 
   function sentBuyAntiC() {
     
-    if(money == 0){
-      alert("BOO BOO");
+    if(money <= 80){
+      alert("You don't have enough money to buy it!!!");
     }
     Antibody('C');
   }
@@ -68,7 +70,7 @@ const Shop = ({Antibody}) => {
 
         <div className="AntiBox">
           <div className="AntiImgBox">
-            <img className="AntiImg" src={require('./image/antibody/AntibodyA.png')}></img>
+            <img className="AntiImgShop" src={iAntibobyA}></img>
           </div>
           <div className="AntiTextBox">
             <div className="AntiText">
@@ -81,7 +83,7 @@ const Shop = ({Antibody}) => {
 
         <div className="AntiBox">
           <div className="AntiImgBox">
-            <img className="AntiImg" src={require('./image/antibody/AntibodyB.png')}></img>
+            <img className="AntiImgShop" src={iAntibobyB}></img>
           </div>
           <div className="AntiTextBox">
             <div className="AntiText">
@@ -96,7 +98,7 @@ const Shop = ({Antibody}) => {
 
         <div className="AntiBox">
           <div className="AntiImgBox">
-            <img className="AntiImg" src={require('./image/antibody/AntibodyC.png')} ></img>
+            <img className="AntiImgShop" src={iAntibobyC} ></img>
           </div>
           <div className="AntiTextBox">
             <div className="AntiText">
