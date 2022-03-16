@@ -9,14 +9,31 @@ public class Position {
     protected int y;
 
     public Position(int x,int y){
-        this.x = x;
-        this.y = y;
+        if(x > 10){
+           this.x = 10; 
+        }
+        else if(x < 1){
+            this.x = 1;
+        }
+        else{
+            this.x = x;
+        }
+
+        if(y > 15){
+            this.y = 15; 
+         }
+         else if(y < 1){
+            this.y = 1;
+        }
+         else{
+             this.y = y;
+         }
     }
 
-    public void movePosition(int moveX,int moveY){
-        x+=moveX;
-        y+=moveY;
-    }
+    // public void movePosition(int moveX,int moveY){
+    //     x+=moveX;
+    //     y+=moveY;
+    // }
 
     public int PosX(){
         return x;
