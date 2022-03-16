@@ -1,0 +1,315 @@
+Index: frontend/src/Game.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n.MainGame {\r\n    border: 1px solid black;\r\n    margin-top: 2%;\r\n    margin-bottom: 2%;\r\n    margin-right: 2%;\r\n    margin-left: 2%;\r\n  }\r\n\r\n  .background{\r\n    height: 100vh;\r\n    width: 100vw;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background-color: #E5E3C9;\r\n  }\r\n  \r\n  .Field {\r\n  \r\n    background-color: #2A2F4E;\r\n    position: fixed;\r\n    top: 3%; right: 30%; bottom : 3%; left: 10%;\r\n    border-radius: 10px;\r\n    padding-top: 1%;\r\n    padding-right: 1%;\r\n    padding-bottom: 1%;\r\n    padding-left: 1%;\r\n  \r\n  }\r\n  \r\n  .Cell {\r\n    background-color: #F9E6CF;\r\n    border-radius: 5px;\r\n    width: 3%;\r\n    height: 3%;\r\n  }\r\n  \r\n  .Table {\r\n    width: 100%;\r\n    height: 100%;\r\n  }\r\n  \r\n  .Container{\r\n  \r\n    display: flex;\r\n  \r\n    flex-direction: column;\r\n    position: fixed;\r\n    top: 3%; right: 10%; bottom : 3%; left: 70%;\r\n    margin-left: 15px;\r\n    \r\n  \r\n  }\r\n  \r\n  .Menu {\r\n    position: static;\r\n    width: 100%;\r\n    align-content: center;\r\n    top: 0px; right: 0px; left: 0px; \r\n    background-color: #F9E6CF;\r\n    height: fit-content;\r\n    border-radius: 5px;\r\n    padding-top: 4%;\r\n    padding-right: 4%;\r\n    padding-bottom: 4%;\r\n    padding-left: 4%;\r\n    margin-bottom: 5px;\r\n  }\r\n  \r\n  .menuBtn{\r\n    width : 19%;\r\n    background-color: #2A2F4E;\r\n    margin-left: 1px;\r\n    margin-right: 1px;\r\n    border-radius: 5px;\r\n  }\r\n  \r\n  .imgMenu{\r\n    max-width: 100%;  \r\n    height: auto;  \r\n  }\r\n  \r\n  .Shop {\r\n    display: flex;\r\n    flex-direction: column;\r\n    /* height: 100%; */\r\n    width: 100%;\r\n    background-color: #F9E6CF;\r\n    border-radius: 5px;\r\n  \r\n    padding-top: 4%;\r\n    padding-right: 4%;\r\n    padding-bottom: 4%;\r\n    padding-left: 4%;\r\n    \r\n  }\r\n  \r\n  .Shoptext{\r\n    font-family: 'Staatliches', cursive;\r\n    border-radius: 10px;\r\n    /* margin-bottom: 5px; */\r\n    color: #2A2F4E;\r\n    text-align: center;\r\n    font-size: 300%;\r\n  }\r\n  \r\n  .CreditBar{\r\n    font-family: 'Staatliches', cursive;\r\n    background: #2A2F4E;\r\n    border-radius: 10px;\r\n    margin-bottom: 5px;\r\n   \r\n    color: #FFFFFF;\r\n    text-align: center;\r\n    font-size: 175%;\r\n  }\r\n  \r\n  .AntiShop{\r\n    display: flex;\r\n    /* flex-wrap: wrap; */\r\n    flex-direction: column;\r\n    /* height: 100%; */\r\n  }\r\n  \r\n  .AntiBox{\r\n    display: flex;\r\n    flex-direction: row;\r\n    height: 100%;\r\n  \r\n    border: 4px solid #2A2F4E;\r\n    /* background: #2A2F4E; */\r\n    border-radius: 10px;\r\n    margin-bottom: 5px;\r\n  \r\n    /* padding-top: 4px;\r\n    padding-right: 4px;\r\n    padding-bottom: 4px;\r\n    padding-left: 4px; */\r\n    padding-top: 2%;\r\n    padding-right: 2%;\r\n    padding-bottom: 2%;\r\n    padding-left: 2%;\r\n  }\r\n  \r\n  .AntiTextBox{\r\n    align-content: center;\r\n    padding-top: 4px;\r\n    padding-right: 4px;\r\n    padding-bottom: 4px;\r\n    padding-left: 4px;\r\n  }\r\n  \r\n  .AntiText{\r\n    font-family: 'Staatliches', cursive;\r\n    font-size: 150%;\r\n    color: #2A2F4E;\r\n    text-align:center;\r\n    font-size: 150%;\r\n  }\r\n  \r\n  .AntiImgBox{\r\n    height: auto;\r\n    width: 45%;\r\n    padding-top: 4px;\r\n    padding-right: 4px;\r\n    padding-bottom: 4px;\r\n    padding-left: 4px;\r\n  }\r\n  \r\n  .AntiImg{\r\n    max-width: 100%;  \r\n    height: auto; \r\n  }\r\n  \r\n  .BuyBtn{\r\n  \r\n  background: #2A2F4E;\r\n  width: 100%;\r\n  \r\n  border-radius: 5px;\r\n  \r\n  font-family: 'Staatliches', cursive;\r\n  color: #FFFFFF;\r\n  text-align:center;\r\n  font-size: 125%;\r\n  }\r\n  \r\n  .hide{\r\n    display: none;\r\n  }\r\n  \r\n  .AntiImgCell{\r\n    max-width: 65%;\r\n    display: block;\r\n    /* flex-grow: 1; */\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    /* align-items: center; */\r\n  }\r\n  
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/Game.css b/frontend/src/Game.css
+--- a/frontend/src/Game.css	
++++ b/frontend/src/Game.css	
+@@ -32,8 +32,13 @@
+   .Cell {
+     background-color: #F9E6CF;
+     border-radius: 5px;
+-    width: 3%;
+-    height: 3%;
++    width: 5%;
++    height: 10%;
++    margin-top: 2px;
++    margin-bottom: 2px;
++    margin-right: 2px;
++    margin-left: 2px;
++  
+   }
+   
+   .Table {
+@@ -43,8 +48,8 @@
+   
+   .Container{
+   
+-    display: flex;
+-  
++    /* display: flex;
++   */
+     flex-direction: column;
+     position: fixed;
+     top: 3%; right: 10%; bottom : 3%; left: 70%;
+@@ -161,7 +166,7 @@
+   
+   .AntiImgBox{
+     height: auto;
+-    width: 45%;
++    width: 35%;
+     padding-top: 4px;
+     padding-right: 4px;
+     padding-bottom: 4px;
+@@ -191,11 +196,31 @@
+   }
+   
+   .AntiImgCell{
+-    max-width: 65%;
++    max-width: 83%;
++    height: auto;
++   
+     display: block;
+     /* flex-grow: 1; */
+     margin-left: auto;
+     margin-right: auto;
++    margin-top: auto;
++    margin-bottom: auto;
++
+     /* align-items: center; */
+   }
+-  
+\ No newline at end of file
++  
++  .GamoverBlock{
++    margin-top: 5px;
++
++  }
++
++  .playAgainBut{
++    font-family: 'Staatliches', cursive;
++    text-align: center;
++    margin-left: auto;
++    margin-right: auto;
++    padding-left: 3px;
++    padding-right: 3px;
++    padding-bottom: 3px;
++    padding-top: 3px;
++  }
+\ No newline at end of file
+Index: frontend/src/Game.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import './Game.css';\r\nimport { useEffect, useState } from 'react';\r\nimport axios from 'axios';\r\nimport Field from './component/Field';\r\nimport Menu from './component/Menu';\r\nimport Shop from './component/Shop';\r\n\r\nfunction Game() {\r\n\r\n    const [gameover, setGameover] = useState('');\r\n    // const [Anti, SetAnti] = useState(null);\r\n    //const [position, setPosition] = useState(null);\r\n    if (gameover === \"Gameover\") {\r\n      alert(\"GameOver\");\r\n    }\r\n  \r\n    const SentPos = (pos) => {\r\n      // if (Anti === \"A\") {\r\n      //   console.log(\"It's A\", pos);\r\n      //   axios.post('/shop/buyA', { \"p\": pos })\r\n      //     .then(response => console.log(response.data));\r\n      // } else if (Anti === \"B\") {\r\n      //   console.log(\"It's B\", pos);\r\n      //   axios.post('/shop/buyB', { \"p\": pos })\r\n      //     .then(response => console.log(response.data));\r\n      // } else if (Anti === \"C\") {\r\n      //   console.log(\"It's C\", pos);\r\n      //   axios.post('/shop/buyC', { \"p\": pos })\r\n      //     .then(response => console.log(response.data));\r\n      // }\r\n      console.log(\"Buy pos\", pos);\r\n        axios.post('/shop/buy', { \"p\": pos })\r\n          .then(response => console.log(response.data));\r\n    }\r\n  \r\n    // const Antibody = (anti) => {\r\n    //   SetAnti(anti);\r\n    //   console.log(anti);\r\n    // }\r\n  \r\n    return (\r\n  \r\n      <div>\r\n        <Field SentPos = {SentPos}>\r\n        </Field>\r\n        <div className = 'Container'>\r\n          <Menu></Menu>\r\n          <Shop ></Shop>\r\n        </div>\r\n  \r\n      </div>\r\n  );\r\n}\r\n\r\n\r\nexport default Game;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/Game.js b/frontend/src/Game.js
+--- a/frontend/src/Game.js	
++++ b/frontend/src/Game.js	
+@@ -4,6 +4,7 @@
+ import Field from './component/Field';
+ import Menu from './component/Menu';
+ import Shop from './component/Shop';
++import Gameover from './component/Gameover';
+ 
+ function Game() {
+ 
+@@ -45,7 +46,10 @@
+         </Field>
+         <div className = 'Container'>
+           <Menu></Menu>
+-          <Shop ></Shop>
++          <Shop ></Shop> 
++          <Gameover></Gameover>
++         
++          
+         </div>
+   
+       </div>
+Index: frontend/src/component/Cell.js
+===================================================================
+diff --git a/frontend/src/component/Cell.js b/frontend/src/component/Cell.js
+deleted file mode 100644
+--- a/frontend/src/component/Cell.js	
++++ /dev/null	
+@@ -1,101 +0,0 @@
+-// import { useState, useEffect } from "react";
+-// import ImgCell from "./ImgCell";
+-// import axios from 'axios';
+-// import iAntibobyA from './image/antibody/AntibodyA.png'
+-// import iAntibobyB from './image/antibody/AntibodyB.png'
+-// import iAntibobyC from './image/antibody/AntibodyC.png'
+-// import iVirusX from './image/antibody/AntibodyA.png'
+-// import iVirusY from './image/antibody/AntibodyB.png'
+-// import iVirusZ from './image/antibody/AntibodyC.png'
+-
+-
+-// const Cell = ({ id, SentAntiF, allChar}) => {
+-
+-//   let pos = id;
+-//   let type = '';
+-
+-//   var allC = allChar;
+-//   var antiBuy = SentAntiF;
+-// //   const type = Img;
+-//   const [imgSrc, setimgSrc] = useState('');
+-//   const [show, setShow] = useState(0);
+-  
+-//   function showID() {
+-//       console.log("all",allChar)
+-//     allChar.forEach(host => {
+-
+-//         if(host.id == pos.id && host.id !== undefined){
+-         
+-//           type = host.type;
+-//           setShow(1);
+-//       }
+-  
+-//     }); 
+-    
+-// }
+-
+-//   function setBuyreq() {
+-
+-//     if (antiBuy != null) {
+-//       if (antiBuy === "A") {
+-//         console.log("It's A", pos);
+-//         axios.post('/shop/buyA', { "p": pos })
+-//           .then(response => console.log(response.data));
+-//       } else if (antiBuy === "B") {
+-//         console.log("It's B", pos);
+-//         axios.post('/shop/buyB', { "p": pos })
+-//           .then(response => console.log(response.data));
+-//       } else if (antiBuy === "C") {
+-//         console.log("It's C", pos);
+-//         axios.post('/shop/buyC', { "p": pos })
+-//           .then(response => console.log(response.data));
+-//       }
+-//     }
+-//     antiBuy = null;
+-//     // fetchAnti();
+-//   }
+-
+-
+-//   function chooseImgPath(type) {
+-//     console.log("Image");
+-//     if (type === 'A') setimgSrc('./image/antibody/AntibodyA.png');
+-//     else if (type === 'B') return iAntibobyB;
+-//     else if (type === 'C') return iAntibobyC;
+-//     else if (type === 'X') return iVirusX;
+-//     else if (type === 'Y') return iVirusY;
+-//     else if (type === 'Z') return iVirusZ;
+-//   }
+-
+-//   useEffect(async () => {
+-//     showID();
+-//     const interval = setInterval(() => {
+-//         showID()
+-//     },3000)
+-//     return () => clearInterval(interval)
+-// }, []);
+-
+-
+-// //   console.log("hId", hId,"pos", pos);
+-
+-//     // showID();
+-//   if (show === 1) {
+-//    console.log(pos,show);
+-//     return (
+-//       <td className="Cell" >
+-//             {/* <img src={imgSrc} /> */}
+-//             1
+-//       </td>
+-//     )
+-    
+-//   }
+-//   else {
+-//     return (
+-//       <td className="Cell" onClick={() => { setBuyreq() }} >
+-//         {/* <ImgCell id={pos}  ></ImgCell> */} 
+-//       </td>
+-
+-//     )
+-//   }
+-// }
+-
+-// export default Cell
+Index: CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.booboo.CAREN.Model;\r\n\r\npublic class Shop {\r\n    \r\n   private int balance;\r\n    private static Shop instance;\r\n//    private Field field = Field.getInstance();\r\n    private Characterfactory facAnti = new Characterfactory();\r\n\r\n    private Shop(){\r\n        this.balance = 3000;\r\n    }\r\n\r\n    public static Shop getInsShop()\r\n    {\r\n        if (instance == null)\r\n        {\r\n            instance = new Shop();\r\n        }\r\n        return instance;\r\n    }\r\n\r\n\r\n    public void buyAnti(String type, int newPos) {\r\n        System.out.println(\"Hi\");\r\n        int posY = newPos % 25;\r\n        if (posY == 0) {\r\n            posY = 25;\r\n        }\r\n        int posX = ((newPos - posY) / 25) + 1;\r\n        if (type.equals(\"A\")) {\r\n            facAnti.createAntibodyA(posX, posY);\r\n            balance -= 30;\r\n        } else if (type.equals(\"B\")) {\r\n            facAnti.createAntibodyB(posX, posY);\r\n            balance -= 50;\r\n        } else if (type.equals(\"C\")) {\r\n            facAnti.createAntibodyC(posX, posY);\r\n            balance -= 80;\r\n        }\r\n    }\r\n\r\n    public int getMoney(){\r\n        return balance;\r\n    }\r\n\r\n    public void moveCost(int cost){\r\n        balance -= cost;\r\n    }\r\n\r\n    public void virusDead(int credit){\r\n        balance += credit;\r\n    }\r\n        \r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java b/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java
+--- a/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java	
++++ b/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java	
+@@ -23,11 +23,11 @@
+ 
+     public void buyAnti(String type, int newPos) {
+         System.out.println("Hi");
+-        int posY = newPos % 25;
++        int posY = newPos % 15;
+         if (posY == 0) {
+-            posY = 25;
++            posY = 15;
+         }
+-        int posX = ((newPos - posY) / 25) + 1;
++        int posX = ((newPos - posY) / 15) + 1;
+         if (type.equals("A")) {
+             facAnti.createAntibodyA(posX, posY);
+             balance -= 30;
+Index: frontend/src/component/Field.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState, useEffect } from 'react';\r\nimport Cell from './Cell';\r\nimport axios from 'axios';\r\nimport iAntibobyA from './image/antibody/AntibodyA.png'\r\nimport iAntibobyB from './image/antibody/AntibodyB.png'\r\nimport iAntibobyC from './image/antibody/AntibodyC.png'\r\nimport iVirusX from './image/virus/VirusX.png'\r\nimport iVirusY from './image/virus/VirusY.png'\r\nimport iVirusZ from './image/virus/VirusZ.png'\r\n\r\n// const GET_AREA_URL = 'http://localhost:8080/game/field';\r\n\r\n\r\nconst Field = ({ PositionApp, SentPos }) => {\r\n\r\n    let i = 1;\r\n    var Char = [''];\r\n    const [position,setPosition] = useState(null);\r\n    const [oldPos,setoldPos] = useState(0);\r\n\r\n    const SentPosCell = (pos) => {\r\n        SentPos(pos);\r\n    }\r\n\r\n    const fetchAnti = async () => {\r\n        try {\r\n            await axios.get('/field/character')\r\n                .then((res) => {\r\n\r\n                    Char = res.data.map(datas => ({\r\n                        id : ((datas.pos.x - 1) * 25) + datas.pos.y,\r\n                        type : datas.type\r\n                    }\r\n                    ));\r\n                   console.log(Char)\r\n                })\r\n            // console.log(antiField);\r\n        } catch (err) {\r\n            // console.error(err.message);\r\n        }\r\n    };\r\n\r\n    useEffect(async () => {\r\n        await fetchAnti();\r\n        const controller = new AbortController();\r\n\r\n    const interval = setInterval(() => {\r\n     fetchAnti()\r\n    }, 3000)\r\n    return () => {\r\n        clearInterval(interval)\r\n        controller.abort();\r\n    }\r\n  }, []);\r\n\r\n  const Cell = ({ id, SentPosCell }) => {\r\n\r\n    let pos = id;\r\n    let type = '';\r\n  \r\n    // var antiBuy = SentAntiF;\r\n\r\n    const [imgSrc, setimgSrc] = useState('');\r\n    const [show, setShow] = useState(0);\r\n    \r\n    function showID() {\r\n        // setShow(0);\r\n        var found = false;\r\n        \r\n        Char.forEach(host => {\r\n          if(host.id === pos){\r\n            console.log(host.id,pos)\r\n            type = host.type;\r\n            // cellkey = host.key;\r\n            chooseImgPath(type)\r\n            found = true;\r\n        }\r\n      }); \r\n      \r\n      if(found){\r\n        setShow(1);\r\n      }else{\r\n          setShow(0);\r\n      }\r\n  }\r\n  \r\n    function chooseImgPath(type) {\r\n      if (type === 'A') setimgSrc(iAntibobyA);\r\n      else if (type === 'B') setimgSrc(iAntibobyB);\r\n      else if (type === 'C') setimgSrc(iAntibobyC);\r\n      else if (type === 'X') setimgSrc(iVirusX);\r\n      else if (type === 'Y') setimgSrc(iVirusY);\r\n      else if (type === 'Z') setimgSrc(iVirusZ);\r\n    }\r\n  \r\n    useEffect(async () => {\r\n      showID();\r\n      const controller = new AbortController();\r\n      const interval = setInterval(() => {\r\n          showID()\r\n      },3000)\r\n      return () => {\r\n          clearInterval(interval)\r\n        controller.abort();}\r\n  }, []);\r\n\r\n  function ondrop(event){\r\n      event.preventDefault();\r\n      var dropCharfrom = event.dataTransfer.getData(\"oldpos\")\r\n      var newPos = pos;\r\n      console.log(\"drop\",dropCharfrom,\"at\",newPos)\r\n      axios.post('/field/move', { \"p\": dropCharfrom , \"q\":newPos})\r\n          .then(response => console.log(response.data));\r\n  }\r\n\r\n  function ondrag(event){\r\n    console.log(pos, 'dragging')\r\n  }\r\n\r\n  function ondragstart(event){\r\n    console.log(\"drag start\" , pos);\r\n    //setoldPos(pos)\r\n    event.dataTransfer.setData(\"oldpos\", pos);\r\n  }\r\n\r\n  function ondragover(event){\r\n    //console.log(pos,\"drag end\");\r\n    event.preventDefault();\r\n  }\r\n  \r\n\r\n     if (show === 1) {\r\n    console.log(pos,show);\r\n      return (\r\n        <td className=\"Cell\" onDragStart = {ondragstart} onDrag={ondrag} onDragOver={ondragover} >\r\n              <img className = \"AntiImgCell\" src={imgSrc} />\r\n        </td>\r\n      )\r\n      \r\n    }\r\n    else {\r\n      return (\r\n        <td className=\"Cell\" onClick={() => SentPos(pos)} onDragOver={ondragover} onDrop={ondrop} >\r\n          {/* <ImgCell id={pos}  ></ImgCell> */} \r\n        </td>\r\n  \r\n      )\r\n    }\r\n\r\n    function getPos() {\r\n        SentPosCell(pos);\r\n    }\r\n\r\n  }\r\n  \r\n\r\n    return (\r\n        <div className=\"Field\">\r\n            <table className=\"Table\">\r\n                <tbody>\r\n                    {Array.from({ length: 17 }, _ =>\r\n                        <tr>{Array.from({ length: 25 }, _ =>\r\n\r\n                            \r\n                            <Cell id={i++} SentPosCell={SentPosCell} >\r\n                            </Cell>\r\n                        )}\r\n                        </tr>)}\r\n\r\n\r\n                </tbody>\r\n            </table>\r\n\r\n        </div>\r\n\r\n\r\n    );\r\n}\r\n\r\n\r\n\r\nexport default Field;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/component/Field.js b/frontend/src/component/Field.js
+--- a/frontend/src/component/Field.js	
++++ b/frontend/src/component/Field.js	
+@@ -1,5 +1,4 @@
+ import React, { useState, useEffect } from 'react';
+-import Cell from './Cell';
+ import axios from 'axios';
+ import iAntibobyA from './image/antibody/AntibodyA.png'
+ import iAntibobyB from './image/antibody/AntibodyB.png'
+@@ -28,7 +27,7 @@
+                 .then((res) => {
+ 
+                     Char = res.data.map(datas => ({
+-                        id : ((datas.pos.x - 1) * 25) + datas.pos.y,
++                        id : ((datas.pos.x - 1) * 15) + datas.pos.y,
+                         type : datas.type
+                     }
+                     ));
+@@ -133,7 +132,7 @@
+     console.log(pos,show);
+       return (
+         <td className="Cell" onDragStart = {ondragstart} onDrag={ondrag} onDragOver={ondragover} >
+-              <img className = "AntiImgCell" src={imgSrc} />
++              <div><img className = "AntiImgCell" src={imgSrc} /></div>
+         </td>
+       )
+       
+@@ -158,8 +157,8 @@
+         <div className="Field">
+             <table className="Table">
+                 <tbody>
+-                    {Array.from({ length: 17 }, _ =>
+-                        <tr>{Array.from({ length: 25 }, _ =>
++                    {Array.from({ length: 10 }, _ =>
++                        <tr>{Array.from({ length: 15 }, _ =>
+ 
+                             
+                             <Cell id={i++} SentPosCell={SentPosCell} >
+Index: frontend/src/component/Gameover.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/component/Gameover.js b/frontend/src/component/Gameover.js
+new file mode 100644
+--- /dev/null	
++++ b/frontend/src/component/Gameover.js	
+@@ -0,0 +1,14 @@
++import { Button } from "bootstrap";
++
++const Gameover = () => {
++
++    return(
++        <div className="GamoverBlock">
++            {/* <Button className="playAgainBut">Play Again</Button> */}
++            HI
++        </div>
++       
++    );
++}
++
++export default Gameover;
+\ No newline at end of file

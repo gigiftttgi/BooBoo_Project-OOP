@@ -44,6 +44,7 @@ public class Gameplay {
   int dNum = 0;
   int sNum = 5;
 
+
   public void setPauseState(boolean state){
     System.out.println("setPauseState");
     btn_pause = state;
@@ -81,7 +82,6 @@ public class Gameplay {
     return t_pause;
   }
 
-//  Button pBtn = new Button("pause");
   public Thread createThread_resume(){
     System.out.println("createResumeT");
     Thread t_resume = new Thread(new Runnable() {
@@ -111,41 +111,31 @@ public class Gameplay {
   private boolean endState;
   private boolean iswin;
   public void startGame() throws InterruptedException{
-<<<<<<< Updated upstream
-    boolean endState = false;
+
     // boolean isPause = false;
-=======
+
     endState = false;
 
->>>>>>> Stashed changes
+
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
     Virus_X x = new Virus_X(5, 5);
     field.addVirus(x);
-    Antibody_A a = new Antibody_A(5, 4);
-    field.addAntibody(a);
-    Antibody_B b = new Antibody_B(5, 6);
-    field.addAntibody(b);
+    // Antibody_A a = new Antibody_A(6, 10);
+    // field.addAntibody(a);
+    // Antibody_B b = new Antibody_B(5, 6);
+    // field.addAntibody(b);
+    // Virus_X x = new Virus_X(5, 5);
+    // field.addVirus(x);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
-<<<<<<< Updated upstream
-//    Button btn_speedUp = new Button("speedUp");
-//    Button btn_speedDown = new Button("speedDown");
-//    Button btn_pause = new Button("pause");
 
-    //ครั้งแรกเท่านั้น เพราะอยู่นอกลูป
-//    btn_pause.setPauseState(true);
-    while(endState==false){
-      int sp = 2;
-      Time time = new Time();
-      if(listA.isEmpty()||listV.isEmpty()) endState = true;
-      if(btn_speedUp){
-        System.out.println("jjjjjj");
-        sp = time.getSpeed();
-      }else if(btn_speedDown){
-        sp = time.getSpeed();
-=======
+
+      if(listV.isEmpty()) {
+        endState = true;
+        break;}
+
     boolean isStart = false;
     while(endState==false){
       //create virus every 5 second / normal mode
@@ -172,6 +162,7 @@ public class Gameplay {
         }
         uNum = 0;
       }else if(btn_speedDown && dNum ==1){
+
         if (sp==5){
           System.out.println("speedDown is press, before speed is "+sp);
           sp = 7;
@@ -184,20 +175,24 @@ public class Gameplay {
           sp = 5;
           System.out.println("speedDown is press, after speed is "+sp);
         }
+
         dNum =0;
 
->>>>>>> Stashed changes
+
       }else if(btn_pause && pNum==1){
         runThread();
-//        isPause = true;
-//        System.out.println("Pause status: "+isPause);
       }
 
       System.out.println("now sec is: "+time.getcurrTime());
+
+      System.out.println("now speed is: "+sp);
+      // fac.createVirus();
+
       // fac.createVirus();
       try {
 //        for(Gamecharacter g : field.getAllChar())
 //          g.runGeneticcode();
+
         for(int i = 0; i < field.getAllChar().size() ; i++){
           Gamecharacter g = field.getAllChar().get(i);
           g.runGeneticcode();
@@ -211,11 +206,6 @@ public class Gameplay {
       }
       System.out.println("===============================================");
 
-//      if (isPause==true ) {
-//        runThread();
-//      }else{
-//        Thread.sleep(sp*1000);
-//      }
       Thread.sleep(sp*1000);
 
       if(!field.getListAntibody().isEmpty()){

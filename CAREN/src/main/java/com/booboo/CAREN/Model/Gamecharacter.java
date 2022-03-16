@@ -55,45 +55,56 @@ public class Gamecharacter {
     }
 
     public void move(int direction){
+        int oldposX = pos.PosX();
+        int oldposY = pos.PosY();
+        System.out.println("Old pos x : "+ oldposX + " , y : "+ oldposY);
         switch(direction){
             case  1 : { 
                 System.out.println("move -> up");
-                pos = new Position(pos.PosX(), pos.PosY()+1);
+                this.pos = new Position(oldposX-1, oldposY);
+                System.out.println("New pos x : "+pos.PosX() + " , y : "+ pos.PosY());
                 break;
             }
             case 2 : { 
                 System.out.println("move -> upright");
-                pos = new Position(pos.PosX()+1, pos.PosY()+1);
+                this.pos = new Position(oldposX-1, oldposY+1);
+                System.out.println("pos x : "+pos.PosX() + " ,pos y : "+ pos.PosY());
                 break;
             }
             case 3 : { 
                 System.out.println("move -> right");
-                pos = new Position(pos.PosX()+1, pos.PosY());
+                this.pos = new Position(oldposX, oldposY+1);
+                System.out.println("pos x : "+pos.PosX() + " ,pos y : "+ pos.PosY());
                 break;
             }
             case 4 : { 
                 System.out.println("move -> downright");    
-                pos = new Position(pos.PosX()+1, pos.PosY()-1);            
+                this.pos = new Position(oldposX+1, oldposY+1);  
+                System.out.println("pos x : "+pos.PosX() + " ,pos y : "+ pos.PosY());          
                 break;
             }
             case 5 : { 
                 System.out.println("move -> down");
-                pos = new Position(pos.PosX(), pos.PosY()-1);
+                this.pos = new Position(oldposX+1, oldposY);
+                System.out.println("pos x : "+pos.PosX() + " ,pos y : "+ pos.PosY());
                 break;
             }
             case 6: { 
                 System.out.println("move -> downleft");
-                pos = new Position(pos.PosX()-1, pos.PosY()-1);
+                this.pos = new Position(oldposX+1, oldposY-1);
+                System.out.println("pos x : "+pos.PosX() + " ,pos y : "+ pos.PosY());
                 break;
             }
             case 7 : { 
                 System.out.println("move -> left");
-                pos = new Position(pos.PosX()-1, pos.PosY());
+                this.pos = new Position(oldposX, oldposY-1);
+                System.out.println("pos x : "+pos.PosX() + " ,pos y : "+ pos.PosY());
                 break;
             }
             case 8 : { 
                 System.out.println("move -> upleft");
-                pos = new Position(pos.PosX()-1, pos.PosY()+1);
+                this.pos = new Position(oldposX-1, oldposY-1);
+                System.out.println("pos x : "+ pos.PosX() + " ,pos y : "+ pos.PosY());
                 break;
             }
         }
