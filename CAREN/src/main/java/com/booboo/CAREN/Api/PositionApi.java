@@ -2,23 +2,13 @@ package com.booboo.CAREN.Api;
 
 public class PositionApi {
     private int p;
+    private int q;
 
     public int getP(){
         return p;
     }
 
-
-
-//    public int getPosx() {
-//        int x = p)- y) / 25) + 1;
-//        return posx;
-//    }
-//
-//    public int getPosy(){
-//        int y = p%25;
-//        if(y==0){
-//            y=25;
-//        }
-//        return y;
-//    }
+    public int getQ() {
+        return q;
+    }
 }
