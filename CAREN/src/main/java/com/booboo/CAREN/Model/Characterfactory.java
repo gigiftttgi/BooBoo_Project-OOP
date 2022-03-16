@@ -42,17 +42,34 @@ public class Characterfactory {
   }
 
   //use this
-  public void createAntibodyA(int posx, int posy) {
-      field.addAntibody(new Antibody_A(posx, posy));
-  }
+   public void createAntibodyA(int posx, int posy) {
+       field.addAntibody(new Antibody_A(posx, posy));
+   }
 
-  public void createAntibodyB(int posx, int posy) {
-    field.addAntibody(new Antibody_B(posx, posy));
-  }
+   public void createAntibodyB(int posx, int posy) {
+     field.addAntibody(new Antibody_B(posx, posy));
+   }
 
-  public void createAntibodyC(int posx, int posy) {
-    field.addAntibody(new Antibody_C(posx, posy));
-  }
+   public void createAntibodyC(int posx, int posy) {
+     field.addAntibody(new Antibody_C(posx, posy));
+   }
+
+//  public void createAntibody(String type,int Pos){
+//    int posY =  Pos%25;
+//    if(posY == 0){
+//      posY = 25;
+//    }
+//    int posX = ((Pos- posY) / 25) + 1;
+//    if(type.equals('A')){
+//      field.addAntibody(new Antibody_A(posX, posY));
+//    }
+//    else if(type.equals('B')){
+//      field.addAntibody(new Antibody_B(posX, posY));
+//    }
+//    else if(type.equals('C')){
+//      field.addAntibody(new Antibody_C(posX, posY));
+//    }
+//  }
   // =======
   //     public Antibody createAntibody(String type,int posx,int posy) {
   //       if (type.equals("A")) {
