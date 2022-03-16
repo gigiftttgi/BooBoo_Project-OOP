@@ -65,12 +65,12 @@ public class Field {
     System.out.println("old" + oldPos + "new" + newPos);
     int cost = 0;
        for(Antibody a : listAntibody){
-         if((((a.pos.x - 1) * 25) + a.pos.y) == oldPos){
-          int posY =  newPos%25;
+         if((((a.pos.x - 1) * 15) + a.pos.y) == oldPos){
+          int posY =  newPos%15;
           if(posY == 0){
-            posY = 25;
+            posY = 15;
           }
-          int posX = ((newPos- posY) / 25) + 1;
+          int posX = ((newPos- posY) / 15) + 1;
             a.pos = new Position(posX,posY);
             cost = a.moveCost;
          }

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Cell from './Cell';
 import axios from 'axios';
 import iAntibobyA from './image/antibody/AntibodyA.png'
 import iAntibobyB from './image/antibody/AntibodyB.png'
@@ -28,7 +27,7 @@ const Field = ({ PositionApp, SentPos }) => {
                 .then((res) => {
 
                     Char = res.data.map(datas => ({
-                        id : ((datas.pos.x - 1) * 25) + datas.pos.y,
+                        id : ((datas.pos.x - 1) * 15) + datas.pos.y,
                         type : datas.type
                     }
                     ));
@@ -133,7 +132,7 @@ const Field = ({ PositionApp, SentPos }) => {
     console.log(pos,show);
       return (
         <td className="Cell" onDragStart = {ondragstart} onDrag={ondrag} onDragOver={ondragover} >
-              <img className = "AntiImgCell" src={imgSrc} />
+              <div><img className = "AntiImgCell" src={imgSrc} /></div>
         </td>
       )
       
@@ -158,8 +157,8 @@ const Field = ({ PositionApp, SentPos }) => {
         <div className="Field">
             <table className="Table">
                 <tbody>
-                    {Array.from({ length: 17 }, _ =>
-                        <tr>{Array.from({ length: 25 }, _ =>
+                    {Array.from({ length: 10 }, _ =>
+                        <tr>{Array.from({ length: 15 }, _ =>
 
                             
                             <Cell id={i++} SentPosCell={SentPosCell} >

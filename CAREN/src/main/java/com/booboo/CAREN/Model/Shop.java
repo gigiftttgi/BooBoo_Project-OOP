@@ -23,11 +23,11 @@ public class Shop {
 
     public void buyAnti(String type, int newPos) {
         System.out.println("Hi");
-        int posY = newPos % 25;
+        int posY = newPos % 15;
         if (posY == 0) {
-            posY = 25;
+            posY = 15;
         }
-        int posX = ((newPos - posY) / 25) + 1;
+        int posX = ((newPos - posY) / 15) + 1;
         if (type.equals("A")) {
             facAnti.createAntibodyA(posX, posY);
             balance -= 30;

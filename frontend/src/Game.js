@@ -4,6 +4,7 @@ import axios from 'axios';
 import Field from './component/Field';
 import Menu from './component/Menu';
 import Shop from './component/Shop';
+import Gameover from './component/Gameover';
 
 function Game() {
 
@@ -45,7 +46,10 @@ function Game() {
         </Field>
         <div className = 'Container'>
           <Menu></Menu>
-          <Shop ></Shop>
+          <Shop ></Shop> 
+          <Gameover></Gameover>
+         
+          
         </div>
   
       </div>

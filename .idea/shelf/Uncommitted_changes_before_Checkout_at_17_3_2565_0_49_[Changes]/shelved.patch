@@ -1,0 +1,72 @@
+Index: CAREN/src/main/java/com/booboo/CAREN/Model/Field.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.booboo.CAREN.Model;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class Field {\r\n\r\n  private List<Virus> listVirus;\r\n  private List<Antibody> listAntibody;\r\n  private List<Gamecharacter> allChar;\r\n\r\n  private static Field instanceF;\r\n\r\n  private Field() {\r\n    listVirus = new ArrayList<>();\r\n    listAntibody = new ArrayList<>();\r\n    allChar = new ArrayList<>();\r\n  }\r\n\r\n  public static Field getInstance(){\r\n\r\n    if (instanceF == null)\r\n    {\r\n      instanceF = new Field();\r\n    }\r\n    return instanceF;\r\n  }\r\n\r\n  public List<Virus> getListVirus() {\r\n    return listVirus;\r\n  }\r\n\r\n  public List<Antibody> getListAntibody() {\r\n    return listAntibody;\r\n  }\r\n\r\n\r\n  public List<Gamecharacter> getAllChar() {\r\n    return allChar;\r\n  }\r\n\r\n  // for testing\r\n  public void addVirus(Virus v){\r\n    listVirus.add(v);\r\n    allChar.add(v);\r\n  }\r\n\r\n  public void addAntibody(Antibody a){\r\n    listAntibody.add(a);\r\n    allChar.add(a);\r\n  }\r\n\r\n  public int charDie(Gamecharacter g){\r\n    allChar.remove(g);\r\n    if(g.getType().equals(\"A\") || g.getType().equals(\"B\") || g.getType().equals(\"C\")){\r\n      listAntibody.remove(g);\r\n      return 0;\r\n    }\r\n    else{\r\n      Virus x = (Virus) g;\r\n      listVirus.remove(g);\r\n      return x.credit;\r\n    }\r\n  }\r\n\r\n//  private Shop shop = Shop.getInsShop();\r\n  public int movetoPosition(int oldPos,int newPos){\r\n    System.out.println(\"old\" + oldPos + \"new\" + newPos);\r\n    int cost = 0;\r\n       for(Antibody a : listAntibody){\r\n         if((((a.getPos().PosX() - 1) * 25) + a.getPos().PosY()) == oldPos){\r\n          int posY =  newPos%25;\r\n          if(posY == 0){\r\n            posY = 25;\r\n          }\r\n          int posX = ((newPos- posY) / 25) + 1;\r\n            a.pos = new Position(posX,posY);\r\n            cost = a.moveCost;\r\n         }\r\n\r\n\r\n//         shop.moveCost(a.moveCost);\r\n       }\r\n    return cost;\r\n  }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java b/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java
+--- a/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java	
++++ b/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java	
+@@ -68,12 +68,12 @@
+     System.out.println("old" + oldPos + "new" + newPos);
+     int cost = 0;
+        for(Antibody a : listAntibody){
+-         if((((a.getPos().PosX() - 1) * 25) + a.getPos().PosY()) == oldPos){
+-          int posY =  newPos%25;
++         if((((a.getPos().PosX() - 1) * 15) + a.getPos().PosY()) == oldPos){
++          int posY =  newPos%15;
+           if(posY == 0){
+-            posY = 25;
++            posY = 15;
+           }
+-          int posX = ((newPos- posY) / 25) + 1;
++          int posX = ((newPos- posY) / 15) + 1;
+             a.pos = new Position(posX,posY);
+             cost = a.moveCost;
+          }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c217432f-c904-47c8-a519-cbc4e855327a\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Characterfactory.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Characterfactory.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gamecharacter.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gamecharacter.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Virus.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Virus.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedIndex\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"26QGqRkS92D0fOHGwGsoceWrzY9\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Gameplay\">\r\n    <configuration name=\"CarenApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.booboo.CAREN.CarenApplication\" />\r\n      <module name=\"CAREN\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.booboo.CAREN.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Gameplay\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.booboo.CAREN.Model.Gameplay\" />\r\n      <module name=\"CAREN\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.booboo.CAREN.Model.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Gameplay\" />\r\n        <item itemvalue=\"Application.CarenApplication\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c217432f-c904-47c8-a519-cbc4e855327a\" name=\"Changes\" comment=\"\" />\r\n      <created>1647348589284</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1647348589284</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/CarenApplication.java</url>\r\n          <line>6</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/BooBoo_1$CarenApplication.ic\" NAME=\"CarenApplication Coverage Results\" MODIFIED=\"1647362432162\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>com.booboo.CAREN.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,12 +5,9 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c217432f-c904-47c8-a519-cbc4e855327a" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Characterfactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Characterfactory.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gamecharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gamecharacter.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Shop.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Virus.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Game.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Game.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -33,7 +30,7 @@
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="RunManager" selected="Application.Gameplay">
++  <component name="RunManager" selected="Application.CarenApplication">
+     <configuration name="CarenApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="com.booboo.CAREN.CarenApplication" />
+       <module name="CAREN" />
+@@ -62,8 +59,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Application.Gameplay" />
+         <item itemvalue="Application.CarenApplication" />
++        <item itemvalue="Application.Gameplay" />
+       </list>
+     </recent_temporary>
+   </component>
