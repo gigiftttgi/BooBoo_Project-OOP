@@ -9,7 +9,7 @@ import java.util.TimerTask;
 import java.util.List;
 
 public class Gameplay {
-  public static void main(String[] args) throws FileNotFoundException, SyntaxError {
+  public static void main(String[] args) throws FileNotFoundException, SyntaxError, InterruptedException {
     boolean endState = false;
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
@@ -20,64 +20,27 @@ public class Gameplay {
     field.addAntibody(a);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
+    Time t = new Time();
+    t.speedDown();
 
-    //ช่วงเริ่มเกมส์ 10
-    // Timer timer = new Timer();
-    // TimerTask task = new TimerTask(){
-    // int counter = 0;
-    // @Override
-    // public void run() {
-    //   if (counter < 10) {
-    //     counter++;
-    //     Time t = new Time();
-    //     System.out.println("second pass: "+t.getcurrTime());
-    //     Virus v = fac.createVirus();
-    //     try {
-    //       v.runGeneticcode();
-    //     } catch (FileNotFoundException e) {
-    //       // TODO Auto-generated catch block
-    //       e.printStackTrace();
-    //     } catch (SyntaxError e) {
-    //       // TODO Auto-generated catch block
-    //       e.printStackTrace();
-    //     }
-    //   } else {
-    //     timer.cancel();
-    //   }
-    // }
-   
-    // };
-    // timer.scheduleAtFixedRate(task, 0, 2000);
-
-    do{
-        fac.createVirus();
-      try {
-        for(Gamecharacter g : listV)
-            g.runGeneticcode();
-      } catch (FileNotFoundException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      } catch (SyntaxError e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      }
-    }while(listA.isEmpty());
-    
-    if(!listA.isEmpty()){
-      do{
-        fac.createVirus();
-      try {
-        for(Gamecharacter g : listV)
-            g.runGeneticcode();
-      } catch (FileNotFoundException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      } catch (SyntaxError e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-      }
+    while(endState==false){
       if(listA.isEmpty()||listV.isEmpty()) endState = true;
-      }while(endState==false);
+      Time time = new Time();
+      System.out.println("curr time: "+time.getcurrTime());
+      fac.createVirus();
+      try {
+        for(Gamecharacter g : listV)
+            g.runGeneticcode();
+      } catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (SyntaxError e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      System.out.println("now speed level is "+t.getSpeed());
+      System.out.println("===============================================");
+      Thread.sleep(t.getSpeed()*1000);
     }
 
 
