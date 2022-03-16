@@ -7,7 +7,7 @@ function Start() {
 
     function startGame() {
         const status = "play";
-        axios.put('/start/{status}', status)
+        axios.post('/start', status)
             .then(response => console.log(response.data));
 
     }

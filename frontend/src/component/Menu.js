@@ -5,27 +5,37 @@ import axios from 'axios';
 import { useState } from 'react';
 
 
-const Menu = () => {
+const Menu = ({sent}) => {
 
   const[count, setCount] = useState(0);
 
-  // function sentPause() {
-  //   axios.post('/pause', "pause")
-  //     .then(response => console.log(response.data));
-
-  // }
 
   function sentPR(){
     if(count==0){
       axios.post('/pause', "pause")
       .then(response => console.log(response.data));
       setCount(1);
+      // c(1);
     }else{
       axios.post('/resume', "resume")
       .then(response => console.log(response.data));
       setCount(0);
+      // c(0);
 
     }
+    // sent(count);
+  }
+
+  function sentSU(){
+    axios.post('/speedup', "speedup")
+      .then(response => console.log(response.data));
+
+  }
+
+  function sentSD(){
+    axios.post('/speeddown', "speeddown")
+      .then(response => console.log(response.data));
+
   }
 
 
@@ -35,11 +45,11 @@ const Menu = () => {
               <img className='imgMenu' src={require('./image/button/pause button.png')}></img>
             </button>
 
-            <button className='menuBtn'>
+            <button className='menuBtn' onClick={() => {sentSD()}}>
               <img className='imgMenu' src={require('./image/button/speed down.png')}></img>
             </button>
 
-            <button className='menuBtn'>
+            <button className='menuBtn' onClick={() => {sentSU()}}>
               <img className='imgMenu' src={require('./image/button/speed up.png')}></img>
             </button>
 

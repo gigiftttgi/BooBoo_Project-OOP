@@ -40,6 +40,9 @@ public class Gameplay {
   boolean btn_pause = false;
   boolean rsm = false;
   int pNum = 0;
+  int uNum =0 ;
+  int dNum = 0;
+  int sNum = 5;
 
 
   public void setPauseState(boolean state){
@@ -50,10 +53,20 @@ public class Gameplay {
 
   public void setSpeedUpState(boolean state){
     btn_speedUp = state;
+    uNum = 1;
+    sNum = sNum-2;
+    if(sNum<=3){
+      sNum = 3;
+    }
   }
 
   public void setSpeedDownState(boolean state){
     btn_speedDown = state;
+    dNum = 1;
+    sNum = sNum+2;
+    if(sNum>=7){
+      sNum = 7;
+    }
   }
 
 
@@ -95,8 +108,14 @@ public class Gameplay {
   }
 
 
+  private boolean endState;
+  private boolean iswin;
   public void startGame() throws InterruptedException{
-    boolean endState = false;
+
+    // boolean isPause = false;
+
+    endState = false;
+
 
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
@@ -112,9 +131,15 @@ public class Gameplay {
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
 
+
+      if(listV.isEmpty()) {
+        endState = true;
+        break;}
+
+    boolean isStart = false;
     while(endState==false){
       //create virus every 5 second / normal mode
-      int sp = 5;
+      int sp = sNum;
       Time time = new Time();
 
 
@@ -122,7 +147,7 @@ public class Gameplay {
         endState = true;
         break;}
 
-      if(btn_speedUp){
+      if(btn_speedUp && uNum == 1){
         if (sp==5){
           System.out.println("speedUp is press, before speed is "+sp);
           sp = 3;
@@ -135,7 +160,9 @@ public class Gameplay {
           sp = 5;
           System.out.println("speedUp is press, after speed is "+sp);
         }
-      }else if(btn_speedDown){
+        uNum = 0;
+      }else if(btn_speedDown && dNum ==1){
+
         if (sp==5){
           System.out.println("speedDown is press, before speed is "+sp);
           sp = 7;
@@ -148,6 +175,9 @@ public class Gameplay {
           sp = 5;
           System.out.println("speedDown is press, after speed is "+sp);
         }
+
+        dNum =0;
+
 
       }else if(btn_pause && pNum==1){
         runThread();
@@ -178,8 +208,38 @@ public class Gameplay {
 
       Thread.sleep(sp*1000);
 
+      if(!field.getListAntibody().isEmpty()){
+        isStart = true;
+      }
+
+      if(isStart){
+        System.out.println("call isStart");
+        if(field.getListAntibody().isEmpty() || field.getListVirus().isEmpty()){
+          endState = true;
+          if(field.getListAntibody().isEmpty()){
+            iswin = false;
+          }else{
+            iswin = true;
+          }
+        }
+
+        System.out.println("endStae" + endState +" iswin"+ iswin);
+      }
+
+
+
     }
+
   }
+
+  public boolean getEndState(){
+    return endState;
+  }
+
+  public boolean getIsWin(){
+    return iswin;
+  }
+
   public static void main(String[] args) throws FileNotFoundException, SyntaxError, InterruptedException {
     Gameplay gameplay = new Gameplay();
     gameplay.startGame();
