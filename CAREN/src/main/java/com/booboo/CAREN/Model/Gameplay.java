@@ -131,11 +131,7 @@ public class Gameplay {
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
 
-
-      if(listV.isEmpty()) {
-        endState = true;
-        break;}
-
+    
     boolean isStart = false;
     while(endState==false){
       //create virus every 5 second / normal mode
