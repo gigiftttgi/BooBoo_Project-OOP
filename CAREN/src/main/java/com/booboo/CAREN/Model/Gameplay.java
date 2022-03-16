@@ -1,6 +1,6 @@
 package com.booboo.CAREN.Model;
 
-import com.booboo.CAREN.Controller.Button;
+//import com.booboo.CAREN.Controller.Button;
 import com.booboo.CAREN.Parser.SyntaxError;
 import lombok.SneakyThrows;
 
@@ -14,6 +14,7 @@ import java.util.List;
 public class Gameplay {
 
   public void pauseGame() throws InterruptedException{
+    System.out.println("pauseGame");
     synchronized (this){
       System.out.println("Going to wait");
       wait();
@@ -21,18 +22,42 @@ public class Gameplay {
     }
   }
 
-  public void resumeGame(boolean pauseState) throws InterruptedException{
-
+  public void resumeGame(boolean state) throws InterruptedException{
+    System.out.println("resumeGame");
     System.out.println("Pause");
-    Thread.sleep(5000);
+    pNum = 0;
+//    Thread.sleep(5000);
     synchronized (this){
-      if (pauseState==true){
+
+      if (state==true){
         notify();
       }
     }
   }
 
+  boolean btn_speedUp = false;
+  boolean btn_speedDown = false;
+  boolean btn_pause = false;
+  boolean rsm = false;
+  int pNum = 0;
+
+  public void setPauseState(boolean state){
+    System.out.println("setPauseState");
+    btn_pause = state;
+    pNum = 1;
+  }
+
+  public void setSpeedUpState(boolean state){
+    btn_speedUp = state;
+  }
+
+  public void setSpeedDownState(boolean state){
+    btn_speedDown = state;
+  }
+
+
   public Thread createThread_pause(){
+    System.out.println("createPauseT");
     Thread t_pause = new Thread(new Runnable() {
       @SneakyThrows
       @Override
@@ -43,18 +68,22 @@ public class Gameplay {
     return t_pause;
   }
 
+//  Button pBtn = new Button("pause");
   public Thread createThread_resume(){
+    System.out.println("createResumeT");
     Thread t_resume = new Thread(new Runnable() {
       @SneakyThrows
       @Override
       public void run() {
-        resumeGame(true);
+//        System.out.println("run p" + pBtn.getPauseState());
+        resumeGame(rsm);
       }
     });
     return t_resume;
   }
 
   public void runThread() throws InterruptedException {
+    System.out.println("runT");
     Thread tr1 = createThread_pause();
     Thread tr2 = createThread_resume();
     tr1.start();
@@ -64,6 +93,7 @@ public class Gameplay {
     tr2.join();
 
   }
+
 
   public void startGame() throws InterruptedException{
     boolean endState = false;
@@ -77,22 +107,22 @@ public class Gameplay {
     field.addAntibody(a);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
-    Button btn_speedUp = new Button("speedUp");
-    Button btn_speedDown = new Button("speedDown");
-    Button btn_pause = new Button("pause");
+//    Button btn_speedUp = new Button("speedUp");
+//    Button btn_speedDown = new Button("speedDown");
+//    Button btn_pause = new Button("pause");
 
     //ครั้งแรกเท่านั้น เพราะอยู่นอกลูป
-    btn_pause.setPauseState(true);
+//    btn_pause.setPauseState(true);
     while(endState==false){
       int sp = 2;
       Time time = new Time();
       if(listA.isEmpty()||listV.isEmpty()) endState = true;
-      if(btn_speedUp.speedUpBtn()){
+      if(btn_speedUp){
         System.out.println("jjjjjj");
         sp = time.getSpeed();
-      }else if(btn_speedDown.speedDownBtn()){
+      }else if(btn_speedDown){
         sp = time.getSpeed();
-      }else if(btn_pause.pauseBtn()){
+      }else if(btn_pause && pNum==1){
         runThread();
 //        isPause = true;
 //        System.out.println("Pause status: "+isPause);
@@ -101,8 +131,12 @@ public class Gameplay {
       System.out.println("now sec is: "+time.getcurrTime());
       fac.createVirus();
       try {
-        for(Gamecharacter g : field.getAllChar())
+//        for(Gamecharacter g : field.getAllChar())
+//          g.runGeneticcode();
+        for(int i = 0; i < field.getAllChar().size() ; i++){
+          Gamecharacter g = field.getAllChar().get(i);
           g.runGeneticcode();
+        }
       } catch (FileNotFoundException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
@@ -121,6 +155,7 @@ public class Gameplay {
 
     }
   }
+
   public static void main(String[] args) throws FileNotFoundException, SyntaxError, InterruptedException {
     Gameplay gameplay = new Gameplay();
     gameplay.startGame();
