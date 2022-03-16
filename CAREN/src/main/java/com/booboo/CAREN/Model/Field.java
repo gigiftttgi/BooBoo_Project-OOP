@@ -11,7 +11,7 @@ public class Field {
   protected Gamecharacter[][] pos = new Gamecharacter[27][15];
   protected String[][] statusCell = new String[50][50];
 
-  private static Field instance = new Field();
+  private static Field instanceF;
 
   private Field() {
     listVirus = new ArrayList<>();
@@ -20,7 +20,12 @@ public class Field {
   }
 
   public static Field getInstance(){
-    return instance;
+
+    if (instanceF == null)
+    {
+      instanceF = new Field();
+    }
+    return instanceF;
   }
 
   public List<Virus> getListVirus() {
@@ -56,8 +61,9 @@ public class Field {
     }
   }
 
-  private Shop shop = Shop.getInsShop();
-  public void movetoPosition(int oldPos,int newPos){
+//  private Shop shop = Shop.getInsShop();
+  public int movetoPosition(int oldPos,int newPos){
+    int cost = 0;
        for(Antibody a : listAntibody){
          if((((a.pos.x - 1) * 25) + a.pos.y) == oldPos){
           int posY =  newPos%25;
@@ -67,10 +73,11 @@ public class Field {
           int posX = ((newPos- posY) / 25) + 1;
             a.pos = new Position(posX,posY);
          }
+         cost = a.moveCost;
 
-         shop.moveCost(a.moveCost);
+//         shop.moveCost(a.moveCost);
        }
-             
+    return cost;
   }
 
 }
