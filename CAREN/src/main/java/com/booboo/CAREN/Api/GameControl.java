@@ -46,4 +46,19 @@ public class GameControl {
 
     }
 
+    @CrossOrigin
+    @GetMapping
+    @RequestMapping("/gameover")
+    public String isOver(){
+        if(game.endState){
+            if(game.iswin){
+                return "You win";
+            }
+            return "You lose";
+        }
+        return "Playing";
+//        return "You win";
+//        return "You lose";
+    }
+
 }

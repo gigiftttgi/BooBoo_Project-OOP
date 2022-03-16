@@ -132,7 +132,7 @@ const Field = ({ PositionApp, SentPos }) => {
       console.log("id",pos,"show",show);
       return (
         <td className="Cell" onDragStart = {ondragstart} onDrag={ondrag} onDragOver={ondragover} >
-              <img className = "AntiImgCell" src={imgSrc} />
+              <div><img className = "AntiImgCell" src={imgSrc} /></div>
         </td>
       )
       

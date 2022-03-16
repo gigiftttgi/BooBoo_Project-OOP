@@ -5,14 +5,11 @@ import Field from './component/Field';
 import Menu from './component/Menu';
 import Shop from './component/Shop';
 
+import Status from './component/Status';
+
+
 function Game() {
 
-    const [gameover, setGameover] = useState('');
-    // const [Anti, SetAnti] = useState(null);
-    //const [position, setPosition] = useState(null);
-    if (gameover === "Gameover") {
-      alert("GameOver");
-    }
   
     const SentPos = (pos) => {
       // if (Anti === "A") {
@@ -45,7 +42,10 @@ function Game() {
         </Field>
         <div className = 'Container'>
           <Menu></Menu>
+
           <Shop ></Shop>
+          <Status></Status>
+
         </div>
   
       </div>

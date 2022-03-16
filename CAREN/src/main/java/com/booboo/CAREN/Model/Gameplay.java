@@ -41,6 +41,7 @@ public class Gameplay {
   boolean rsm = false;
   int pNum = 0;
 
+
   public void setPauseState(boolean state){
     System.out.println("setPauseState");
     btn_pause = state;
@@ -68,7 +69,6 @@ public class Gameplay {
     return t_pause;
   }
 
-//  Button pBtn = new Button("pause");
   public Thread createThread_resume(){
     System.out.println("createResumeT");
     Thread t_resume = new Thread(new Runnable() {
@@ -97,7 +97,7 @@ public class Gameplay {
 
   public void startGame() throws InterruptedException{
     boolean endState = false;
-    // boolean isPause = false;
+
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
@@ -111,32 +111,58 @@ public class Gameplay {
     // field.addVirus(x);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
-//    Button btn_speedUp = new Button("speedUp");
-//    Button btn_speedDown = new Button("speedDown");
-//    Button btn_pause = new Button("pause");
 
-    //ครั้งแรกเท่านั้น เพราะอยู่นอกลูป
-//    btn_pause.setPauseState(true);
     while(endState==false){
-      int sp = 2;
+      //create virus every 5 second / normal mode
+      int sp = 5;
       Time time = new Time();
-      if(listA.isEmpty() && listV.isEmpty()) endState = true;
+
+
+      if(listV.isEmpty()) {
+        endState = true;
+        break;}
+
       if(btn_speedUp){
-        System.out.println("jjjjjj");
-        sp = time.getSpeed();
+        if (sp==5){
+          System.out.println("speedUp is press, before speed is "+sp);
+          sp = 3;
+          System.out.println("speedUp is press, after speed is "+sp);
+        }else if(sp == 3){
+          sp = 3;
+          System.out.println("speedUp is press, But you cant go further "+sp);
+        }else if(sp == 7){
+          System.out.println("speedUp is press, before speed is "+sp);
+          sp = 5;
+          System.out.println("speedUp is press, after speed is "+sp);
+        }
       }else if(btn_speedDown){
-        sp = time.getSpeed();
+        if (sp==5){
+          System.out.println("speedDown is press, before speed is "+sp);
+          sp = 7;
+          System.out.println("speedDown is press, after speed is "+sp);
+        }else if(sp == 7){
+          sp = 7;
+          System.out.println("speedDown is press, But you cant go further "+sp);
+        }else if(sp == 3){
+          System.out.println("speedDown is press, before speed is "+sp);
+          sp = 5;
+          System.out.println("speedDown is press, after speed is "+sp);
+        }
+
       }else if(btn_pause && pNum==1){
         runThread();
-//        isPause = true;
-//        System.out.println("Pause status: "+isPause);
       }
 
       System.out.println("now sec is: "+time.getcurrTime());
-      //fac.createVirus();
+
+      System.out.println("now speed is: "+sp);
+      // fac.createVirus();
+
+      // fac.createVirus();
       try {
 //        for(Gamecharacter g : field.getAllChar())
 //          g.runGeneticcode();
+
         for(int i = 0; i < field.getAllChar().size() ; i++){
           Gamecharacter g = field.getAllChar().get(i);
           g.runGeneticcode();
@@ -150,11 +176,6 @@ public class Gameplay {
       }
       System.out.println("===============================================");
 
-//      if (isPause==true ) {
-//        runThread();
-//      }else{
-//        Thread.sleep(sp*1000);
-//      }
       Thread.sleep(sp*1000);
 
     }
