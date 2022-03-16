@@ -56,42 +56,42 @@ public class Gamecharacter {
         switch(direction){
             case  1 : { 
                 System.out.println("move -> up");
-                pos.movePosition(0, 1);
+                pos = new Position(pos.PosX(), pos.PosY()+1);
                 break;
             }
             case 2 : { 
                 System.out.println("move -> upright");
-                pos.movePosition(1, 1);
+                pos = new Position(pos.PosX()+1, pos.PosY()+1);
                 break;
             }
             case 3 : { 
                 System.out.println("move -> right");
-                pos.movePosition(1, 0);
+                pos = new Position(pos.PosX()+1, pos.PosY());
                 break;
             }
             case 4 : { 
-                System.out.println("move -> downright");                
-                pos.movePosition(1, -1);
+                System.out.println("move -> downright");    
+                pos = new Position(pos.PosX()+1, pos.PosY()-1);            
                 break;
             }
             case 5 : { 
                 System.out.println("move -> down");
-                pos.movePosition(0, -1);
+                pos = new Position(pos.PosX(), pos.PosY()-1);
                 break;
             }
             case 6: { 
                 System.out.println("move -> downleft");
-                pos.movePosition(-1, -1);
+                pos = new Position(pos.PosX()-1, pos.PosY()-1);
                 break;
             }
             case 7 : { 
                 System.out.println("move -> left");
-                pos.movePosition(-1, 0);
+                pos = new Position(pos.PosX()-1, pos.PosY());
                 break;
             }
             case 8 : { 
                 System.out.println("move -> upleft");
-                pos.movePosition(-1, 1);
+                pos = new Position(pos.PosX()-1, pos.PosY()+1);
                 break;
             }
         }

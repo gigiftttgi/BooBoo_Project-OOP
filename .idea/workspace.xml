@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c217432f-c904-47c8-a519-cbc4e855327a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Controller/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Controller/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/CAREN/src/main/java/com/booboo/CAREN/Model/Gameplay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +30,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Gameplay">
     <configuration name="CarenApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.booboo.CAREN.CarenApplication" />
       <module name="CAREN" />
@@ -43,8 +44,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Gameplay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.booboo.CAREN.Model.Gameplay" />
+      <module name="CAREN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.booboo.CAREN.Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Gameplay" />
         <item itemvalue="Application.CarenApplication" />
       </list>
     </recent_temporary>

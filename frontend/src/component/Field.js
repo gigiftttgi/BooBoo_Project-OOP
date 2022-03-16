@@ -46,7 +46,7 @@ const Field = ({ PositionApp, SentPos }) => {
 
     const interval = setInterval(() => {
      fetchAnti()
-    }, 1000)
+    }, 3000)
     return () => {
         clearInterval(interval)
         controller.abort();
@@ -66,28 +66,23 @@ const Field = ({ PositionApp, SentPos }) => {
     
     function showID() {
         // setShow(0);
-      //   Char.forEach(host => {
-      //     if(host.id === pos){
-      //       console.log(host.id,pos)
-      //       type = host.type;
-      //       // cellkey = host.key;
-      //       chooseImgPath(type)
-      //       setShow(1);
-      //   }
-      // }); 
-      const isShow = Char.map(host => (host.i));
-      console.log("pos",pos,"isshow",isShow)
-      if(isShow.includes(pos)){
-        console.log("pass")
-        const nHost = Char.filter(host => (host.id === pos));
-        setType(nHost[0].type)
-        chooseImgPath();
-        setShow(1)
-      }
-      else{
-        setShow(0);
-      }
+        var found = false;
+        
+        Char.forEach(host => {
+          if(host.id === pos){
+            console.log(host.id,pos)
+            type = host.type;
+            // cellkey = host.key;
+            chooseImgPath(type)
+            found = true;
+        }
+      }); 
       
+      if(found){
+        setShow(1);
+      }else{
+          setShow(0);
+      }
   }
   
     function chooseImgPath(type) {
@@ -104,7 +99,7 @@ const Field = ({ PositionApp, SentPos }) => {
       const controller = new AbortController();
       const interval = setInterval(() => {
           showID()
-      },1000)
+      },3000)
       return () => {
           clearInterval(interval)
         controller.abort();}

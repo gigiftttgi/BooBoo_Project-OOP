@@ -1,23 +1,23 @@
-virusLoc = 24
-if ( virusLoc / 10 - 1 )
+antiLoc = antibody
+if ( antiLoc / 10 - 1 )
 then
- if ( virusLoc % 10 - 7 ) then move upleft
- else if ( virusLoc % 10 - 6 ) then move left
- else if ( virusLoc % 10 - 5 ) then move downleft
- else if ( virusLoc % 10 - 4 ) then move down
- else if ( virusLoc % 10 - 3 ) then move downright
- else if ( virusLoc % 10 - 2 ) then move right
- else if ( virusLoc % 10 - 1 ) then move upright
+ if ( antiLoc % 10 - 7 ) then move upleft
+ else if ( antiLoc % 10 - 6 ) then move left
+ else if ( antiLoc % 10 - 5 ) then move downleft
+ else if ( antiLoc % 10 - 4 ) then move down
+ else if ( antiLoc % 10 - 3 ) then move downright
+ else if ( antiLoc % 10 - 2 ) then move right
+ else if ( antiLoc % 10 - 1 ) then move upright
  else move up
-else if (virusLoc)
+else if (antiLoc)
 then
- if ( virusLoc % 10 - 7 ) then shoot upleft
- else if ( virusLoc % 10 - 6 ) then shoot left
- else if ( virusLoc % 10 - 5 ) then shoot downleft
- else if ( virusLoc % 10 - 4 ) then shoot down
- else if ( virusLoc % 10 - 3 ) then shoot downright
- else if ( virusLoc % 10 - 2 ) then shoot right
- else if ( virusLoc % 10 - 1 ) then shoot upright
+ if ( antiLoc % 10 - 7 ) then shoot upleft
+ else if ( antiLoc % 10 - 6 ) then shoot left
+ else if ( antiLoc % 10 - 5 ) then shoot downleft
+ else if ( antiLoc % 10 - 4 ) then shoot down
+ else if ( antiLoc % 10 - 3 ) then shoot downright
+ else if ( antiLoc % 10 - 2 ) then shoot right
+ else if ( antiLoc % 10 - 1 ) then shoot upright
  else shoot up
 else
 {
