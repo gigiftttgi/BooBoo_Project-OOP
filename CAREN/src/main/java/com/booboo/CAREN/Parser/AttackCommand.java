@@ -28,9 +28,16 @@ public class AttackCommand implements Node{
     public int evaluate() throws SyntaxError {
         System.out.println("attack -> " + direction.evaluate());
         Position target = targetLocation(host.getPos(), direction.evaluate());
-        System.out.println("host type : " + host.getType());
-        if(host.getType().equals("antibody")){
-            for(Virus v : listVirus){
+        System.out.println("Pos Target -> x : " + target.PosX() + "y : " + target.PosY());
+        if(host.getType().equals("A") || host.getType().equals("B") || host.getType().equals("C")){
+//            for(Virus v : listVirus){
+//                if(v.getPos().equalPos(target)){
+//                    System.out.println(v.getType() + " attack by " + host.getType());
+//                    v.attackedBy(host);
+//                }
+//            }
+            for(int i=0; i<listVirus.size() ; i++){
+                Virus v = listVirus.get(i);
                 if(v.getPos().equalPos(target)){
                     System.out.println("attack by ");
                     v.attackedBy(host);
