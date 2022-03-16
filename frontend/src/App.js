@@ -1,46 +1,23 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Field from './component/Field';
-import Menu from './component/Menu';
-import Shop from './component/Shop';
+// import './App.css';
+import { useEffect, useState } from 'react'; 
+import {BrowserRouter as Router,Routes, Route,Link} from "react-router-dom";
+
+import Game from './Game';
+import Start from './Start'
 
 function App() {
-
-  const [gameover, setGameover] = useState('');
-  //const [Pos,setPos] = useState(null);
-  const [Anti,SetAnti] = useState(null);
-  if (gameover === "Gameover") {
-    alert("GameOver");
-  }
-
-  // const PositionApp = (pos) =>{
-  //   setPos(pos);
-  //   // console.log(pos);
-  // } 
-  const SentAnti = () => {
-    SetAnti(Anti);
-  }
-
-  const Antibody = (anti) => {
-    SetAnti(anti);
-    console.log(anti);
-  }
-
-  return (
-
-    <div>
-      <Field SentAnti = {Anti}>
-        </Field>
-      <div className='Container'>
-        <Menu></Menu>
-        <Shop Antibody = {Antibody} ></Shop>
-      </div>
-
-    </div>
-
+  
+  return(
+    <Router>
+      <Routes>
+      <Route exact path="/" element = {<Start/>}></Route>
+      <Route path='/gameplay' element = {<Game/>}></Route>
+    </Routes>
+    </Router>
+    
   );
-}
+    
 
+}
 
 export default App;
