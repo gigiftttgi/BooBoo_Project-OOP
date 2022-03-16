@@ -56,24 +56,37 @@ const Field = ({ PositionApp, SentPos }) => {
   const Cell = ({ id, SentPosCell }) => {
 
     let pos = id;
-    let type = '';
+    // let type = '';
   
     // var antiBuy = SentAntiF;
 
     const [imgSrc, setimgSrc] = useState('');
+    const [type, setType] = useState('');
     const [show, setShow] = useState(0);
     
     function showID() {
         // setShow(0);
-        Char.forEach(host => {
-          if(host.id === pos){
-            console.log(host.id,pos)
-            type = host.type;
-            // cellkey = host.key;
-            chooseImgPath(type)
-            setShow(1);
-        }
-      }); 
+      //   Char.forEach(host => {
+      //     if(host.id === pos){
+      //       console.log(host.id,pos)
+      //       type = host.type;
+      //       // cellkey = host.key;
+      //       chooseImgPath(type)
+      //       setShow(1);
+      //   }
+      // }); 
+      const isShow = Char.map(host => (host.i));
+      console.log("pos",pos,"isshow",isShow)
+      if(isShow.includes(pos)){
+        console.log("pass")
+        const nHost = Char.filter(host => (host.id === pos));
+        setType(nHost[0].type)
+        chooseImgPath();
+        setShow(1)
+      }
+      else{
+        setShow(0);
+      }
       
   }
   
