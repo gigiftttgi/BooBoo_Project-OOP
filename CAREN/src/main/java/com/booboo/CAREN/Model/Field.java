@@ -59,7 +59,7 @@ public class Field {
   private Shop shop = Shop.getInsShop();
   public void movetoPosition(int oldPos,int newPos){
        for(Antibody a : listAntibody){
-         if((((a.pos.x - 1) * 25) + a.pos.y) == oldPos){
+         if((((a.getPos().PosX() - 1) * 25) + a.getPos().PosY()) == oldPos){
           int posY =  newPos%25;
           if(posY == 0){
             posY = 25;
