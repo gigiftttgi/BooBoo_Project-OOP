@@ -2,10 +2,7 @@ package com.booboo.CAREN.Api;
 
 import com.booboo.CAREN.Model.Field;
 import com.booboo.CAREN.Model.Gamecharacter;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,4 +17,12 @@ public class FieldController {
     public List<Gamecharacter> getChar(){
         return field.getAllChar();
     }
+
+    @CrossOrigin
+    @PostMapping("/move")
+    public String moveAnti(@RequestBody PositionApi pos){
+        field.movetoPosition(pos.getP(), pos.getQ());
+        return "Successfully sent movePos" + pos.getP() + " " + pos.getQ();
+    }
+
 }
