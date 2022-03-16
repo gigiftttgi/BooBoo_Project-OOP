@@ -5,7 +5,7 @@ public class Shop {
    private int balance;
     private static Shop instance;
 //    private Field field = Field.getInstance();
-    private Characterfactory facAnti = new Characterfactory();
+    private Characterfactory fac = new Characterfactory();
 
     private Shop(){
         this.balance = 3000;
@@ -23,19 +23,19 @@ public class Shop {
 
     public void buyAnti(String type, int newPos) {
         System.out.println("Hi");
-        int posY = newPos % 25;
+        int posY = newPos % 15;
         if (posY == 0) {
-            posY = 25;
+            posY = 15;
         }
-        int posX = ((newPos - posY) / 25) + 1;
+        int posX = ((newPos - posY) / 15) + 1;
         if (type.equals("A")) {
-            facAnti.createAntibodyA(posX, posY);
+            fac.createAntibodyA(posX, posY);
             balance -= 30;
         } else if (type.equals("B")) {
-            facAnti.createAntibodyB(posX, posY);
+            fac.createAntibodyB(posX, posY);
             balance -= 50;
         } else if (type.equals("C")) {
-            facAnti.createAntibodyC(posX, posY);
+            fac.createAntibodyC(posX, posY);
             balance -= 80;
         }
     }
@@ -50,6 +50,9 @@ public class Shop {
 
     public void virusDead(int credit){
         balance += credit;
+        if(credit == 0){
+            fac.createVirus();
+        }
     }
         
 

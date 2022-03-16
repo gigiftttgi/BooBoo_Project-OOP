@@ -1,201 +1,225 @@
 
 .MainGame {
-    border: 1px solid black;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    margin-right: 2%;
-    margin-left: 2%;
-  }
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: 2%;
+}
 
-  .background{
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #E5E3C9;
-  }
-  
-  .Field {
-  
-    background-color: #2A2F4E;
-    position: fixed;
-    top: 3%; right: 30%; bottom : 3%; left: 10%;
-    border-radius: 10px;
-    padding-top: 1%;
-    padding-right: 1%;
-    padding-bottom: 1%;
-    padding-left: 1%;
-  
-  }
-  
-  .Cell {
-    background-color: #F9E6CF;
-    border-radius: 5px;
-    width: 3%;
-    height: 3%;
-  }
-  
-  .Table {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .Container{
-  
-    display: flex;
-  
-    flex-direction: column;
-    position: fixed;
-    top: 3%; right: 10%; bottom : 3%; left: 70%;
-    margin-left: 15px;
-    
-  
-  }
-  
-  .Menu {
-    position: static;
-    width: 100%;
-    align-content: center;
-    top: 0px; right: 0px; left: 0px; 
-    background-color: #F9E6CF;
-    height: fit-content;
-    border-radius: 5px;
-    padding-top: 4%;
-    padding-right: 4%;
-    padding-bottom: 4%;
-    padding-left: 4%;
-    margin-bottom: 5px;
-  }
-  
-  .menuBtn{
-    width : 19%;
-    background-color: #2A2F4E;
-    margin-left: 1px;
-    margin-right: 1px;
-    border-radius: 5px;
-  }
-  
-  .imgMenu{
-    max-width: 100%;  
-    height: auto;  
-  }
-  
-  .Shop {
-    display: flex;
-    flex-direction: column;
-    /* height: 100%; */
-    width: 100%;
-    background-color: #F9E6CF;
-    border-radius: 5px;
-  
-    padding-top: 4%;
-    padding-right: 4%;
-    padding-bottom: 4%;
-    padding-left: 4%;
-    
-  }
-  
-  .Shoptext{
-    font-family: 'Staatliches', cursive;
-    border-radius: 10px;
-    /* margin-bottom: 5px; */
-    color: #2A2F4E;
-    text-align: center;
-    font-size: 300%;
-  }
-  
-  .CreditBar{
-    font-family: 'Staatliches', cursive;
-    background: #2A2F4E;
-    border-radius: 10px;
-    margin-bottom: 5px;
-   
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 175%;
-  }
-  
-  .AntiShop{
-    display: flex;
-    /* flex-wrap: wrap; */
-    flex-direction: column;
-    /* height: 100%; */
-  }
-  
-  .AntiBox{
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-  
-    border: 4px solid #2A2F4E;
-    /* background: #2A2F4E; */
-    border-radius: 10px;
-    margin-bottom: 5px;
-  
-    /* padding-top: 4px;
-    padding-right: 4px;
-    padding-bottom: 4px;
-    padding-left: 4px; */
-    padding-top: 2%;
-    padding-right: 2%;
-    padding-bottom: 2%;
-    padding-left: 2%;
-  }
-  
-  .AntiTextBox{
-    align-content: center;
-    padding-top: 4px;
-    padding-right: 4px;
-    padding-bottom: 4px;
-    padding-left: 4px;
-  }
-  
-  .AntiText{
-    font-family: 'Staatliches', cursive;
-    font-size: 150%;
-    color: #2A2F4E;
-    text-align:center;
-    font-size: 150%;
-  }
-  
-  .AntiImgBox{
-    height: auto;
-    width: 45%;
-    padding-top: 4px;
-    padding-right: 4px;
-    padding-bottom: 4px;
-    padding-left: 4px;
-  }
-  
-  .AntiImg{
-    max-width: 100%;  
-    height: auto; 
-  }
-  
-  .BuyBtn{
-  
-  background: #2A2F4E;
-  width: 100%;
-  
+.background{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #E5E3C9;
+}
+
+.Field {
+
+  background-color: #2A2F4E;
+  position: fixed;
+  top: 3%; right: 30%; bottom : 3%; left: 10%;
+  border-radius: 10px;
+  padding-top: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+
+}
+
+.Cell {
+  background-color: #F9E6CF;
   border-radius: 5px;
+  width: 5%;
+  height: 10%;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  margin-left: 2px;
+
+}
+
+.Table {
+  width: 100%;
+  height: 100%;
+}
+
+.Container{
+
+  /* display: flex;
+ */
+  flex-direction: column;
+  position: fixed;
+  top: 3%; right: 10%; bottom : 3%; left: 70%;
+  margin-left: 15px;
   
+
+}
+
+.Menu {
+  position: static;
+  width: 100%;
+  align-content: center;
+  top: 0px; right: 0px; left: 0px; 
+  background-color: #F9E6CF;
+  height: fit-content;
+  border-radius: 5px;
+  padding-top: 4%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+  padding-left: 4%;
+  margin-bottom: 5px;
+}
+
+.menuBtn{
+  width : 19%;
+  background-color: #2A2F4E;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 5px;
+}
+
+.imgMenu{
+  max-width: 100%;  
+  height: auto;  
+}
+
+.Shop {
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  width: 100%;
+  background-color: #F9E6CF;
+  border-radius: 5px;
+
+  padding-top: 4%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+  padding-left: 4%;
+  
+}
+
+.Shoptext{
   font-family: 'Staatliches', cursive;
+  border-radius: 10px;
+  /* margin-bottom: 5px; */
+  color: #2A2F4E;
+  text-align: center;
+  font-size: 300%;
+}
+
+.CreditBar{
+  font-family: 'Staatliches', cursive;
+  background: #2A2F4E;
+  border-radius: 10px;
+  margin-bottom: 5px;
+ 
   color: #FFFFFF;
+  text-align: center;
+  font-size: 175%;
+}
+
+.AntiShop{
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  /* height: 100%; */
+}
+
+.AntiBox{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+
+  border: 4px solid #2A2F4E;
+  /* background: #2A2F4E; */
+  border-radius: 10px;
+  margin-bottom: 5px;
+
+  /* padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px; */
+  padding-top: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+}
+
+.AntiTextBox{
+  align-content: center;
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+}
+
+.AntiText{
+  font-family: 'Staatliches', cursive;
+  font-size: 150%;
+  color: #2A2F4E;
   text-align:center;
-  font-size: 125%;
-  }
-  
-  .hide{
-    display: none;
-  }
-  
-  .AntiImgCell{
-    max-width: 65%;
-    display: block;
-    /* flex-grow: 1; */
-    margin-left: auto;
-    margin-right: auto;
-    /* align-items: center; */
-  }
-  
+  font-size: 150%;
+}
+
+.AntiImgBox{
+  height: auto;
+  width: 35%;
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+}
+
+.AntiImg{
+  max-width: 100%;  
+  height: auto; 
+}
+
+.BuyBtn{
+
+background: #2A2F4E;
+width: 100%;
+
+border-radius: 5px;
+
+font-family: 'Staatliches', cursive;
+color: #FFFFFF;
+text-align:center;
+font-size: 125%;
+}
+
+.hide{
+  display: none;
+}
+.AntiImgCell{
+  max-width: 83%;
+  height: auto;
+ 
+  display: block;
+  /* flex-grow: 1; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  /* align-items: center; */
+}
+
+.GamoverBlock{
+  margin-top: 5px;
+
+}
+
+.playAgainBut{
+  font-family: 'Staatliches', cursive;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}

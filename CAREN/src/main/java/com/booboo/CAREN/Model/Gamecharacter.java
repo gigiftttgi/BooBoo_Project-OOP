@@ -24,6 +24,7 @@ public class Gamecharacter {
     protected String type;
     protected Map<String,Integer> allVariable = new LinkedHashMap<>();
     private Field field = Field.getInstance();
+    private Random_int r = new Random_int(3);
     private Shop shop = Shop.getInsShop();
 
     public double getATK(){
