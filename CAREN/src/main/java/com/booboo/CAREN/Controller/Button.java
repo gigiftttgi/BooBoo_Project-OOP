@@ -23,13 +23,15 @@ public class Button{
     }
   }
 
-  public void speedUpBtn(boolean state) {
+  public boolean speedUpBtn(boolean state) {
     if (state == false || !type.equals("speedUp")) {
       System.out.println("Button type isn't speedUp");
     } else {
       Time t = new Time();
       t.speedUP();
+      return true;
     }
+    return false;
   }
 
   public void speedDownBtn(boolean state) {

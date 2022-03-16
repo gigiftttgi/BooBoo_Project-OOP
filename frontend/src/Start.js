@@ -27,7 +27,7 @@ function Start(){
             </div>
             
             <div className='BTN'>
-                <Link to = "/gameplay" className='play-btn'>play</Link>
+                <Link to = "/gameplay" className='play-btn' onClick={() => alert("Start")}>play</Link>
             </div> 
         </div>
         
