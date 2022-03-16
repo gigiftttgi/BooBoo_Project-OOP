@@ -27,6 +27,8 @@ const Field = ({ PositionApp, SentPos }) => {
                 .then((res) => {
 
                     Char = res.data.map(datas => ({
+                        x : datas.pos.x ,
+                        y :  datas.pos.y,
                         id : ((datas.pos.x - 1) * 15) + datas.pos.y,
                         type : datas.type
                     }
@@ -68,9 +70,7 @@ const Field = ({ PositionApp, SentPos }) => {
         
         Char.forEach(host => {
           if(host.id === pos){
-            console.log(host.id,pos)
             type = host.type;
-            // cellkey = host.key;
             chooseImgPath(type)
             found = true;
         }
@@ -129,7 +129,7 @@ const Field = ({ PositionApp, SentPos }) => {
   
 
      if (show === 1) {
-    console.log(pos,show);
+      console.log("id",pos,"show",show);
       return (
         <td className="Cell" onDragStart = {ondragstart} onDrag={ondrag} onDragOver={ondragover} >
               <div><img className = "AntiImgCell" src={imgSrc} /></div>

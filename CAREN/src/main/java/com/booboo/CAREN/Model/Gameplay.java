@@ -103,10 +103,12 @@ public class Gameplay {
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
     Virus_X x = new Virus_X(5, 5);
     field.addVirus(x);
-    Antibody_A a = new Antibody_A(5, 4);
-    field.addAntibody(a);
-    Antibody_B b = new Antibody_B(5, 6);
-    field.addAntibody(b);
+    // Antibody_A a = new Antibody_A(6, 10);
+    // field.addAntibody(a);
+    // Antibody_B b = new Antibody_B(5, 6);
+    // field.addAntibody(b);
+    // Virus_X x = new Virus_X(5, 5);
+    // field.addVirus(x);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
 
