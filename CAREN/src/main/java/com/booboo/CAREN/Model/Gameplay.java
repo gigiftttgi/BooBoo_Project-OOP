@@ -119,19 +119,25 @@ public class Gameplay {
 
     Field field = Field.getInstance();
     Characterfactory fac = new Characterfactory();
+    field.clearField();
     //สมมุติว่าตรงนี้กำหนด10วิ ก่อนที่จะเริ่มเช็คว่าในfield ยังมี antibody or virus อยู่รึเปล่า
     Virus_X x = new Virus_X(5, 5);
     field.addVirus(x);
-    // Antibody_A a = new Antibody_A(6, 10);
-    // field.addAntibody(a);
-    // Antibody_B b = new Antibody_B(5, 6);
-    // field.addAntibody(b);
+//     Antibody_A a = new Antibody_A(4, 5);
+//     field.addAntibody(a);
+//     Antibody_B b = new Antibody_B(5, 6);
+//     field.addAntibody(b);
+//    Antibody_B b2 = new Antibody_B(5, 4);
+//    field.addAntibody(b2);
+//
+//    Antibody_B b3 = new Antibody_B(6, 5);
+//    field.addAntibody(b3);
     // Virus_X x = new Virus_X(5, 5);
     // field.addVirus(x);
     List<Virus> listV = field.getListVirus();
     List<Antibody> listA = field.getListAntibody();
 
-    
+
     boolean isStart = false;
     while(endState==false){
       //create virus every 5 second / normal mode
@@ -184,7 +190,7 @@ public class Gameplay {
       System.out.println("now speed is: "+sp);
       // fac.createVirus();
 
-      // fac.createVirus();
+       fac.createVirus();
       try {
 //        for(Gamecharacter g : field.getAllChar())
 //          g.runGeneticcode();

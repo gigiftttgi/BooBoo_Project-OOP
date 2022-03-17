@@ -8,7 +8,7 @@ public class Shop {
     private Characterfactory fac = new Characterfactory();
 
     private Shop(){
-        this.balance = 3000;
+        this.balance = 200;
     }
 
     public static Shop getInsShop()
@@ -28,13 +28,13 @@ public class Shop {
             posY = 15;
         }
         int posX = ((newPos - posY) / 15) + 1;
-        if (type.equals("A")) {
+        if (type.equals("A")&& balance>=30) {
             fac.createAntibodyA(posX, posY);
             balance -= 30;
-        } else if (type.equals("B")) {
+        } else if (type.equals("B")&& balance>=50) {
             fac.createAntibodyB(posX, posY);
             balance -= 50;
-        } else if (type.equals("C")) {
+        } else if (type.equals("C")&& balance>=80) {
             fac.createAntibodyC(posX, posY);
             balance -= 80;
         }
@@ -53,6 +53,10 @@ public class Shop {
         if(credit == 0){
             fac.createVirus();
         }
+    }
+
+    public void reBalance(){
+        balance = 200;
     }
         
 
