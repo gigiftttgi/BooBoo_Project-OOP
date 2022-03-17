@@ -63,6 +63,12 @@ public class Field {
     }
   }
 
+  public void clearField(){
+    listVirus = new ArrayList<>();
+    listAntibody = new ArrayList<>();
+    allChar = new ArrayList<>();
+  }
+
 //  private Shop shop = Shop.getInsShop();
   public int movetoPosition(int oldPos,int newPos){
     System.out.println("old" + oldPos + "new" + newPos);
